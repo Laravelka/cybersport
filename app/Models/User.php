@@ -20,7 +20,22 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
+        'first_name',
+        'last_name',
+        'telegram',
+        'discord',
+        'avatar',
+        'ip_address',
+        'is_admin',
+        'is_banned',
+        'balance',
+        'balance_coins',
+        'pw_points',
+        'referal_status',
+        'referal_link',
+        'referal_level_id',
     ];
 
     /**
@@ -41,4 +56,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
