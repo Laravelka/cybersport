@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,7 +20,6 @@ class UserController extends Controller
     public function index()
     {
         return UserResource::collection(User::all());
-//        return User::all();
     }
 
     /**
@@ -27,11 +28,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        $user = User::create($request->all());
+        $request_data = array_diff($request->validated(), [null]);
 
-        return $user;
+        $user = User::create($request_data);
+
+        return new UserResource($user);
     }
 
     /**
@@ -52,9 +55,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $request_data = array_diff($request->validated(), [null]);
+
+        $user->update($request_data);
+
+        return new UserResource($user);
     }
 
     /**
