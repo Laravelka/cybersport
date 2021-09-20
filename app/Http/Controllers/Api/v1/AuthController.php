@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -31,11 +32,43 @@ class AuthController extends Controller
         return response()->json($response);
     }
 
-    public function login(Request $request)
+    public function login(UserLoginRequest $request)
     {
+        $request_data = array_diff($request->validated(), [null]);
+
+        $search_param = array_key_exists('email', $request_data) ? 'email' : 'phone';
+
+        $user = User::where($search_param, $request_data[$search_param])->first();
+
+        if ($user) {
+            if (Hash::check($request_data['password'], $user->password)) {
+                $token = $user->createToken('access token')->accessToken;
+
+                $response = [
+                    'user' => new UserResource($user),
+                    'access_token' => $token
+                ];
+
+                return response()->json($response);
+            } else {
+                return response()->json([
+                    'message' => 'Password mismatch'
+                ], 422);
+            }
+        } else {
+            return response()->json([
+                'message' => 'User does not exist'
+            ], 422);
+        }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
+        $token = $request->user()->token();
+        $token->revoke();
+
+        return response()->json([
+            'message' => 'You have been logged out'
+        ]);
     }
 }
