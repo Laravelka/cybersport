@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Admin\SettingController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
 use Illuminate\Http\Request;
@@ -37,6 +38,7 @@ Route::middleware(['auth:api'])->group(function() {
         ->group(function() {
             Route::apiResources([
                 'users' => UserController::class,
+                'settings' => SettingController::class,
             ]);
         });
 
