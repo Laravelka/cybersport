@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Admin\UserController;
+use App\Http\Controllers\Api\v1\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\v1\AuthController;
-use App\Http\Controllers\Api\v1\UserController;
+//use App\Http\Controllers\Api\v1\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,14 @@ Route::middleware(['auth:api'])->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    Route::apiResources([
-        'users' => UserController::class,
-    ]);
+/*
+ * Admin routes
+ */
+    Route::prefix('admin')->name('admin.')->middleware('admin')
+        ->group(function() {
+            Route::apiResources([
+                'users' => UserController::class,
+            ]);
+        });
+
 });

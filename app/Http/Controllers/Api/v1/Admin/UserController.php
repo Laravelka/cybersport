@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
@@ -9,6 +9,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection(User::all());
+        return UserResource::collection(User::with('posts')->get());
     }
 
     /**
@@ -31,6 +32,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         $request_data = array_diff($request->validated(), [null]);
+        $request_data['password'] = Hash::make($request_data['password']);
 
         $user = User::create($request_data);
 
@@ -45,7 +47,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return new UserResource(User::findOrFail($id));
+        return new UserResource(User::with('posts')->findOrFail($id));
     }
 
     /**
@@ -60,6 +62,10 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $request_data = array_diff($request->validated(), [null]);
+
+        if (isset($request_data['password'])) {
+            $request_data['password'] = Hash::make($request_data['password']);
+        }
 
         $user->update($request_data);
 
@@ -76,6 +82,6 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return response(null, Response::HTTP_NO_CONTENT);
+        return response(null, 204);
     }
 }
