@@ -31,7 +31,7 @@ class UserResource extends JsonResource
             'pw_points' => $this->pw_points,
             'referal_status' => $this->referal_status,
             'referal_link' => $this->referal_link,
-            'posts' => PostResource::collection($this->posts)
+            'posts' => PostResource::collection($this->whenLoaded('posts'))
         ];
     }
 }
