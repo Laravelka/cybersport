@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -53,7 +55,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return new PostResource(Post::findOrFail($id));
     }
 
     /**
@@ -63,9 +65,32 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        if ($post->user_id === Auth::id()) {
+            $request_data = array_diff($request->validated(), [null]);
+
+            if ($request->hasFile('img')) {
+                $path = $request->img->store('posts', 'public');
+                $request_data['img'] = $path;
+
+                $old_img_path = $post->img;
+            }
+
+            $post->update($request_data);
+
+            if (isset($old_img_path)) {
+                Storage::disk('public')->delete($old_img_path);
+            }
+
+            return new PostResource($post);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to edit post"
+            ], 403);
+        }
     }
 
     /**
