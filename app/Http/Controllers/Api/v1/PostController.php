@@ -101,6 +101,22 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        if ($post->user_id === Auth::id()) {
+            $img_path = $post->img;
+
+            Post::destroy($id);
+
+            if (isset($img_path)) {
+                Storage::disk('public')->delete($img_path);
+            }
+
+            return response(null, 204);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to delete post"
+            ], 403);
+        }
     }
 }
