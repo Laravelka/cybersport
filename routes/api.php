@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\v1\Admin\SettingController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
+use App\Http\Controllers\Api\v1\CommentController;
+use App\Http\Controllers\Api\v1\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\Api\v1\UserController;
@@ -30,6 +32,11 @@ Route::post('/login', [AuthController::class, 'login'])
 Route::middleware(['auth:api'])->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
+
+    Route::apiResources([
+        'posts' => PostController::class,
+        'comments' => CommentController::class
+    ]);
 
 /*
  * Admin routes

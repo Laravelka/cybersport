@@ -22,7 +22,9 @@ class PostResource extends JsonResource
             'img' => $this->img,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'comments' => CommentResource::collection($this->comments)
+            'comments' => CommentResource::collection($this->comments),
+            'awards' => AwardResource::collection($this->awards),
+            'likes' => LikeResource::collection($this->likes),
         ];
     }
 }

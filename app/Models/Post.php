@@ -16,9 +16,28 @@ class Post extends Model
         'img',
     ];
 
+    protected static function booted()
+    {
+        static::deleted(function ($post) {
+            $post->awards()->delete();
+            $post->comments()->delete();
+            $post->likes()->delete();
+        });
+    }
+
+    public function awards()
+    {
+        return $this->hasMany(Award::class);
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function user()
