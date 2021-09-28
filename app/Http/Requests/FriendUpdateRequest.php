@@ -24,10 +24,9 @@ class FriendUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
             'subscriber_id' => 'required',
             'is_friend' => 'nullable',
-            'is_subscriber' => 'nullable'
+            'is_subscriber' => 'required_if:is_friend,null'
         ];
     }
 }

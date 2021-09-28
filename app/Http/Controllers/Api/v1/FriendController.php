@@ -65,7 +65,26 @@ class FriendController extends Controller
      */
     public function update(FriendUpdateRequest $request, $id)
     {
-        //
+        $friend = Friend::findOrFail($id);
+
+        $request_data = array_diff($request->validated(), [null]);
+
+        $request_data['user_id'] = Auth::id();
+
+        if ($request_data['user_id'] !== $friend->user_id) {
+            return response()->json([
+                'message' => "User's data doesn't match request's data"
+            ], 422);
+        }
+
+        if (isset($request_data['is_friend']) && isset($request_data['is_subscriber'])) {
+            $request_data['is_friend'] = 0;
+            $request_data['is_subscriber'] = 1;
+        }
+
+        $friend->update($request_data);
+
+        return new FriendResource($friend);
     }
 
     /**
@@ -76,7 +95,17 @@ class FriendController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $friend = Friend::findOrFail($id);
+
+        if ($friend->user_id === Auth::id()) {
+            Friend::destroy($id);
+
+            return response(null, 204);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to delete friend request"
+            ], 403);
+        }
     }
 
     public function hasSubscribe($user_id, $subscriber_id)
