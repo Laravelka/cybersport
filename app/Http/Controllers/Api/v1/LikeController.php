@@ -33,7 +33,6 @@ class LikeController extends Controller
 
         $request_data['user_id'] = Auth::id();
 
-        if (isset($request_data['post_id'])) {
             if (!$this->postHasLike($request_data['post_id'], $request_data['user_id'])) {
                 $like = Like::create($request_data);
 
@@ -43,11 +42,6 @@ class LikeController extends Controller
                     'message' => "You already liked this post"
                 ], 422);
             }
-        } else {
-            return response()->json([
-                'message' => 'Post not found'
-            ], 404);
-        }
     }
 
     /**
