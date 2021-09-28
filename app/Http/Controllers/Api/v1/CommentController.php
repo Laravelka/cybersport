@@ -67,7 +67,7 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        if ($comment->user_id === Auth::id()) {
+        if ($comment->user_id === Auth::id() || Auth::user()->is_admin) {
             $request_data = array_diff($request->validated(), [null]);
 
             if ($request->hasFile('img')) {
@@ -101,7 +101,7 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        if ($comment->user_id === Auth::id()) {
+        if ($comment->user_id === Auth::id() || Auth::user()->is_admin) {
             $img_path = $comment->img;
 
             Comment::destroy($id);

@@ -81,7 +81,7 @@ class LikeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //todo like removing
     }
 
     public function postHasLike($post_id, $user_id)
