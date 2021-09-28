@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\v1\Admin\SettingController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\CommentController;
+use App\Http\Controllers\Api\v1\LikeController;
 use App\Http\Controllers\Api\v1\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,8 @@ Route::middleware(['auth:api'])->group(function() {
 
     Route::apiResources([
         'posts' => PostController::class,
-        'comments' => CommentController::class
+        'comments' => CommentController::class,
+        'likes' => LikeController::class
     ]);
 
 /*

@@ -9,7 +9,9 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -33,6 +35,10 @@ class UserController extends Controller
     {
         $request_data = array_diff($request->validated(), [null]);
         $request_data['password'] = Hash::make($request_data['password']);
+
+        if ($request->hasFile('avatar')) {
+            $request_data['avatar'] = $request->avatar->store('avatars', 'public');
+        }
 
         $user = User::create($request_data);
 
@@ -61,15 +67,31 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $request_data = array_diff($request->validated(), [null]);
+        if ($user->id === Auth::id() || Auth::user()->is_admin) {
+            $request_data = array_diff($request->validated(), [null]);
 
-        if (isset($request_data['password'])) {
-            $request_data['password'] = Hash::make($request_data['password']);
+            if (isset($request_data['password'])) {
+                $request_data['password'] = Hash::make($request_data['password']);
+            }
+
+            if ($request->hasFile('avatar')) {
+                $request_data['avatar'] = $request->avatar->store('avatars', 'public');
+
+                $old_avatar_path = $user->avatar;
+            }
+
+            $user->update($request_data);
+
+            if (isset($old_avatar_path)) {
+                Storage::disk('public')->delete($old_avatar_path);
+            }
+
+            return new UserResource($user);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to edit user data"
+            ], 403);
         }
-
-        $user->update($request_data);
-
-        return new UserResource($user);
     }
 
     /**
@@ -80,8 +102,22 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        $user = User::findOrFail($id);
 
-        return response(null, 204);
+        if ($user->id === Auth::id() || Auth::user()->is_admin) {
+            $avatar_path = $user->avatar;
+
+            User::destroy($id);
+
+            if (isset($avatar_path)) {
+                Storage::disk('public')->delete($avatar_path);
+            }
+
+            return response(null, 204);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to delete user"
+            ], 403);
+        }
     }
 }

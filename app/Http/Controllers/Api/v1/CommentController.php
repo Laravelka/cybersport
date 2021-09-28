@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentStoreRequest;
+use App\Http\Requests\CommentUpdateRequest;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CommentController extends Controller
 {
@@ -61,9 +63,32 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CommentUpdateRequest $request, $id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+
+        if ($comment->user_id === Auth::id() || Auth::user()->is_admin) {
+            $request_data = array_diff($request->validated(), [null]);
+
+            if ($request->hasFile('img')) {
+                $path = $request->img->store('comments', 'public');
+                $request_data['img'] = $path;
+
+                $old_img_path = $comment->img;
+            }
+
+            $comment->update($request_data);
+
+            if (isset($old_img_path)) {
+                Storage::disk('public')->delete($old_img_path);
+            }
+
+            return new CommentResource($comment);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to edit comment"
+            ], 403);
+        }
     }
 
     /**
@@ -74,6 +99,22 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+
+        if ($comment->user_id === Auth::id() || Auth::user()->is_admin) {
+            $img_path = $comment->img;
+
+            Comment::destroy($id);
+
+            if (isset($img_path)) {
+                Storage::disk('public')->delete($img_path);
+            }
+
+            return response(null, 204);
+        } else {
+            return response()->json([
+                'message' => "You don't have anough rights to delete comment"
+            ], 403);
+        }
     }
 }
