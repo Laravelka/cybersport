@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\v1\Admin\SettingController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\CommentController;
+use App\Http\Controllers\Api\v1\FriendController;
 use App\Http\Controllers\Api\v1\LikeController;
 use App\Http\Controllers\Api\v1\PostController;
 use Illuminate\Http\Request;
@@ -35,9 +36,10 @@ Route::middleware(['auth:api'])->group(function() {
         ->name('logout');
 
     Route::apiResources([
-        'posts' => PostController::class,
         'comments' => CommentController::class,
-        'likes' => LikeController::class
+        'friends' => FriendController::class,
+        'likes' => LikeController::class,
+        'posts' => PostController::class
     ]);
 
 /*

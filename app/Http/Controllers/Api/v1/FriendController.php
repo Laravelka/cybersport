@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LikeStoreRequest;
-use App\Http\Resources\LikeResource;
-use App\Models\Like;
+use App\Http\Requests\FriendStoreRequest;
+use App\Http\Requests\FriendUpdateRequest;
+use App\Http\Resources\FriendResource;
+use App\Models\Friend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LikeController extends Controller
+class FriendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,7 @@ class LikeController extends Controller
      */
     public function index()
     {
-        //
+        return FriendResource::collection(Friend::all());
     }
 
     /**
@@ -27,21 +28,21 @@ class LikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LikeStoreRequest $request)
+    public function store(FriendStoreRequest $request)
     {
         $request_data = array_diff($request->validated(), [null]);
 
-        $request_data['user_id'] = Auth::id();
+        $request_data['subscriber_id'] = Auth::id();
 
-            if (!$this->postHasLike($request_data['post_id'], $request_data['user_id'])) {
-                $like = Like::create($request_data);
+        if (!$this->hasSubscribe($request_data['user_id'], $request_data['subscriber_id'])) {
+            $friend = Friend::create($request_data);
 
-                return new LikeResource($like);
-            } else {
-                return response()->json([
-                    'message' => "You already liked this post"
-                ], 422);
-            }
+            return new FriendResource($friend);
+        } else {
+            return response()->json([
+                'message' => "You already subscribed"
+            ], 422);
+        }
     }
 
     /**
@@ -52,7 +53,7 @@ class LikeController extends Controller
      */
     public function show($id)
     {
-        //
+        return new FriendResource(Friend::findOrFail($id));
     }
 
     /**
@@ -62,7 +63,7 @@ class LikeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FriendUpdateRequest $request, $id)
     {
         //
     }
@@ -75,15 +76,15 @@ class LikeController extends Controller
      */
     public function destroy($id)
     {
-        //todo like removing
+        //
     }
 
-    public function postHasLike($post_id, $user_id)
+    public function hasSubscribe($user_id, $subscriber_id)
     {
         return (
-            Like::where('post_id', $post_id)
-                ->where('user_id', $user_id)
-                ->first()
+            Friend::where('user_id', $user_id)
+            ->where('subscriber_id', $subscriber_id)
+            ->first()
         ) ? true : false;
     }
 }
