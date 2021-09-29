@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Admin\ChatController;
+use App\Http\Controllers\Api\v1\Admin\MatchController;
 use App\Http\Controllers\Api\v1\Admin\SettingController;
+use App\Http\Controllers\Api\v1\Admin\TeamController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\CommentController;
@@ -48,8 +51,11 @@ Route::middleware(['auth:api'])->group(function() {
     Route::prefix('admin')->name('admin.')->middleware('admin')
         ->group(function() {
             Route::apiResources([
-                'users' => UserController::class,
+                'chats' => ChatController::class,
+                'matches' => MatchController::class,
                 'settings' => SettingController::class,
+                'teams' => TeamController::class,
+                'users' => UserController::class,
             ]);
         });
 
