@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TeamStoreRequest;
+use App\Http\Resources\TeamResource;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -14,7 +17,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return TeamResource::collection(Team::all());
     }
 
     /**
@@ -23,9 +26,17 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeamStoreRequest $request)
     {
-        //
+        $request_data = array_diff($request->validated(), [null]);
+
+        if ($request->hasFile('logo')) {
+            $request_data['logo'] = $request->logo->store('logos', 'public');
+        }
+
+        $team = Team::create($request_data);
+
+        return new TeamResource($team);
     }
 
     /**
