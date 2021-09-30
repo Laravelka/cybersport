@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MatchStoreRequest;
+use App\Http\Resources\MatchResource;
+use App\Models\Game;
 use Illuminate\Http\Request;
 
 class MatchController extends Controller
@@ -14,7 +17,7 @@ class MatchController extends Controller
      */
     public function index()
     {
-        //
+        return MatchResource::collection(Game::all());
     }
 
     /**
@@ -23,9 +26,13 @@ class MatchController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MatchStoreRequest $request)
     {
-        //
+        $request_data = array_diff($request->validated(), [null]);
+
+        $match = Game::create($request_data);
+
+        return new MatchResource($match);
     }
 
     /**
