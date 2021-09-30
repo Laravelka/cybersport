@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MatchStoreRequest;
+use App\Http\Requests\MatchUpdateRequest;
 use App\Http\Resources\MatchResource;
 use App\Models\Game;
 use Illuminate\Http\Request;
@@ -43,7 +44,7 @@ class MatchController extends Controller
      */
     public function show($id)
     {
-        //
+        return new MatchResource(Game::findOrFail($id));
     }
 
     /**
@@ -53,9 +54,15 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MatchUpdateRequest $request, $id)
     {
-        //
+        $match = Game::findOrFail($id);
+
+        $request_data = array_diff($request->validated(), [null]);
+
+        $match->update($request_data);
+
+        return new MatchResource($match);
     }
 
     /**
@@ -66,6 +73,10 @@ class MatchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $match = Game::findOrFail($id);
+
+        $match->delete();
+
+        return response(null, 204);
     }
 }

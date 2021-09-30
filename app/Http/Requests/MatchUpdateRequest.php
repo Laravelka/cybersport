@@ -13,7 +13,7 @@ class MatchUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class MatchUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'nullable|max:255',
+            'slug' => 'nullable|max:255',
+            'first_team_id' => 'nullable|numeric',
+            'second_team_id' => 'nullable|numeric',
+            'broadcast_url' => 'nullable|max:255',
+            'chat_id' => 'nullable|numeric',
+            'bet_rate' => 'nullable|numeric',
+            'bank' => 'nullable|numeric',
+            'commission' => 'nullable|numeric',
+            'gamers_count' => 'nullable|numeric',
+            'start_time' => 'nullable|date',
+            'status' => 'nullable|max:255',
+            'winner_id' => 'nullable|numeric'
         ];
     }
 }
