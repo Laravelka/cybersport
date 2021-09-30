@@ -88,6 +88,16 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $team = Team::findOrFail($id);
+
+        $logo_path = $team->logo;
+
+        Team::destroy($id);
+
+        if (isset($logo_path)) {
+            Storage::disk('public')->delete($logo_path);
+        }
+
+        return response(null, 204);
     }
 }
