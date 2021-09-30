@@ -73,8 +73,7 @@ class PostController extends Controller
             $request_data = array_diff($request->validated(), [null]);
 
             if ($request->hasFile('img')) {
-                $path = $request->img->store('posts', 'public');
-                $request_data['img'] = $path;
+                $request_data['img'] = $request->img->store('posts', 'public');
 
                 $old_img_path = $post->img;
             }
