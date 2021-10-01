@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChatStoreRequest;
+use App\Http\Requests\ChatUpdateRequest;
 use App\Http\Resources\ChatResource;
 use App\Models\Chat;
 use Illuminate\Http\Request;
@@ -53,9 +54,15 @@ class ChatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ChatUpdateRequest $request, $id)
     {
-        //
+        $chat = Chat::findOrFail($id);
+
+        $request_data = array_diff($request->validated(), [null]);
+
+        $chat->update($request_data);
+
+        return new ChatResource($chat);
     }
 
     /**
@@ -66,6 +73,10 @@ class ChatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $chat = Chat::findOrFail($id);
+
+        $chat->delete();
+
+        return response(null, 204);
     }
 }
