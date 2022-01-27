@@ -5,13 +5,13 @@
         <div class="welcomehead">
             <div class="container">
                 <div class="welcomehead-top">
-                    <a class="welcomehead-top__logo" href="#">
+                    <router-link class="welcomehead-top__logo" to="/">
                         <img class="welcomehead-top__logo-img" src="images/welcomehead-logo.svg" alt="">
-                    </a>
-                    <a class="welcomehead-top__logo-mobile" href="#">
+                    </router-link>
+                    <router-link class="welcomehead-top__logo-mobile" to="/">
                         <img class="welcomehead-top__img-mobile" src="images/logo.svg" alt="">
-                    </a>
-                    <button class="welcomehead-top__btn">Войти</button>
+                    </router-link>
+                    <router-link class="welcomehead-top__btn" to="/matches">Войти</router-link>
                 </div>
                 <div class="welcomehead-content">
                     <div class="wrapper">
@@ -111,7 +111,7 @@
         </div>
 
         <div class="welcome-footer">
-            <button class="welcome-footer__btn">Начать</button>
+            <router-link class="welcome-footer__btn" to="/matches">Начать</router-link>
         </div>
 
     </div>
