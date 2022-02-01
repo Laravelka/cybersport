@@ -20,7 +20,7 @@
                     <nav class="menu">
                         <ul class="menu__list">
                             <li class="menu__list-item">
-                                <router-link class="menu__list-link" to="#">Лента</router-link>
+                                <router-link class="menu__list-link" to="/feed">Лента</router-link>
                             </li>
                             <li class="menu__list-item">
                                 <router-link class="menu__list-link" to="#">Топ</router-link>
