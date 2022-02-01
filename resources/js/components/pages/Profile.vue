@@ -1,355 +1,173 @@
 <template>
-    <div class="main">
+    <div class="main-profile">
 
         <header-nav/>
 
-        <div class="match-wrapper">
-            <!-- match -->
-            <section class="match">
-                <div class="match-inner">
-                    <div class="match-items">
-
-                        <div class="match-item">
-                            <div class="match-item__login">Войти в комнату</div>
-                            <div class="match-item__game-time">18:00</div>
-                            <div class="match-room">
-                                <div class="match-room__item">
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum">55%</div>
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/1.png" alt="">
-                                        </div>
-                                        <div class="match-room__item-winbox">
-                                            <span class="match-room__item-win">Выигрыш</span>
-                                            <div class="match-room__item-name player-name">TinyKillers</div>
-                                        </div>
-                                    </div>
+        <div class="profile">
+            <div class="container-lg">
+                <div class="profile__inner">
+                    <div class="profile-info">
+                        <div class="profile-info__title title">ИНФОРМАЦИЯ О ПРОФИЛЕ</div>
+                        <div class="profile-info__user-box">
+                            <a class="header-usermenu__icon" href="#">
+                                <div class="header-usermenu__icongradient icon">
+                                    <img class="header-usermenu__iconimg" src="images/user/1.png" alt="">
                                 </div>
-                                <div class="match-room__center">
-                                    <div class="match-room__center-time">Завершен</div>
-                                    <div class="match-room__center-versus">vs</div>
-                                    <div class="match-room__center-box">
-                                        <div class="match-room__center-bid">Ставка на матч: 15$</div>
-                                        <div class="match-room__center-bank">Банк игры: 100$</div>
-                                        <div class="match-room__center-players">Игроков: 6 человек</div>
-                                    </div>
-                                </div>
-                                <div class="match-room__item">
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-winbox">
-                                            <div class="match-room__item-name player-name">YesSir</div>
-                                        </div>
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/2.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum">55%</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </a>
+                            <div class="profile-info__content">
+                                <div class="profile-info__content-id profile-id">#112233</div>
+                                <a class="profile-info__content-name profile-name" href="#">Kushiro Nara
+                                    <span>
+                                        <img class="profile-info__content-crown" src="images/icons/crown.png" alt="">
+                                    </span>
+                                </a>
+                                <div class="profile-info__content-subname profile-subname">Связь со мной: tg/predictwars</div>
+                                <a class="profile-info__content-edit" href="#">Редактировать профиль</a>
                             </div>
                         </div>
-
-                        <div class="match-item">
-                            <div class="match-item__login">Войти в комнату</div>
-                            <div class="match-item__game-time">18:00</div>
-                            <div class="match-room">
-                                <div class="match-room__item">
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum">55%</div>
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/1.png" alt="">
-                                        </div>
-                                        <div class="match-room__item-winbox">
-                                            <div class="match-room__item-name player-name">TinyKillers</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="match-room__center">
-                                    <div class="match-room__center-time">Завершен</div>
-                                    <div class="match-room__center-versus">vs</div>
-                                    <div class="match-room__center-box">
-                                        <div class="match-room__center-bid">Ставка на матч: 15$</div>
-                                        <div class="match-room__center-bank">Банк игры: 100$</div>
-                                        <div class="match-room__center-players">Игроков: 6 человек</div>
-                                    </div>
-                                </div>
-                                <div class="match-room__item">
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-winbox">
-                                            <span class="match-room__item-win">Проигрыш</span>
-                                            <div class="match-room__item-name player-name">YesSir</div>
-                                        </div>
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/2.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum">55%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="match-item">
-                            <div class="match-item__login">Войти в комнату</div>
-                            <div class="match-item__game-time">18:00</div>
-                            <div class="match-room match-room_halfgradient">
-                                <div class="match-room__item">
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_red">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_red">55%</div>
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/1.png" alt="">
-                                        </div>
-                                        <div class="match-room__item-winbox">
-                                            <span class="match-room__item-win match-room__win_red">Выигрыш</span>
-                                            <div class="match-room__item-name player-name">TinyKillers</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="match-room__center">
-                                    <div class="match-room__center-time">Завершен</div>
-                                    <div class="match-room__center-versus">vs</div>
-                                    <div class="match-room__center-box match-room__center-box_gradient">
-                                        <div class="match-room__center-bid">Ставка на матч: 15$</div>
-                                        <div class="match-room__center-bank">Банк игры: 100$</div>
-                                        <div class="match-room__center-players">Игроков: 6 человек</div>
-                                    </div>
-                                </div>
-                                <div class="match-room__item">
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-winbox">
-                                            <div class="match-room__item-name player-name">YesSir</div>
-                                        </div>
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/2.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum">55%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="match-item">
-                            <div class="match-item__login">Войти в комнату</div>
-                            <div class="match-item__game-time">18:00</div>
-                            <div class="match-room match-room_gradient">
-                                <div class="match-room__item">
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_red">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_red">55%</div>
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/1.png" alt="">
-                                        </div>
-                                        <div class="match-room__item-winbox">
-                                            <!-- <span class="match__roomleft-win">Выигрыш</span> -->
-                                            <div class="match-room__item-name player-name">TinyKillers</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="match-room__center">
-                                    <div class="match-room__center-time match-room__center-time_live">Live</div>
-                                    <div class="match-room__center-versus">vs</div>
-                                    <div class="match-room__center-box match-room__center-box_gradient">
-                                        <div class="match-room__center-bid">Ставка на матч: 15$</div>
-                                        <div class="match-room__center-bank">Банк игры: 100$</div>
-                                        <div class="match-room__center-players">Игроков: 6 человек</div>
-                                    </div>
-                                </div>
-                                <div class="match-room__item">
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-winbox">
-                                            <div class="match-room__item-name player-name">YesSir</div>
-                                        </div>
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/2.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_blue">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_blue">55%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="match-item">
-                            <div class="match-item__login">Войти в комнату</div>
-                            <div class="match-item__game-time">18:00</div>
-                            <div class="match-room match-room_gradient">
-                                <div class="match-room__item">
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_red">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_red">55%</div>
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/1.png" alt="">
-                                        </div>
-                                        <div class="match-room__item-winbox">
-                                            <span class="match-room__item-win match-room__win_red">Выигрыш</span>
-                                            <div class="match-room__item-name player-name">TinyKillers</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="match-room__center">
-                                    <div class="match-room__center-time match-room__center-time_start">Скоро начнется</div>
-                                    <div class="match-room__center-versus">vs</div>
-                                    <div class="match-room__center-box match-room__center-box_gradient">
-                                        <div class="match-room__center-bid">Ставка на матч: 15$</div>
-                                        <div class="match-room__center-bank">Банк игры: 100$</div>
-                                        <div class="match-room__center-players">Игроков: 6 человек</div>
-                                    </div>
-                                </div>
-                                <div class="match-room__item">
-                                    <div class="match-room__item-team">
-                                        <div class="match-room__item-winbox">
-                                            <span class="match-room__item-win match-room__win_blue">Проигрыш</span>
-                                            <div class="match-room__item-name player-name">YesSir</div>
-                                        </div>
-                                        <div class="match-room__item-imgbox">
-                                            <img class="match-room__item-img player-img" src="images/match/2.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="match-room__item-factor">
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">Выигрыш
-                                                в случае победы</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_blue">170 р.</div>
-                                        </div>
-                                        <div class="match-room__item-factorbox">
-                                            <div class="match-room__item-factortext">За команду
-                                                проголосовало</div>
-                                            <div class="match-room__item-factornum match-room__item-factornum_blue">55%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="match-items__arrows">
-                            <button class="match-items__arrows-left">
-                                <img class="match-items__arrows-img" src="images/icons/arrow-left.svg" alt="">
-                            </button>
-                            <button class="match-items__arrows-right">
-                                <img class="match-items__arrows-img" src="images/icons/arrow-right.svg" alt="">
-                            </button>
-                        </div>
-
+                        <ul class="profile-info__list">
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">Друзей:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">100</div>
+                            </li>
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">Подписчики:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">120</div>
+                            </li>
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">PW баллы:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">999</div>
+                            </li>
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">Побед:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">100(52%)</div>
+                            </li>
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">Матчей:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">120</div>
+                            </li>
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">Оборот:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">350,00$</div>
+                            </li>
+                            <li class="profile-info__list-item info-list">
+                                <a class="profile-info__list-link info-link" href="#">Сумма выигрыша:</a>
+                                <div class="profile-info__list-num profile-info__list-num_blue">1000$</div>
+                            </li>
+                        </ul>
+                        <!-- <button class="profile-info__btn">Выйти</button> -->
                     </div>
-                </div>
-                <div class="match-date">
-                    <a class="match-date__link" href="#">19.08.21</a>
-                    <a class="match-date__now" href="#">Сегодня</a>
-                    <a class="match-date__link" href="#">21.08.21</a>
-                </div>
-            </section>
 
+                    <div class="profile-wall">
+                        <div class="profile-wall__title title">СТЕНА ПОЛЬЗОВАТЕЛЯ</div>
+                        <form class="profile-wall__form" action="#">
+                            <div class="profile-wall__form-box">
+                                <input class="profile-wall__form-input" placeholder="Что у Вас нового?" type="text">
+                                <label class="profile-wall__label">
+                                    <input class="profile-wall__label-input" type="file">
+                                    <img class="profile-wall__label-file" src="images/icons/image-icon.svg" alt="">
+                                </label>
+                                <button class="profile-wall__form-emoji">
+                                    <img src="images/icons/profile-emoji.svg" alt="">
+                                </button>
+                                <button class="profile-wall__form-btn">
+                                    <img src="images/icons/profile-search.svg" alt="">
+                                </button>
+                            </div>
+                        </form>
+                        <div class="profile-wall__record">
+                            <div class="profile-wall__record-notext">Пользователь не выложил пока не одну запись</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-lk">
+                        <div class="profile-lk__title title">ЛИЧНЫЙ КАБИНЕТ</div>
+                        <ul class="profile-lk__list">
+                            <li class="profile-lk__list-item profile-lk__list-item_active lk-list">
+                                <svg class="profile-lk__list-img" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1224:4902)">
+                                        <path
+                                                d="M1.20715 17.07V15.6329C1.23381 15.1093 1.40307 14.603 1.69666 14.1686C1.99024 13.7343 2.39697 13.3885 2.87287 13.1686C7.4467 11.3314 12.5533 11.3314 17.1272 13.1686C17.603 13.3885 18.0098 13.7343 18.3034 14.1686C18.5969 14.603 18.7662 15.1093 18.7929 15.6329V17.07C18.7927 17.4552 18.7166 17.8366 18.5689 18.1924C18.4212 18.5481 18.2049 18.8713 17.9323 19.1434C17.6596 19.4155 17.336 19.6312 16.9799 19.7782C16.6239 19.9252 16.2424 20.0006 15.8572 20H4.14287C3.75767 20.0006 3.37613 19.9252 3.02007 19.7782C2.66401 19.6312 2.34041 19.4155 2.06777 19.1434C1.79513 18.8713 1.57878 18.5481 1.43111 18.1924C1.28344 17.8366 1.20734 17.4552 1.20715 17.07ZM10 2.08952e-07C9.03365 -0.000282354 8.0889 0.28602 7.28526 0.822697C6.48162 1.35937 5.85519 2.12232 5.48518 3.01504C5.11517 3.90777 5.01822 4.89016 5.20657 5.83799C5.39493 6.78582 5.86013 7.65651 6.54335 8.33993C7.22658 9.02335 8.09713 9.48881 9.0449 9.67745C9.99268 9.86608 10.9751 9.76941 11.8679 9.39966C12.7608 9.02992 13.5239 8.4037 14.0608 7.60022C14.5977 6.79674 14.8843 5.85208 14.8843 4.88571C14.8845 4.24418 14.7583 3.60889 14.5129 3.01614C14.2675 2.42339 13.9078 1.88478 13.4542 1.43108C13.0007 0.97738 12.4622 0.617479 11.8695 0.371931C11.2768 0.126383 10.6415 1.81512e-07 10 2.08952e-07Z"
+                                                fill="#6E6E86" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1224:4902">
+                                            <rect width="20" height="20" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <a class="profile-lk__list-link lk-link" href="#">Профиль</a>
+                            </li>
+                            <li class="profile-lk__list-item lk-list">
+                                <svg class="profile-lk__list-img" width="16" height="18" viewBox="0 0 16 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M13 6C14.6569 6 16 4.65685 16 3C16 1.34315 14.6569 0 13 0C11.3431 0 10 1.34315 10 3C10 3.38587 10.0729 3.75473 10.2056 4.09357L5.2793 7.04933C4.72908 6.40702 3.91207 6 3 6C1.34315 6 0 7.34315 0 9C0 10.6569 1.34315 12 3 12C3.91207 12 4.72908 11.593 5.2793 10.9507L10.2056 13.9064C10.0729 14.2453 10 14.6141 10 15C10 16.6569 11.3431 18 13 18C14.6569 18 16 16.6569 16 15C16 13.3431 14.6569 12 13 12C12.0879 12 11.2709 12.407 10.7207 13.0493L5.79445 10.0936C5.92715 9.75473 6 9.38587 6 9C6 8.61413 5.92715 8.24527 5.79445 7.90643L10.7207 4.95067C11.2709 5.59298 12.0879 6 13 6Z"
+                                          fill="#6E6E86" />
+                                </svg>
+                                <a class="profile-lk__list-link lk-link" href="#">Рефералка</a>
+                            </li>
+                            <li class="profile-lk__list-item lk-list">
+                                <svg class="profile-lk__list-img" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0H12V18H6V0ZM0 7H5V18H0V7ZM18 5H13V18H18V5Z"
+                                          fill="#6E6E86" />
+                                </svg>
+                                <a class="profile-lk__list-link lk-link" href="#">Статистика</a>
+                            </li>
+                            <li class="profile-lk__list-item lk-list">
+                                <svg class="profile-lk__list-img" width="16" height="22" viewBox="0 0 16 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M15.1656 2.56836C15.1656 3.94907 14.0464 5.06836 12.6656 5.06836C11.2849 5.06836 10.1656 3.94907 10.1656 2.56836C10.1656 1.18765 11.2849 0.0683594 12.6656 0.0683594C14.0464 0.0683594 15.1656 1.18765 15.1656 2.56836ZM12.4156 1.31836V2.31836H11.4156V2.81836H12.4156V3.81836H12.9156V2.81836H13.9156V2.31836H12.9156V1.31836H12.4156ZM12.9858 5.55157C12.8806 5.56273 12.7738 5.56845 12.6657 5.56845C11.0088 5.56845 9.66565 4.22531 9.66565 2.56845C9.66565 2.12285 9.76281 1.69993 9.93709 1.31973C9.34134 1.06915 8.68684 0.930664 8 0.930664C5.23858 0.930664 3 3.16924 3 5.93066C3 8.69209 5.23858 10.9307 8 10.9307C10.7614 10.9307 13 8.69209 13 5.93066C13 5.80313 12.9952 5.67671 12.9858 5.55157ZM16 16.9307C16 19.6921 12.4183 21.9307 8 21.9307C3.58172 21.9307 0 19.6921 0 16.9307C0 14.1692 3.58172 11.9307 8 11.9307C12.4183 11.9307 16 14.1692 16 16.9307Z"
+                                          fill="#6E6E86" />
+                                </svg>
+
+                                <a class="profile-lk__list-link lk-link" href="#">Подписчики
+                                    и друзья</a>
+                            </li>
+                            <li class="profile-lk__list-item lk-list">
+                                <svg class="profile-lk__list-img" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M9.01121 1.90039C9.01121 1.34201 8.55856 0.889361 8.00018 0.889361C7.44181 0.889361 6.98915 1.34201 6.98915 1.90039H9.01121ZM6.98915 1.90039V2.80039H9.01121V1.90039H6.98915Z"
+                                            fill="#6E6E86" />
+                                    <path
+                                            d="M14.2959 14.5H1.7041C1.39197 14.5 1.1975 14.1614 1.35477 13.8918L3.07411 10.9444C3.43489 10.3259 3.625 9.62271 3.625 8.90668V7.2762C3.625 6.13721 4.06919 5.04312 4.86315 4.22648C6.58111 2.45943 9.41889 2.45943 11.1369 4.22648C11.9308 5.04312 12.375 6.13721 12.375 7.2762V8.90668C12.375 9.62271 12.5651 10.3259 12.9259 10.9444L14.6452 13.8918C14.8025 14.1614 14.608 14.5 14.2959 14.5Z"
+                                            fill="#6E6E86" />
+                                    <path
+                                            d="M14.6452 13.8918L15.5185 13.3824L15.5185 13.3824L14.6452 13.8918ZM12.9259 10.9444L12.0526 11.4538L12.0526 11.4538L12.9259 10.9444ZM3.07411 10.9444L3.94741 11.4538L3.94741 11.4538L3.07411 10.9444ZM1.35477 13.8918L2.22808 14.4012L2.22808 14.4012L1.35477 13.8918ZM4.86315 4.22648L5.58805 4.93124L5.58805 4.93124L4.86315 4.22648ZM11.1369 4.22648L10.4119 4.93124L10.4119 4.93124L11.1369 4.22648ZM1.7041 15.511H14.2959V13.489H1.7041V15.511ZM15.5185 13.3824L13.7992 10.435L12.0526 11.4538L13.7719 14.4012L15.5185 13.3824ZM13.386 8.90668V7.2762H11.364V8.90668H13.386ZM2.61397 7.2762V8.90668H4.63603V7.2762H2.61397ZM2.2008 10.435L0.481467 13.3824L2.22808 14.4012L3.94741 11.4538L2.2008 10.435ZM2.61397 8.90668C2.61397 9.4437 2.47139 9.97109 2.2008 10.435L3.94741 11.4538C4.39839 10.6807 4.63603 9.80171 4.63603 8.90668H2.61397ZM4.13824 3.52171C3.1608 4.52708 2.61397 5.874 2.61397 7.2762H4.63603C4.63603 6.40042 4.97757 5.55917 5.58805 4.93124L4.13824 3.52171ZM11.8618 3.52171C9.74679 1.34632 6.25321 1.34632 4.13824 3.52171L5.58805 4.93124C6.909 3.57255 9.091 3.57255 10.4119 4.93124L11.8618 3.52171ZM13.386 7.2762C13.386 5.874 12.8392 4.52708 11.8618 3.52171L10.4119 4.93124C11.0224 5.55917 11.364 6.40042 11.364 7.2762H13.386ZM13.7992 10.435C13.5286 9.97109 13.386 9.4437 13.386 8.90668H11.364C11.364 9.80171 11.6016 10.6807 12.0526 11.4538L13.7992 10.435ZM14.2959 15.511C15.3883 15.511 16.069 14.326 15.5185 13.3824L13.7719 14.4012C13.536 13.9968 13.8277 13.489 14.2959 13.489V15.511ZM1.7041 13.489C2.17228 13.489 2.46398 13.9968 2.22808 14.4012L0.481467 13.3824C-0.0689747 14.326 0.611673 15.511 1.7041 15.511V13.489Z"
+                                            fill="#6E6E86" />
+                                    <path
+                                            d="M6.24988 17.2002V16.1892C5.84354 16.1892 5.47669 16.4324 5.31856 16.8067C5.16042 17.181 5.24173 17.6136 5.52498 17.905L6.24988 17.2002ZM9.74988 17.2002L10.4748 17.905C10.758 17.6136 10.8393 17.181 10.6812 16.8067C10.5231 16.4324 10.1562 16.1892 9.74988 16.1892V17.2002ZM6.24988 18.2112H9.74988V16.1892H6.24988V18.2112ZM9.02498 16.4954L8.72478 16.8042L10.1746 18.2137L10.4748 17.905L9.02498 16.4954ZM7.27498 16.8042L6.97478 16.4954L5.52498 17.905L5.82517 18.2137L7.27498 16.8042ZM8.72478 16.8042C8.32777 17.2125 7.67198 17.2125 7.27498 16.8042L5.82517 18.2137C7.01619 19.4388 8.98357 19.4388 10.1746 18.2137L8.72478 16.8042Z"
+                                            fill="#6E6E86" />
+                                </svg>
+                                <a class="profile-lk__list-link lk-link" href="#">Уведомления</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
-
-        <chat/>
 
         <div class="navigation">
             <div class="navigation__items">
                 <div class="navigation__item">
                     <button class="navigation__item-btn">
                         <div class="navigation__item-img">
-                            <svg class="navigation__svg" width="38" height="12" viewBox="0 0 38 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.95828 7.63055L13.5552 0.362345H19.9066L13.2975 11.627H6.61904L0 0.362345H6.3515L9.95828 7.63055Z"
-                                      fill="#A2A3C2" />
+                            <svg class="navigation__svg" width="38" height="12" viewBox="0 0 38 12" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M9.95828 7.63055L13.5552 0.362345H19.9066L13.2975 11.627H6.61904L0 0.362345H6.3515L9.95828 7.63055Z"
+                                        fill="#A2A3C2" />
                                 <path
                                         d="M28.5173 0C30.6708 0 32.4775 0.220249 33.9374 0.660746C35.067 1.0444 35.9192 1.52753 36.4939 2.11012C37.0752 2.69272 37.389 3.21137 37.4352 3.66607H31.3611C31.3611 3.54529 31.2224 3.44583 30.945 3.36767C30.6741 3.28952 30.3207 3.23268 29.8847 3.19716C29.4554 3.16163 28.9996 3.14387 28.5173 3.14387C27.9625 3.14387 27.4637 3.15098 27.0211 3.16519C26.5785 3.17229 26.2284 3.20426 25.9708 3.2611C25.7198 3.31794 25.5943 3.40675 25.5943 3.52753C25.5943 3.69094 25.7924 3.80462 26.1888 3.86856C26.8296 3.96092 28.2696 4.08526 30.509 4.24156C31.7707 4.32682 32.8706 4.42629 33.8086 4.53996C34.7466 4.64654 35.5261 4.8135 36.1471 5.04085C36.7746 5.26821 37.2403 5.60213 37.5442 6.04263C37.8481 6.48313 38 7.07993 38 7.83304C38 8.72824 37.6466 9.48845 36.9398 10.1137C36.3585 10.6252 35.6219 11.0337 34.7301 11.3393C33.6732 11.6803 32.352 11.8863 30.7666 11.9574C30.0664 11.9858 29.4223 12 28.8344 12C28.2795 12 27.6421 11.9858 26.922 11.9574C26.202 11.9361 25.4588 11.8615 24.6926 11.7336C23.9329 11.6128 23.1997 11.4103 22.4928 11.1261C21.7926 10.8419 21.175 10.4476 20.6399 9.94316C20.3492 9.67318 20.118 9.38544 19.9463 9.07993C19.7811 8.76732 19.6986 8.36945 19.6986 7.88632H25.9113C25.9113 8.1421 26.0336 8.34103 26.278 8.48313C26.529 8.61812 26.8725 8.71403 27.3085 8.77087C27.7511 8.8206 28.2597 8.84547 28.8344 8.84547C29.4554 8.84547 30.0169 8.83126 30.5189 8.80284C31.0209 8.76732 31.4173 8.69982 31.708 8.60036C32.0052 8.49378 32.1538 8.33748 32.1538 8.13144C32.1538 7.96092 32.0085 7.83659 31.7179 7.75844C31.2356 7.66607 29.6965 7.53464 27.1004 7.36412C26.0104 7.30018 25.0328 7.22558 24.1674 7.14032C23.3086 7.04796 22.5985 6.91297 22.037 6.73535C20.597 6.24512 19.8769 5.31794 19.8769 3.95382C19.8769 3.26465 20.0751 2.68561 20.4714 2.2167C21.0726 1.50622 21.9512 0.973357 23.1072 0.618117C24.4878 0.206039 26.2912 0 28.5173 0Z"
                                         fill="#A2A3C2" />
                             </svg>
-                            <svg class="navigation__svg_active" width="41" height="14" viewBox="0 0 41 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg_active" width="41" height="14" viewBox="0 0 41 14" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                         d="M35.8511 5.16607L35.865 5.04316C35.8657 5.04323 35.8663 5.04331 35.867 5.04338C35.1283 4.9539 34.2928 4.87339 33.3611 4.80172C33.2022 4.78949 33.0404 4.77752 32.8758 4.76581C32.885 4.79605 32.8977 4.82309 32.9121 4.84596C32.9381 4.88727 32.9634 4.90557 32.9657 4.90723C32.9685 4.9092 32.9594 4.90236 32.9308 4.89015C32.9128 4.88246 32.8898 4.87382 32.8611 4.86454M35.8511 5.16607H33.3611H32.8611V4.86454M35.8511 5.16607L35.8086 5.53996L35.8511 5.16607ZM32.8611 4.86454V4.76476C32.852 4.76411 32.8428 4.76346 32.8337 4.76281C32.8328 4.76275 32.8319 4.76269 32.831 4.76263C32.736 4.75591 32.6401 4.74928 32.5433 4.74274M32.8611 4.86454C32.8456 4.85951 32.8284 4.85429 32.8094 4.84894L32.8064 4.84808C32.7287 4.82566 32.6403 4.80468 32.5408 4.78541M32.5408 4.78541L32.5438 4.74278C32.5436 4.74276 32.5435 4.74275 32.5433 4.74274M32.5408 4.78541C32.5405 4.78534 32.5402 4.78528 32.5398 4.78522M32.5408 4.78541L32.509 5.24156L32.5398 4.78522M32.5433 4.74274C32.5431 4.74273 32.5429 4.74271 32.5427 4.7427L32.5398 4.78522M32.5433 4.74274C32.3007 4.72581 32.0677 4.70926 31.8443 4.69311C31.8441 4.6931 31.8439 4.69308 31.8437 4.69307C31.3559 4.65779 30.9139 4.62438 30.5173 4.59285C29.9183 4.54521 29.4231 4.50185 29.0307 4.46279C29.0291 4.46263 29.0275 4.46247 29.0259 4.46232C28.7018 4.43002 28.4482 4.40067 28.2644 4.37429M32.5398 4.78522C32.3496 4.74842 32.1188 4.71788 31.8441 4.69551L31.8435 4.69546C31.4294 4.66119 30.9874 4.64387 30.5173 4.64387C29.9665 4.64387 29.4733 4.65093 29.0372 4.66493L29.0291 4.66519V4.66512C28.6837 4.67067 28.4139 4.69189 28.2121 4.72423M28.2121 4.72423L28.1888 4.86856L28.2095 4.72464M28.2121 4.72423L28.2684 4.37494C28.2671 4.37473 28.2657 4.37451 28.2644 4.37429M28.2121 4.72423C28.2112 4.72437 28.2104 4.7245 28.2095 4.72464M28.2644 4.37429C28.1828 4.361 28.1195 4.34645 28.0718 4.3322C28.0222 4.31738 27.9984 4.3055 27.9917 4.30163C27.9908 4.30114 27.9904 4.30087 27.9904 4.30084C27.9901 4.30063 28.0128 4.31445 28.0381 4.3499C28.0713 4.39628 28.0943 4.45946 28.0943 4.52753C28.0943 4.57678 28.0831 4.62543 28.0631 4.66883M28.2644 4.37429C28.263 4.37409 28.2615 4.37388 28.2601 4.37368L28.2095 4.72464M28.0631 4.66883L28.0311 4.52753L27.9708 4.2611L28.0296 4.52753L28.0615 4.67227M28.0631 4.66883L28.0812 4.74876C28.0808 4.74886 28.0803 4.74896 28.0799 4.74907M28.0631 4.66883C28.0626 4.66998 28.062 4.67113 28.0615 4.67227M28.0615 4.67227C28.057 4.68173 28.0521 4.69093 28.0468 4.69982C28.0188 4.74654 27.9884 4.7706 27.9772 4.77849C27.9725 4.78181 27.9699 4.78323 27.97 4.78316C27.9702 4.78307 27.9752 4.78041 27.9864 4.77605C28.0054 4.76874 28.0355 4.75916 28.0799 4.74907M28.0615 4.67227L28.0785 4.74936C28.079 4.74926 28.0794 4.74916 28.0799 4.74907M28.0799 4.74907C28.1195 4.74036 28.1626 4.7322 28.2095 4.72464M15.107 1.14058L11.9577 7.50449L8.79938 1.14009L8.66156 0.862345H8.3515H2H1.12628L1.56891 1.61565L8.18795 12.8803L8.3329 13.127H8.61904H15.2975H15.5839L15.7288 12.88L22.3379 1.61537L22.7797 0.862345H21.9066H15.5552H15.2447L15.107 1.14058ZM36.0982 1.18731L36.0901 1.18454L36.0819 1.18206C34.5602 0.722942 32.7013 0.5 30.5173 0.5C28.2661 0.5 26.4092 0.707695 24.9642 1.139L24.9642 1.13899L24.9603 1.14017C23.7398 1.51524 22.7687 2.09126 22.0897 2.89374L22.0896 2.89393C21.6076 3.46421 21.3769 4.1619 21.3769 4.95382C21.3769 5.72817 21.5832 6.41391 22.022 6.97897C22.4574 7.53961 23.0904 7.94127 23.8759 8.20867L23.8759 8.20878L23.8862 8.21206C24.0876 8.27577 24.3048 8.33379 24.5373 8.38632H21.6986H21.1986V8.88632C21.1986 9.42246 21.2897 9.9074 21.5042 10.3135L21.504 10.3136L21.5104 10.325C21.7104 10.6806 21.9752 11.0079 22.2982 11.3082C22.8793 11.8557 23.5494 12.2828 24.3048 12.5894L24.3063 12.59C25.0476 12.8881 25.8164 13.1004 26.612 13.227C27.3974 13.358 28.1617 13.435 28.9047 13.4571C29.6285 13.4856 30.272 13.5 30.8344 13.5C31.4302 13.5 32.0812 13.4856 32.7869 13.457L32.789 13.4569C34.4016 13.3846 35.7704 13.1743 36.8837 12.8151L36.8837 12.8152L36.8922 12.8123C37.8328 12.49 38.6302 12.0521 39.2701 11.489L39.271 11.4882C40.0786 10.7739 40.5 9.88005 40.5 8.83304C40.5 8.01836 40.3363 7.31038 39.9558 6.75871C39.5797 6.21361 39.0188 5.82499 38.3182 5.57104C37.8596 5.40321 37.3303 5.26906 36.7337 5.16607H39.4352H39.9886L39.9326 4.61549C39.8686 3.98573 39.453 3.36367 38.8487 2.75784C38.2002 2.10092 37.2696 1.58516 36.0982 1.18731ZM28.4113 8.88632V8.82237C28.6261 8.83642 28.8454 8.85002 29.0694 8.86316C31.2117 9.00388 32.605 9.1165 33.2817 9.19933C33.0738 9.24467 32.8109 9.28081 32.4871 9.30384C31.9973 9.33149 31.4466 9.34547 30.8344 9.34547C30.2753 9.34547 29.7874 9.32132 29.3688 9.2745C28.972 9.22244 28.6986 9.13978 28.5224 9.04683C28.4189 8.98499 28.4113 8.94123 28.4113 8.88632Z"
                                         fill="url(#paint0_linear_1928_4302)" fill-opacity="0.25" stroke="url(#paint1_linear_1928_4302)" />
@@ -373,12 +191,14 @@
                 <div class="navigation__item navigation__item_active">
                     <button class="navigation__item-btn">
                         <div class="navigation__item-img">
-                            <svg class="navigation__svg" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg" width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                         d="M20.6667 9.37629C20.6667 14.5547 16.1892 18.7526 10.6667 18.7526C9.67625 18.754 8.68992 18.6162 7.73294 18.3427C7.00294 18.7392 5.32669 19.5 2.50669 19.9956C2.25669 20.0385 2.06669 19.7599 2.16544 19.5107C2.60794 18.3909 3.00794 16.8988 3.12794 15.5378C1.59669 13.8903 0.666687 11.7338 0.666687 9.37629C0.666687 4.1979 5.14419 0 10.6667 0C16.1892 0 20.6667 4.1979 20.6667 9.37629ZM6.91669 9.37629C6.91669 9.02104 6.78499 8.68034 6.55057 8.42914C6.31615 8.17794 5.99821 8.03682 5.66669 8.03682C5.33517 8.03682 5.01722 8.17794 4.7828 8.42914C4.54838 8.68034 4.41669 9.02104 4.41669 9.37629C4.41669 9.73154 4.54838 10.0722 4.7828 10.3234C5.01722 10.5746 5.33517 10.7158 5.66669 10.7158C5.99821 10.7158 6.31615 10.5746 6.55057 10.3234C6.78499 10.0722 6.91669 9.73154 6.91669 9.37629ZM11.9167 9.37629C11.9167 9.02104 11.785 8.68034 11.5506 8.42914C11.3161 8.17794 10.9982 8.03682 10.6667 8.03682C10.3352 8.03682 10.0172 8.17794 9.7828 8.42914C9.54838 8.68034 9.41669 9.02104 9.41669 9.37629C9.41669 9.73154 9.54838 10.0722 9.7828 10.3234C10.0172 10.5746 10.3352 10.7158 10.6667 10.7158C10.9982 10.7158 11.3161 10.5746 11.5506 10.3234C11.785 10.0722 11.9167 9.73154 11.9167 9.37629ZM15.6667 10.7158C15.9982 10.7158 16.3161 10.5746 16.5506 10.3234C16.785 10.0722 16.9167 9.73154 16.9167 9.37629C16.9167 9.02104 16.785 8.68034 16.5506 8.42914C16.3161 8.17794 15.9982 8.03682 15.6667 8.03682C15.3352 8.03682 15.0172 8.17794 14.7828 8.42914C14.5484 8.68034 14.4167 9.02104 14.4167 9.37629C14.4167 9.73154 14.5484 10.0722 14.7828 10.3234C15.0172 10.5746 15.3352 10.7158 15.6667 10.7158Z"
                                         fill="#A2A3C2" />
                             </svg>
-                            <svg  class="navigation__svg_active" width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg_active" width="23" height="22" viewBox="0 0 23 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                         d="M3.59305 21.4881L3.591 21.4884C3.24473 21.5478 2.95334 21.3763 2.79468 21.1482C2.63848 20.9238 2.58561 20.6164 2.70034 20.3267C3.1048 19.3031 3.47214 17.9562 3.60836 16.7097C2.08843 14.9987 1.1665 12.789 1.1665 10.3763C1.1665 4.8919 5.89869 0.5 11.6665 0.5C17.4343 0.5 22.1665 4.8919 22.1665 10.3763C22.1665 15.8604 17.4347 20.2522 11.6672 20.2526L3.59305 21.4881ZM3.59305 21.4881C6.26211 21.019 7.94247 20.3137 8.79088 19.8774M3.59305 21.4881L8.79088 19.8774M8.79088 19.8774C9.73095 20.1278 10.6967 20.2539 11.6665 20.2526L8.79088 19.8774Z"
                                         stroke="url(#paint0_linear_1928_3402)" />
@@ -405,12 +225,14 @@
                 <div class="navigation__item">
                     <button class="navigation__item-btn">
                         <div class="navigation__item-img">
-                            <svg class="navigation__svg" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                         d="M5.56655 19.6411C3.96735 19.1404 2.58162 18.1037 1.63473 16.6997C0.687848 15.2956 0.235503 13.6068 0.351266 11.9079C0.366098 10.9678 0.567515 10.0403 0.943415 9.18139C1.31931 8.32244 1.86194 7.5497 2.53868 6.90961C2.64311 6.81089 2.76829 6.73772 2.90469 6.69565C3.04108 6.65358 3.18511 6.64372 3.32581 6.66683C3.83654 6.75109 3.66536 7.6665 3.58258 8.18776C3.51611 8.51617 3.51479 8.8548 3.57872 9.18374C3.64264 9.51268 3.77052 9.8253 3.95482 10.1032C4.13913 10.3812 4.37615 10.6188 4.65197 10.8022C4.92778 10.9855 5.23682 11.111 5.56093 11.171C8.36711 11.171 3.6359 5.47009 8.5467 0.129015C8.60944 0.0649083 8.69013 0.0221303 8.77771 0.00654925C8.86528 -0.00903184 8.95544 0.00334725 9.03583 0.0419883C9.11621 0.0806293 9.18289 0.143639 9.2267 0.222374C9.2705 0.30111 9.2893 0.391713 9.28052 0.481754C9.16827 3.33794 12.7686 6.2684 13.9275 7.90785C14.8458 9.21139 15.3377 10.776 15.3335 12.38C15.3293 13.9839 14.8293 15.5458 13.9043 16.8444C12.9792 18.143 11.6762 19.1123 10.1797 19.615C8.68323 20.1177 7.06927 20.1284 5.56655 19.6454V19.6411Z"
                                         fill="#A2A3C2" />
                             </svg>
-                            <svg class="navigation__svg_active" width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg_active" width="17" height="22" viewBox="0 0 17 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                         d="M2.86171 7.54626L2.8616 7.54636C2.13585 8.23281 1.55445 9.06101 1.15186 9.98093C0.75103 10.8968 0.53558 11.8851 0.51805 12.887C0.397961 14.6918 0.879662 16.486 1.8867 17.9792C2.82655 19.3728 4.173 20.4285 5.73305 20.9993V21.0098L6.08005 21.1214C7.68442 21.637 9.40779 21.6257 11.0054 21.089C12.603 20.5523 13.9924 19.5181 14.978 18.1345C15.9635 16.7511 16.4955 15.0881 16.5 13.3813C16.5044 11.6744 15.981 10.0086 15.0028 8.61991L15.0023 8.61923C14.6912 8.17916 14.2254 7.66386 13.7336 7.12162L13.6864 7.0696C13.1985 6.53175 12.6728 5.95225 12.185 5.3396C11.1618 4.05481 10.4029 2.73978 10.4462 1.51262C10.4608 1.32771 10.4207 1.14199 10.3301 0.979268C10.2366 0.811244 10.0935 0.675234 9.91895 0.591349C9.74432 0.507404 9.54776 0.480273 9.35662 0.51428C9.16555 0.548277 8.99082 0.641402 8.85587 0.779292L8.85041 0.784861L8.84514 0.790598C6.24981 3.61332 6.20889 6.54757 6.43378 8.70478C6.47205 9.07191 6.51904 9.4248 6.56162 9.7446C6.58046 9.8861 6.59843 10.0211 6.61441 10.148C6.6684 10.5768 6.69951 10.9128 6.68774 11.1743C6.67568 11.4424 6.62117 11.5445 6.58734 11.5823C6.5691 11.6027 6.50571 11.6633 6.27287 11.6704C6.03204 11.6197 5.80216 11.5233 5.5953 11.3858L5.31847 11.8022L5.5953 11.3858C5.37537 11.2396 5.18577 11.0497 5.03803 10.8269C4.89028 10.6041 4.78747 10.353 4.73604 10.0884C4.68461 9.8237 4.68566 9.55118 4.73915 9.28695L4.74124 9.2766L4.74289 9.26618C4.74644 9.24384 4.75031 9.21995 4.7544 9.1947C4.79411 8.94959 4.85457 8.5764 4.84296 8.24587C4.83656 8.06371 4.80781 7.83932 4.70408 7.63785C4.58763 7.41167 4.37866 7.22381 4.07371 7.1735L4.07335 7.17345C3.85625 7.13779 3.63404 7.15302 3.42382 7.21786L3.57119 7.69565L3.42382 7.21786C3.21363 7.28269 3.02148 7.39523 2.86171 7.54626Z"
                                         fill="url(#paint0_linear_1676_7363)" fill-opacity="0.25" stroke="url(#paint1_linear_1676_7363)" />
@@ -434,12 +256,14 @@
                 <div class="navigation__item">
                     <button class="navigation__item-btn">
                         <div class="navigation__item-img">
-                            <svg class="navigation__svg" width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg" width="25" height="20" viewBox="0 0 25 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                         d="M18.4375 4.02075e-07C19.1502 -8.71465e-05 19.9791 0.013658 20.5 0.5C21.0209 0.986343 21.195 1.90901 21.2438 2.62L21.25 2.8125V16.875C21.2497 17.0312 21.3079 17.1818 21.4131 17.2972C21.5184 17.4126 21.663 17.4845 21.8185 17.4986C21.9741 17.5127 22.1293 17.4681 22.2535 17.3735C22.3778 17.2789 22.4622 17.1412 22.49 16.9875L22.5 16.875V3.7675C23.1524 3.84045 24.0448 4.02697 24.5 4.5C24.9552 4.97303 24.9446 5.70276 24.9925 6.3575L25 6.5625V15.9375C25.0001 16.9752 24.7126 18.2457 24 19C23.2874 19.7543 22.2035 19.935 21.1675 19.9938L20.9375 20H4.0625C3.02483 20.0001 1.75425 19.7126 1 19C0.245747 18.2874 0.0649987 17.2035 0.00625055 16.1675L4.02075e-07 15.9375V2.8125C-8.71465e-05 2.09984 0.013658 1.02092 0.5 0.5C0.986343 -0.020915 1.90901 0.055028 2.62 0.00625055L2.8125 4.02075e-07H18.4375ZM9.06 8.75H4.685C4.43636 8.75 4.1979 8.84877 4.02209 9.02459C3.84627 9.2004 3.7475 9.43886 3.7475 9.6875V14.0625C3.7475 14.58 4.1675 15 4.685 15H9.06C9.30864 15 9.5471 14.9012 9.72291 14.7254C9.89873 14.5496 9.9975 14.3111 9.9975 14.0625V9.6875C9.9975 9.43886 9.89873 9.2004 9.72291 9.02459C9.5471 8.84877 9.30864 8.75 9.06 8.75ZM16.565 13.125H13.4425L13.315 13.1337C13.0797 13.1661 12.8654 13.2866 12.7155 13.4709C12.5656 13.6551 12.4913 13.8894 12.5075 14.1264C12.5237 14.3634 12.6292 14.5854 12.8028 14.7475C12.9763 14.9097 13.205 14.9999 13.4425 15H16.565L16.6925 14.9913C16.9278 14.9589 17.1421 14.8384 17.292 14.6541C17.4419 14.4699 17.5162 14.2356 17.5 13.9986C17.4838 13.7616 17.3783 13.5396 17.2047 13.3775C17.0312 13.2153 16.8025 13.1251 16.565 13.125ZM8.1225 10.625V13.125H5.6225V10.625H8.1225ZM16.5625 8.75L13.44 8.75625L13.3125 8.76375C13.0749 8.79382 12.8578 8.91368 12.7058 9.09874C12.5538 9.2838 12.4783 9.52002 12.495 9.75893C12.5116 9.99785 12.619 10.2213 12.7952 10.3835C12.9714 10.5458 13.203 10.6344 13.4425 10.6313L16.5662 10.625L16.6925 10.6163C16.9279 10.5839 17.1423 10.4633 17.2922 10.2789C17.4421 10.0945 17.5163 9.86005 17.5 9.62298C17.4836 9.3859 17.3779 9.16389 17.2041 9.00183C17.0303 8.83977 16.8014 8.74975 16.5638 8.75H16.5625ZM16.5638 4.38H4.685L4.5575 4.38875C4.32219 4.42113 4.10794 4.54162 3.95804 4.72588C3.80814 4.91014 3.73378 5.14442 3.74997 5.3814C3.76616 5.61838 3.8717 5.84037 4.04526 6.00254C4.21882 6.1647 4.44747 6.25493 4.685 6.255H16.565L16.6925 6.2475C16.9298 6.2174 17.1467 6.0977 17.2986 5.91293C17.4506 5.72815 17.5262 5.49227 17.5099 5.25359C17.4936 5.01492 17.3866 4.7915 17.211 4.62909C17.0353 4.46668 16.8042 4.37757 16.565 4.38H16.5638Z"
                                         fill="#A2A3C2" />
                             </svg>
-                            <svg class="navigation__svg_active" width="27" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="navigation__svg_active" width="27" height="22" viewBox="0 0 27 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.2"
                                       d="M19.4375 1C20.1502 0.999913 20.9791 1.01366 21.5 1.5C22.0209 1.98634 22.195 2.90901 22.2438 3.62L22.25 3.8125V17.875C22.2497 18.0312 22.3079 18.1818 22.4131 18.2972C22.5184 18.4126 22.663 18.4845 22.8185 18.4986C22.9741 18.5127 23.1293 18.4681 23.2535 18.3735C23.3778 18.2789 23.4622 18.1412 23.49 17.9875L23.5 17.875V4.7675C24.1524 4.84045 25.0448 5.02697 25.5 5.5C25.9552 5.97303 25.9446 6.70276 25.9925 7.3575L26 7.5625V16.9375C26.0001 17.9752 25.7126 19.2457 25 20C24.2874 20.7543 23.2035 20.935 22.1675 20.9938L21.9375 21H5.0625C4.02483 21.0001 2.75425 20.7126 2 20C1.24575 19.2874 1.065 18.2035 1.00625 17.1675L1 16.9375V3.8125C0.999913 3.09984 1.01366 2.02092 1.5 1.5C1.98634 0.979085 2.90901 1.05503 3.62 1.00625L3.8125 1H19.4375ZM10.06 9.75H5.685C5.43636 9.75 5.1979 9.84877 5.02209 10.0246C4.84627 10.2004 4.7475 10.4389 4.7475 10.6875V15.0625C4.7475 15.58 5.1675 16 5.685 16H10.06C10.3086 16 10.5471 15.9012 10.7229 15.7254C10.8987 15.5496 10.9975 15.3111 10.9975 15.0625V10.6875C10.9975 10.4389 10.8987 10.2004 10.7229 10.0246C10.5471 9.84877 10.3086 9.75 10.06 9.75ZM17.565 14.125H14.4425L14.315 14.1337C14.0797 14.1661 13.8654 14.2866 13.7155 14.4709C13.5656 14.6551 13.4913 14.8894 13.5075 15.1264C13.5237 15.3634 13.6292 15.5854 13.8028 15.7475C13.9763 15.9097 14.205 15.9999 14.4425 16H17.565L17.6925 15.9913C17.9278 15.9589 18.1421 15.8384 18.292 15.6541C18.4419 15.4699 18.5162 15.2356 18.5 14.9986C18.4838 14.7616 18.3783 14.5396 18.2047 14.3775C18.0312 14.2153 17.8025 14.1251 17.565 14.125ZM9.1225 11.625V14.125H6.6225V11.625H9.1225ZM17.5625 9.75L14.44 9.75625L14.3125 9.76375C14.0749 9.79382 13.8578 9.91368 13.7058 10.0987C13.5538 10.2838 13.4783 10.52 13.495 10.7589C13.5116 10.9978 13.619 11.2213 13.7952 11.3835C13.9714 11.5458 14.203 11.6344 14.4425 11.6313L17.5662 11.625L17.6925 11.6163C17.9279 11.5839 18.1423 11.4633 18.2922 11.2789C18.4421 11.0945 18.5163 10.8601 18.5 10.623C18.4836 10.3859 18.3779 10.1639 18.2041 10.0018C18.0303 9.83977 17.8014 9.74975 17.5638 9.75H17.5625ZM17.5638 5.38H5.685L5.5575 5.38875C5.32219 5.42113 5.10794 5.54162 4.95804 5.72588C4.80814 5.91014 4.73378 6.14442 4.74997 6.3814C4.76616 6.61838 4.8717 6.84037 5.04526 7.00254C5.21882 7.1647 5.44747 7.25493 5.685 7.255H17.565L17.6925 7.2475C17.9298 7.2174 18.1467 7.0977 18.2986 6.91293C18.4506 6.72815 18.5262 6.49227 18.5099 6.25359C18.4936 6.01492 18.3866 5.7915 18.211 5.62909C18.0353 5.46668 17.8042 5.37757 17.565 5.38H17.5638Z"
                                       fill="url(#paint0_linear_1928_3605)" />
@@ -465,16 +289,16 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
     import HeaderNav from "../header/HeaderNav";
-    import Chat from "../chat/Chat";
 
     export default {
         components: {
-            HeaderNav, Chat
+            HeaderNav
         }
     }
 </script>
