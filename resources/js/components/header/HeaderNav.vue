@@ -3,30 +3,30 @@
         <div class="container">
             <div class="header-inner">
                 <div class="header-inner__left">
-                    <a class="logo" href="#">
+                    <router-link class="logo" to="/">
                         <img class="logo__img" src="images/logo.svg" alt="">
-                    </a>
+                    </router-link>
                     <div class="header-social__inner">
-                        <a class="header-social__link" href="#">
+                        <a class="header-social__link" href="https://www.twitch.tv/" target="_blank">
                             <img class="header-social__img" src="images/icons/twitch.svg" alt="">
                         </a>
-                        <a class="header-social__link" href="#">
+                        <a class="header-social__link" href="https://discord.com/" target="_blank">
                             <img class="header-social__img" src="images/icons/discord.svg" alt="">
                         </a>
-                        <a class="header-social__link" href="#">
+                        <a class="header-social__link" href="https://vk.com/" target="_blank">
                             <img class="header-social__img" src="images/icons/vk.svg" alt="">
                         </a>
                     </div>
                     <nav class="menu">
                         <ul class="menu__list">
                             <li class="menu__list-item">
-                                <a class="menu__list-link" href="#">Лента</a>
+                                <router-link class="menu__list-link" to="#">Лента</router-link>
                             </li>
                             <li class="menu__list-item">
-                                <a class="menu__list-link" href="#">Топ</a>
+                                <router-link class="menu__list-link" to="#">Топ</router-link>
                             </li>
                             <li class="menu__list-item">
-                                <a class="menu__list-link" href="#">Инструкция</a>
+                                <router-link class="menu__list-link" to="#">Инструкция</router-link>
                             </li>
                         </ul>
                     </nav>
@@ -47,24 +47,24 @@
                         </div>
                     </div>
                     <div class="header-usermenu">
-                        <a class="header-usermenu__icon" href="#">
+                        <router-link class="header-usermenu__icon" to="/profile">
                             <div class="header-usermenu__icongradient icon">
                                 <img class="header-usermenu__iconimg" src="images/user/1.png" alt="">
                             </div>
-                        </a>
+                        </router-link>
                         <div class="header-usermenu__info">
-                            <a class="header-usermenu__name user-name" href="#">Kushiro Nara
+                            <router-link class="header-usermenu__name user-name" to="/profile">Kushiro Nara
                                 <span class="header-usermenu__settings-icon">
-                <img class="header-usermenu__settings" src="images/icons/settings.svg" alt="">
-              </span>
+                                    <img class="header-usermenu__settings" src="images/icons/settings.svg" alt="">
+                                </span>
                                 <span class="header-usermenu__exit-icon">
-                <img class="header-usermenu__exit" src="images/icons/exit-icon.svg" alt="">
-              </span>
-                            </a>
+                                    <img class="header-usermenu__exit" src="images/icons/exit-icon.svg" alt="">
+                                </span>
+                            </router-link>
                             <div class="header-usermenu__num purse">999,99 $
                                 <span>
-                  <img class="header-usermenu__numimg" src="images/icons/purse.svg" alt="">
-                </span>
+                                    <img class="header-usermenu__numimg" src="images/icons/purse.svg" alt="">
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -88,20 +88,20 @@
                             <img src="images/icons/settings.svg" alt="">
                         </button>
                         <div class="mobile-menu__usermenu">
-                            <a class="mobile-menu__usermenu-icon" href="#">
+                            <router-link class="mobile-menu__usermenu-icon" to="/profile">
                                 <div class="mobile-menu__usermenu-icongradient icon">
                                     <img class="mobile-menu__usermenu-iconimg" src="images/user/1.png" alt="">
                                 </div>
-                            </a>
+                            </router-link>
                             <div class="mobile-menu__usermenu-info">
-                                <a class="mobile-menu__usermenu-name" href="#">Kushiro Nara
+                                <router-link class="mobile-menu__usermenu-name" to="/profile">Kushiro Nara
                                     <span>
-                </span>
-                                </a>
+                                    </span>
+                                </router-link>
                                 <div class="mobile-menu__usermenu-num">999,99 $
                                     <span>
-                  <img class="mobile-menu__usermenu-numimg" src="images/icons/purse.svg" alt="">
-                </span>
+                                        <img class="mobile-menu__usermenu-numimg" src="images/icons/purse.svg" alt="">
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -185,13 +185,13 @@
                             </div>
                         </div>
                         <div class="mobile-menu__social-items">
-                            <a class="mobile-menu__social-link" href="#">
+                            <a class="mobile-menu__social-link" href="https://www.twitch.tv/" target="_blank">
                                 <img class="mobile-menu__social-img" src="images/icons/twitch.svg" alt="">
                             </a>
-                            <a class="mobile-menu__social-link" href="#">
+                            <a class="mobile-menu__social-link" href="https://discord.com/" target="_blank">
                                 <img class="mobile-menu__social-img" src="images/icons/discord.svg" alt="">
                             </a>
-                            <a class="mobile-menu__social-link" href="#">
+                            <a class="mobile-menu__social-link" href="https://vk.com/" target="_blank">
                                 <img class="mobile-menu__social-img" src="images/icons/vk.svg" alt="">
                             </a>
                         </div>
