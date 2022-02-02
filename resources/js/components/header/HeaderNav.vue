@@ -23,7 +23,7 @@
                                 <router-link class="menu__list-link" to="/feed">Лента</router-link>
                             </li>
                             <li class="menu__list-item">
-                                <router-link class="menu__list-link" to="#">Топ</router-link>
+                                <router-link class="menu__list-link" to="/toprate">Топ</router-link>
                             </li>
                             <li class="menu__list-item">
                                 <router-link class="menu__list-link" to="#">Инструкция</router-link>

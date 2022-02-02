@@ -3,6 +3,7 @@ import Feed from "../components/pages/Feed";
 import Home from "../components/pages/Home";
 import Matches from "../components/pages/Matches";
 import Profile from "../components/pages/Profile";
+import Toprate from "../components/pages/Toprate";
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
     {
         path: '/feed',
         component: Feed
+    },
+    {
+        path: '/toprate',
+        component: Toprate
     }
 ];
 
