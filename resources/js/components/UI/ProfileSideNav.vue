@@ -16,7 +16,7 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <a class="profile-lk__list-link lk-link" href="#">Профиль</a>
+                <router-link class="profile-lk__list-link lk-link" to="/profile">Профиль</router-link>
             </li>
             <li class="profile-lk__list-item lk-list">
                 <svg class="profile-lk__list-img" width="16" height="18" viewBox="0 0 16 18" fill="none"
@@ -33,7 +33,7 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0H12V18H6V0ZM0 7H5V18H0V7ZM18 5H13V18H18V5Z"
                           fill="#6E6E86" />
                 </svg>
-                <a class="profile-lk__list-link lk-link" href="#">Статистика</a>
+                <router-link class="profile-lk__list-link lk-link" to="/stats">Статистика</router-link>
             </li>
             <li class="profile-lk__list-item lk-list">
                 <svg class="profile-lk__list-img" width="16" height="22" viewBox="0 0 16 22" fill="none"
@@ -42,9 +42,8 @@
                           d="M15.1656 2.56836C15.1656 3.94907 14.0464 5.06836 12.6656 5.06836C11.2849 5.06836 10.1656 3.94907 10.1656 2.56836C10.1656 1.18765 11.2849 0.0683594 12.6656 0.0683594C14.0464 0.0683594 15.1656 1.18765 15.1656 2.56836ZM12.4156 1.31836V2.31836H11.4156V2.81836H12.4156V3.81836H12.9156V2.81836H13.9156V2.31836H12.9156V1.31836H12.4156ZM12.9858 5.55157C12.8806 5.56273 12.7738 5.56845 12.6657 5.56845C11.0088 5.56845 9.66565 4.22531 9.66565 2.56845C9.66565 2.12285 9.76281 1.69993 9.93709 1.31973C9.34134 1.06915 8.68684 0.930664 8 0.930664C5.23858 0.930664 3 3.16924 3 5.93066C3 8.69209 5.23858 10.9307 8 10.9307C10.7614 10.9307 13 8.69209 13 5.93066C13 5.80313 12.9952 5.67671 12.9858 5.55157ZM16 16.9307C16 19.6921 12.4183 21.9307 8 21.9307C3.58172 21.9307 0 19.6921 0 16.9307C0 14.1692 3.58172 11.9307 8 11.9307C12.4183 11.9307 16 14.1692 16 16.9307Z"
                           fill="#6E6E86" />
                 </svg>
-
-                <a class="profile-lk__list-link lk-link" href="#">Подписчики
-                    и друзья</a>
+                <router-link class="profile-lk__list-link lk-link" to="/friends">Подписчики
+                    и друзья</router-link>
             </li>
             <li class="profile-lk__list-item lk-list">
                 <svg class="profile-lk__list-img" width="16" height="20" viewBox="0 0 16 20" fill="none"
