@@ -4,6 +4,7 @@ import Friends from "../components/pages/Friends";
 import Home from "../components/pages/Home";
 import Matches from "../components/pages/Matches";
 import Profile from "../components/pages/Profile";
+import Stats from "../components/pages/Stats";
 import Toprate from "../components/pages/Toprate";
 
 const routes = [
@@ -16,16 +17,20 @@ const routes = [
         component: Matches
     },
     {
-        path: '/profile',
-        component: Profile
+        path: '/feed',
+        component: Feed
     },
     {
         path: '/friends',
         component: Friends
     },
     {
-        path: '/feed',
-        component: Feed
+        path: '/profile',
+        component: Profile
+    },
+    {
+        path: '/stats',
+        component: Stats
     },
     {
         path: '/toprate',
