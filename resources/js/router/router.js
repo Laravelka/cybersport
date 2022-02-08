@@ -11,34 +11,42 @@ import Toprate from "../components/pages/Toprate";
 const routes = [
     {
         path: '/',
+        name: 'home',
         component: Home
     },
     {
         path: '/matches',
+        name: 'matches',
         component: Matches
     },
     {
         path: '/feed',
+        name: 'feed',
         component: Feed
     },
     {
         path: '/friends',
+        name: 'friends',
         component: Friends
     },
     {
         path: '/profile',
+        name: 'profile',
         component: Profile
     },
     {
         path: '/referral',
+        name: 'referral',
         component: Referral
     },
     {
         path: '/stats',
+        name: 'stats',
         component: Stats
     },
     {
         path: '/toprate',
+        name: 'toprate',
         component: Toprate
     }
 ];
