@@ -2,7 +2,7 @@
     <div class="navigation">
         <div class="navigation__items">
             <div class="navigation__item">
-                <router-link :to="{ name: 'matches' }" class="navigation__item-btn">
+                <router-link :to="{ name: 'matches' }" active-class="navigation__item_active" class="navigation__item-btn">
                     <div class="navigation__item-img">
                         <svg class="navigation__svg" width="38" height="12" viewBox="0 0 38 12" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                     <div class="navigation__item-name">Матчи</div>
                 </router-link>
             </div>
-            <div class="navigation__item navigation__item_active">
+            <div class="navigation__item">
                 <button class="navigation__item-btn">
                     <div class="navigation__item-img">
                         <svg class="navigation__svg" width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -70,7 +70,7 @@
                 </button>
             </div>
             <div class="navigation__item">
-                <router-link :to="{ name: 'toprate' }" class="navigation__item-btn">
+                <router-link :to="{ name: 'toprate' }" active-class="navigation__item_active" class="navigation__item-btn">
                     <div class="navigation__item-img">
                         <svg class="navigation__svg" width="16" height="20" viewBox="0 0 16 20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,7 @@
                 </router-link>
             </div>
             <div class="navigation__item">
-                <router-link :to="{ name: 'feed' }" class="navigation__item-btn">
+                <router-link :to="{ name: 'feed' }" active-class="navigation__item_active" class="navigation__item-btn">
                     <div class="navigation__item-img">
                         <svg class="navigation__svg" width="25" height="20" viewBox="0 0 25 20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
