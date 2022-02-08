@@ -5,13 +5,13 @@
         <div class="welcomehead">
             <div class="container">
                 <div class="welcomehead-top">
-                    <router-link class="welcomehead-top__logo" to="/">
+                    <router-link class="welcomehead-top__logo" :to="{ name: 'home' }">
                         <img class="welcomehead-top__logo-img" src="images/welcomehead-logo.svg" alt="">
                     </router-link>
-                    <router-link class="welcomehead-top__logo-mobile" to="/">
+                    <router-link class="welcomehead-top__logo-mobile" :to="{ name: 'home' }">
                         <img class="welcomehead-top__img-mobile" src="images/logo.svg" alt="">
                     </router-link>
-                    <router-link class="welcomehead-top__btn" to="/matches">Войти</router-link>
+                    <router-link class="welcomehead-top__btn" :to="{ name: 'matches' }">Войти</router-link>
                 </div>
                 <div class="welcomehead-content">
                     <div class="wrapper">
@@ -111,7 +111,7 @@
         </div>
 
         <div class="welcome-footer">
-            <router-link class="welcome-footer__btn" to="/matches">Начать</router-link>
+            <router-link class="welcome-footer__btn" :to="{ name: 'matches' }">Начать</router-link>
         </div>
 
     </div>

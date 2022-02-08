@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header-inner">
                 <div class="header-inner__left">
-                    <router-link class="logo" to="/matches">
+                    <router-link class="logo" :to="{ name: 'matches' }">
                         <img class="logo__img" src="images/logo.svg" alt="">
                     </router-link>
                     <div class="header-social__inner">
@@ -20,13 +20,13 @@
                     <nav class="menu">
                         <ul class="menu__list">
                             <li class="menu__list-item">
-                                <router-link class="menu__list-link" to="/feed">Лента</router-link>
+                                <router-link class="menu__list-link" :to="{ name: 'feed' }">Лента</router-link>
                             </li>
                             <li class="menu__list-item">
-                                <router-link class="menu__list-link" to="/toprate">Топ</router-link>
+                                <router-link class="menu__list-link" :to="{ name: 'toprate' }">Топ</router-link>
                             </li>
                             <li class="menu__list-item">
-                                <router-link class="menu__list-link" to="/">Инструкция</router-link>
+                                <router-link class="menu__list-link" :to="{ name: 'home' }">Инструкция</router-link>
                             </li>
                         </ul>
                     </nav>
@@ -47,13 +47,13 @@
                         </div>
                     </div>
                     <div class="header-usermenu">
-                        <router-link class="header-usermenu__icon" to="/profile">
+                        <router-link class="header-usermenu__icon" :to="{ name: 'profile' }">
                             <div class="header-usermenu__icongradient icon">
                                 <img class="header-usermenu__iconimg" src="images/user/1.png" alt="">
                             </div>
                         </router-link>
                         <div class="header-usermenu__info">
-                            <router-link class="header-usermenu__name user-name" to="/profile">Kushiro Nara
+                            <router-link class="header-usermenu__name user-name" :to="{ name: 'profile' }">Kushiro Nara
                                 <span class="header-usermenu__settings-icon">
                                     <img class="header-usermenu__settings" src="images/icons/settings.svg" alt="">
                                 </span>
@@ -88,13 +88,13 @@
                             <img src="images/icons/settings.svg" alt="">
                         </button>
                         <div class="mobile-menu__usermenu">
-                            <router-link class="mobile-menu__usermenu-icon" to="/profile">
+                            <router-link class="mobile-menu__usermenu-icon" :to="{ name: 'profile' }">
                                 <div class="mobile-menu__usermenu-icongradient icon">
                                     <img class="mobile-menu__usermenu-iconimg" src="images/user/1.png" alt="">
                                 </div>
                             </router-link>
                             <div class="mobile-menu__usermenu-info">
-                                <router-link class="mobile-menu__usermenu-name" to="/profile">Kushiro Nara
+                                <router-link class="mobile-menu__usermenu-name" :to="{ name: 'profile' }">Kushiro Nara
                                     <span>
                                     </span>
                                 </router-link>
@@ -122,7 +122,7 @@
                                                 </clipPath>
                                             </defs>
                                         </svg>
-                                        <a class="mobile-menu__list-link" href="#">Профиль</a>
+                                        <router-link class="mobile-menu__list-link" :to="{ name: 'profile' }">Профиль</router-link>
                                     </li>
                                     <li class="mobile-menu__list-item">
                                         <svg class="mobile-menu__list-img" width="16" height="18" viewBox="0 0 16 18" fill="none"
@@ -131,7 +131,7 @@
                                                   d="M13 6C14.6569 6 16 4.65685 16 3C16 1.34315 14.6569 0 13 0C11.3431 0 10 1.34315 10 3C10 3.38587 10.0729 3.75473 10.2056 4.09357L5.2793 7.04933C4.72908 6.40702 3.91207 6 3 6C1.34315 6 0 7.34315 0 9C0 10.6569 1.34315 12 3 12C3.91207 12 4.72908 11.593 5.2793 10.9507L10.2056 13.9064C10.0729 14.2453 10 14.6141 10 15C10 16.6569 11.3431 18 13 18C14.6569 18 16 16.6569 16 15C16 13.3431 14.6569 12 13 12C12.0879 12 11.2709 12.407 10.7207 13.0493L5.79445 10.0936C5.92715 9.75473 6 9.38587 6 9C6 8.61413 5.92715 8.24527 5.79445 7.90643L10.7207 4.95067C11.2709 5.59298 12.0879 6 13 6Z"
                                                   fill="#6E6E86" />
                                         </svg>
-                                        <a class="mobile-menu__list-link" href="#">Рефералка</a>
+                                        <router-link class="mobile-menu__list-link" :to="{ name: 'referral' }">Рефералка</router-link>
                                     </li>
                                     <li class="mobile-menu__list-item">
                                         <svg class="mobile-menu__list-img" width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -139,7 +139,7 @@
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0H12V18H6V0ZM0 7H5V18H0V7ZM18 5H13V18H18V5Z"
                                                   fill="#6E6E86" />
                                         </svg>
-                                        <a class="mobile-menu__list-link" href="#">Статистика</a>
+                                        <router-link class="mobile-menu__list-link" :to="{ name: 'stats' }">Статистика</router-link>
                                     </li>
                                     <li class="mobile-menu__list-item">
                                         <svg class="mobile-menu__list-img" width="16" height="22" viewBox="0 0 16 22" fill="none"
@@ -149,8 +149,8 @@
                                                   fill="#6E6E86" />
                                         </svg>
 
-                                        <a class="mobile-menu__list-link" href="#">Подписчики
-                                            и друзья</a>
+                                        <router-link class="mobile-menu__list-link" :to="{ name: 'friends' }">Подписчики
+                                            и друзья</router-link>
                                     </li>
                                     <li class="mobile-menu__list-item">
                                         <svg class="mobile-menu__list-img" width="16" height="20" viewBox="0 0 16 20" fill="none"
@@ -180,7 +180,7 @@
                                                 d="M8.35696 17.4996C8.10828 17.4996 7.86977 17.4009 7.69379 17.2252C7.51782 17.0495 7.41877 16.8111 7.41839 16.5624V9.41956C7.41839 9.17102 7.31965 8.93265 7.1439 8.7569C6.96816 8.58116 6.72979 8.48242 6.48124 8.48242H1.64124C1.3927 8.48242 1.15433 8.58116 0.978584 8.7569C0.802836 8.93265 0.704102 9.17102 0.704102 9.41956V10.0453C0.704102 10.2938 0.802836 10.5322 0.978584 10.7079C1.15433 10.8837 1.3927 10.9824 1.64124 10.9824C1.88979 10.9824 2.12816 11.0812 2.3039 11.2569C2.47965 11.4327 2.57839 11.671 2.57839 11.9196V16.5696C2.57839 16.8181 2.47965 17.0565 2.3039 17.2322C2.12816 17.408 1.88979 17.5067 1.64124 17.5067C1.3927 17.5067 1.15433 17.6054 0.978584 17.7812C0.802836 17.9569 0.704102 18.1953 0.704102 18.4438V19.0696C0.705987 19.3169 0.805552 19.5534 0.981097 19.7276C1.15664 19.9018 1.39393 19.9996 1.64124 19.9996H8.35553C8.4786 19.9996 8.60046 19.9753 8.71416 19.9282C8.82786 19.8811 8.93117 19.8121 9.01819 19.7251C9.10521 19.6381 9.17424 19.5347 9.22134 19.421C9.26843 19.3073 9.29267 19.1855 9.29267 19.0624V18.4367C9.29267 18.1884 9.19414 17.9503 9.0187 17.7746C8.84326 17.5988 8.60526 17.4999 8.35696 17.4996Z"
                                                 fill="#A2A3C2" />
                                     </svg>
-                                    <router-link class="mobile-menu__list-link" to="/">Инструкция</router-link>
+                                    <router-link class="mobile-menu__list-link" :to="{ name: 'home' }">Инструкция</router-link>
                                 </div>
                             </div>
                         </div>
