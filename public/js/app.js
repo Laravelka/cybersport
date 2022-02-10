@@ -13120,79 +13120,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      message: {
-        message: ''
-      },
-      chatMessages: [{
-        id: 1,
-        userName: "First User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то сообщение",
-        time: "22:44"
-      }, {
-        id: 2,
-        userName: "Second User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то сообщение от пользователя",
-        time: "22:45"
-      }, {
-        id: 3,
-        userName: "Third User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то длинное сообщение от третьего пользователя",
-        time: "22:46"
-      }, {
-        id: 4,
-        userName: "First User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то длинное сообщение от первого пользователя с кучей текста",
-        time: "22:47"
-      }, {
-        id: 5,
-        userName: "Second User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то длинное сообщение от второго пользователя с кучей текста",
-        time: "22:53"
-      }]
+      message: ''
     };
   },
-  computed: {
-    // ...mapState({
-    //     messages: state => state.messages.messages
-    // })
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    chatMessages: function chatMessages(state) {
+      return state.messages.messages;
+    }
+  })), {}, {
     messages: function messages() {
       return this.chatMessages.slice(-5);
     }
-  },
-  methods: {
-    inputMessage: function inputMessage(event) {
-      this.message.message = event.target.value;
-    },
-    sendMessage: function sendMessage(event) {
+  }),
+  methods: _objectSpread({
+    sendMessage: function sendMessage() {
       this.saveMessage(this.message);
-      this.message.message = '';
-    },
-    saveMessage: function saveMessage(payload) {
-      var id = this.chatMessages[this.chatMessages.length - 1].id + 1; // temp for test
-
-      var date = new Date(); // temp for test
-
-      this.chatMessages.push({
-        id: id,
-        userName: "Current User",
-        userAvatar: "images/user/1.png",
-        message: payload.message,
-        time: date.getHours() + ':' + date.getMinutes()
-      });
-    } // ...mapMutations({
-    //     saveMessage: 'addMessage'
-    // })
-
-  }
+      this.message = '';
+    }
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
+    saveMessage: 'addMessage'
+  }))
 });
 
 /***/ }),
@@ -13905,41 +13863,36 @@ var _hoisted_2 = {
   "class": "match-chat__inner"
 };
 var _hoisted_3 = {
-  "class": "match-chat__form",
-  action: "#"
-};
-var _hoisted_4 = {
   "class": "match-chat__label-box"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "match-chat__icon",
   href: "#"
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "match-chat__icongradient icon-chat"
 };
-var _hoisted_7 = ["src"];
-var _hoisted_8 = {
+var _hoisted_6 = ["src"];
+var _hoisted_7 = {
   "class": "match-chat__text-inner"
 };
-var _hoisted_9 = {
+var _hoisted_8 = {
   "class": "match-chat__text-username chat-username"
 };
-var _hoisted_10 = {
+var _hoisted_9 = {
   "class": "match-chat__message-box"
 };
-var _hoisted_11 = {
+var _hoisted_10 = {
   "class": "match-chat__message"
 };
-var _hoisted_12 = {
+var _hoisted_11 = {
   "class": "match-chat__message-time"
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
   "class": "match-chat__input-box"
 };
-var _hoisted_14 = ["value"];
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "match-chat__btn-attach"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "images/icons/attach.svg",
@@ -13948,7 +13901,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "match-chat__btn-emoji"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "images/icons/emoji.svg",
@@ -13957,16 +13910,16 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "images/icons/send.svg",
   alt: ""
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_18 = [_hoisted_17];
+var _hoisted_16 = [_hoisted_15];
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "match-chat__btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "match-chat__btn-img",
@@ -13977,41 +13930,46 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.messages, function (message) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {}, ["prevent"])),
+    "class": "match-chat__form",
+    action: "#"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.messages, function (message) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", {
       key: message.id,
       "class": "match-chat__label"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "match-chat__iconimg",
       src: message.userAvatar,
       alt: ""
     }, null, 8
     /* PROPS */
-    , _hoisted_7)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.userName), 1
+    , _hoisted_6)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.userName), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.time), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.time), 1
     /* TEXT */
     )])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    value: $data.message.message,
-    onInput: _cache[0] || (_cache[0] = function () {
-      return $options.inputMessage && $options.inputMessage.apply($options, arguments);
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.message = $event;
     }),
     "class": "match-chat__form-input",
     placeholder: "Сообщение...",
     type: "text"
-  }, null, 40
-  /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_14), _hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.message]]), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function () {
       return $options.sendMessage && $options.sendMessage.apply($options, arguments);
-    }, ["prevent"])),
+    }),
     "class": "match-chat__btn-send"
-  }, _hoisted_18)])]), _hoisted_19])]);
+  }, _hoisted_16)])], 32
+  /* HYDRATE_EVENTS */
+  ), _hoisted_17])]);
 }
 
 /***/ }),
@@ -15156,21 +15114,17 @@ var chatMessagesModule = {
   },
   mutations: {
     addMessage: function addMessage(state, payload) {
-      console.log(state, payload);
       var id = state.messages[state.messages.length - 1].id + 1; // temp for test
-
-      state.messages.push(payload);
-      state.messages[state.messages.length - 1].id = id; // temp for test
-
-      state.messages[state.messages.length - 1].userName = "Current User"; // temp for test
-
-      state.messages[state.messages.length - 1].userAvatar = "images/user/1.png"; // temp for test
 
       var date = new Date(); // temp for test
 
-      state.messages[state.messages.length - 1].time = date.getHours() + ':' + date.getMinutes(); // temp for test
-
-      console.log(state.messages);
+      state.messages.push({
+        id: id,
+        userName: "Current User",
+        userAvatar: "images/user/1.png",
+        message: payload,
+        time: date.getHours() + ':' + date.getMinutes()
+      });
     }
   }
 };
