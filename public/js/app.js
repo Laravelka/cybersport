@@ -13120,12 +13120,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
     return {};
   },
-  computed: {}
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    user: function user(state) {
+      return state.currentUser.user;
+    }
+  }))
 });
 
 /***/ }),
@@ -13927,9 +13939,30 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<fieldset class=\"login-item__fieldset-input fieldset-input\"><legend>Введите почту или телефон</legend><input class=\"login-item__form-input input-login\" placeholder=\"USER322@mail.ru\" type=\"text\"></fieldset><fieldset class=\"login-item__fieldset-input fieldset-input\"><legend>Введите пароль</legend><input class=\"login-item__form-input input-login\" placeholder=\"********\" type=\"password\"></fieldset><button class=\"login-item__form-btn btn-login\">Войти</button>", 3);
+var _hoisted_7 = {
+  "class": "login-item__fieldset-input fieldset-input"
+};
 
-var _hoisted_10 = [_hoisted_7];
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("legend", null, "Введите почту или телефон", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("fieldset", {
+  "class": "login-item__fieldset-input fieldset-input"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("legend", null, "Введите пароль"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "login-item__form-input input-login",
+  placeholder: "********",
+  type: "password"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "login-item__form-btn btn-login"
+}, "Войти", -1
+/* HOISTED */
+);
+
 var _hoisted_11 = {
   "class": "login-item__info-box"
 };
@@ -13967,10 +14000,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   }), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {}, ["prevent"])),
+    onSubmit: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {}, ["prevent"])),
     action: "#",
     "class": "login-item__form"
-  }, _hoisted_10, 32
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("fieldset", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.user.email = $event;
+    }),
+    "class": "login-item__form-input input-login",
+    placeholder: "USER322@mail.ru",
+    type: "text"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.user.email]])]), _hoisted_9, _hoisted_10], 32
   /* HYDRATE_EVENTS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -15383,6 +15425,44 @@ var chatMessagesModule = {
 
 /***/ }),
 
+/***/ "./resources/js/store/currentUserModule.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/currentUserModule.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "currentUserModule": () => (/* binding */ currentUserModule)
+/* harmony export */ });
+var currentUserModule = {
+  state: function state() {
+    return {
+      user: {
+        id: '',
+        name: '',
+        email: 'admin@mail.com',
+        phone: '48123456789',
+        firstName: '',
+        lastName: '',
+        telegram: '',
+        discord: '',
+        avatar: '',
+        isAdmin: '',
+        isBanned: '',
+        balance: '',
+        balanceCoins: '',
+        pwPoints: '',
+        referalStatus: '',
+        referalLink: '',
+        posts: []
+      }
+    };
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/store/index.js":
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
@@ -15393,16 +15473,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var _matchesModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./matchesModule */ "./resources/js/store/matchesModule.js");
-/* harmony import */ var _chatMessagesModule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chatMessagesModule */ "./resources/js/store/chatMessagesModule.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var _currentUserModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./currentUserModule */ "./resources/js/store/currentUserModule.js");
+/* harmony import */ var _matchesModule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./matchesModule */ "./resources/js/store/matchesModule.js");
+/* harmony import */ var _chatMessagesModule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chatMessagesModule */ "./resources/js/store/chatMessagesModule.js");
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_2__.createStore)({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_3__.createStore)({
   modules: {
-    matches: _matchesModule__WEBPACK_IMPORTED_MODULE_0__.matchesModule,
-    messages: _chatMessagesModule__WEBPACK_IMPORTED_MODULE_1__.chatMessagesModule
+    currentUser: _currentUserModule__WEBPACK_IMPORTED_MODULE_0__.currentUserModule,
+    matches: _matchesModule__WEBPACK_IMPORTED_MODULE_1__.matchesModule,
+    messages: _chatMessagesModule__WEBPACK_IMPORTED_MODULE_2__.chatMessagesModule
   }
 }));
 

@@ -16,7 +16,12 @@
                     >
                         <fieldset class="login-item__fieldset-input fieldset-input">
                             <legend>Введите почту или телефон</legend>
-                            <input class="login-item__form-input input-login" placeholder="USER322@mail.ru" type="text">
+                            <input
+                                    v-model="user.email"
+                                    class="login-item__form-input input-login"
+                                    placeholder="USER322@mail.ru"
+                                    type="text"
+                            >
                         </fieldset>
                         <fieldset class="login-item__fieldset-input fieldset-input">
                             <legend>Введите пароль</legend>
@@ -54,6 +59,8 @@
 </template>
 
 <script>
+    import {mapState} from "vuex";
+
     export default {
         components: {
 
@@ -64,7 +71,9 @@
             }
         },
         computed: {
-
+            ...mapState({
+                user: state => state.currentUser.user
+            })
         }
     }
 </script>
