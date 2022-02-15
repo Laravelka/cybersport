@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Feed from "../components/pages/Feed";
 import Friends from "../components/pages/Friends";
 import Home from "../components/pages/Home";
+import Login from "../components/auth/Login";
 import Matches from "../components/pages/Matches";
 import Profile from "../components/pages/Profile";
 import Referral from "../components/pages/Referral";
@@ -28,6 +29,11 @@ const routes = [
         path: '/friends',
         name: 'friends',
         component: Friends
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
     },
     {
         path: '/profile',
