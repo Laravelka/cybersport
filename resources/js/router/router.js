@@ -6,6 +6,7 @@ import Login from "../components/auth/Login";
 import Matches from "../components/pages/Matches";
 import Profile from "../components/pages/Profile";
 import Referral from "../components/pages/Referral";
+import Register from "../components/auth/Register";
 import Stats from "../components/pages/Stats";
 import Toprate from "../components/pages/Toprate";
 
@@ -44,6 +45,11 @@ const routes = [
         path: '/referral',
         name: 'referral',
         component: Referral
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
     },
     {
         path: '/stats',

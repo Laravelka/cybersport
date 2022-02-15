@@ -9,7 +9,11 @@
                     </router-link>
                     <img class="login-item__img" src="images/logo.svg" alt="">
                     <h5 class="login-item__title popup-title">Добро пожаловать</h5>
-                    <form class="login-item__form" @submit.prevent action="#">
+                    <form
+                            @submit.prevent
+                            action="#"
+                            class="login-item__form"
+                    >
                         <fieldset class="login-item__fieldset-input fieldset-input">
                             <legend>Введите почту или телефон</legend>
                             <input class="login-item__form-input input-login" placeholder="USER322@mail.ru" type="text">
@@ -23,7 +27,7 @@
                     <div class="login-item__info-box">
                         <a class="login-item__restore" href="#">Забыли пароль?</a>
                         <div class="login-item__signup">У вас еще нет аккаунта?
-                            <a href="#">Зарегистрироваться</a>
+                            <router-link :to="{ name: 'register' }">Зарегистрироваться</router-link>
                         </div>
                         <div class="login-item__social">Войти через:</div>
                         <ul class="login-item__social-list">
@@ -60,9 +64,7 @@
             }
         },
         computed: {
-            backLink() {
-                return this.$router.back();
-            }
+
         }
     }
 </script>
