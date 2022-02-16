@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const currentUserModule = {
     state: () => ({
         user: {
@@ -19,5 +21,21 @@ export const currentUserModule = {
             referalLink: '',
             posts: []
         }
-    })
+    }),
+    actions: {
+        loginUser({}, user) {
+            console.log(user);
+            axios
+                .post("/api/v1/login", {
+                    email: user.email,
+                    password: user.password
+                })
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+    }
 };

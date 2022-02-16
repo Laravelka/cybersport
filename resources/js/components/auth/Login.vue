@@ -21,13 +21,23 @@
                                     class="login-item__form-input input-login"
                                     placeholder="USER322@mail.ru"
                                     type="text"
+                                    autocomplete="username"
                             >
                         </fieldset>
                         <fieldset class="login-item__fieldset-input fieldset-input">
                             <legend>Введите пароль</legend>
-                            <input class="login-item__form-input input-login" placeholder="********" type="password">
+                            <input
+                                    v-model="user.password"
+                                    class="login-item__form-input input-login"
+                                    placeholder="********"
+                                    type="password"
+                                    autocomplete="current-password"
+                            >
                         </fieldset>
-                        <button class="login-item__form-btn btn-login">Войти</button>
+                        <button
+                                @click="login(this.user)"
+                                class="login-item__form-btn btn-login"
+                        >Войти</button>
                     </form>
                     <div class="login-item__info-box">
                         <a class="login-item__restore" href="#">Забыли пароль?</a>
@@ -59,7 +69,7 @@
 </template>
 
 <script>
-    import {mapState} from "vuex";
+    import {mapActions} from "vuex";
 
     export default {
         components: {
@@ -67,12 +77,18 @@
         },
         data() {
             return {
-
+                user: {
+                    email: "",
+                    password: ""
+                }
             }
         },
         computed: {
-            ...mapState({
-                user: state => state.currentUser.user
+
+        },
+        methods: {
+            ...mapActions({
+                login: 'loginUser'
             })
         }
     }
