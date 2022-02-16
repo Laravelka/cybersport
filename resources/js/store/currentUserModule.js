@@ -23,9 +23,13 @@ export const currentUserModule = {
             posts: []
         }
     }),
+    mutations: {
+        setUser(state, data) {
+            state.user = data;
+        }
+    },
     actions: {
-        loginUser({}, user) {
-            console.log(user);
+        loginUser({commit}, user) {
             if (user.email.indexOf('@') === -1) {
                 user.phone = user.email;
                 delete user.email;
@@ -40,10 +44,9 @@ export const currentUserModule = {
                     }
                     if (response.data.user) {
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
+                        commit('setUser', response.data.user);
                     }
                     router.replace({name: 'matches'});
-
-                    console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);
