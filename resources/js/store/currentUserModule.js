@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "../router/router";
 
 export const currentUserModule = {
     state: () => ({
@@ -34,6 +35,14 @@ export const currentUserModule = {
                     ...user
                 })
                 .then(response => {
+                    if (response.data.access_token) {
+                        localStorage.setItem("access_token", response.data.access_token);
+                    }
+                    if (response.data.user) {
+                        localStorage.setItem("current_user", JSON.stringify(response.data.user));
+                    }
+                    router.replace({name: 'matches'});
+
                     console.log(response.data);
                 })
                 .catch(error => {
