@@ -53,7 +53,10 @@
                             </div>
                         </router-link>
                         <div class="header-usermenu__info">
-                            <router-link class="header-usermenu__name user-name" :to="{ name: 'profile' }">Kushiro Nara
+                            <router-link
+                                    class="header-usermenu__name user-name"
+                                    :to="{ name: 'profile' }"
+                            >{{ user.name }}
                                 <span class="header-usermenu__settings-icon">
                                     <img class="header-usermenu__settings" src="images/icons/settings.svg" alt="">
                                 </span>
@@ -61,7 +64,7 @@
                                     <img class="header-usermenu__exit" src="images/icons/exit-icon.svg" alt="">
                                 </span>
                             </router-link>
-                            <div class="header-usermenu__num purse">999,99 $
+                            <div class="header-usermenu__num purse">{{ user.balance }} $
                                 <span>
                                     <img class="header-usermenu__numimg" src="images/icons/purse.svg" alt="">
                                 </span>
@@ -94,11 +97,14 @@
                                 </div>
                             </router-link>
                             <div class="mobile-menu__usermenu-info">
-                                <router-link class="mobile-menu__usermenu-name" :to="{ name: 'profile' }">Kushiro Nara
+                                <router-link
+                                        class="mobile-menu__usermenu-name"
+                                        :to="{ name: 'profile' }"
+                                >{{ user.name }}
                                     <span>
                                     </span>
                                 </router-link>
-                                <div class="mobile-menu__usermenu-num">999,99 $
+                                <div class="mobile-menu__usermenu-num">{{ user.balance }} $
                                     <span>
                                         <img class="mobile-menu__usermenu-numimg" src="images/icons/purse.svg" alt="">
                                     </span>
@@ -230,5 +236,18 @@
 </template>
 
 <script>
+    import {mapState} from "vuex";
 
+    export default {
+        data() {
+            return {
+
+            }
+        },
+        computed: {
+            ...mapState({
+                user: state => state.currentUser.user
+            })
+        }
+    }
 </script>
