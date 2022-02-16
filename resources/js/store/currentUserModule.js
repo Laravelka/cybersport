@@ -25,10 +25,13 @@ export const currentUserModule = {
     actions: {
         loginUser({}, user) {
             console.log(user);
+            if (user.email.indexOf('@') === -1) {
+                user.phone = user.email;
+                delete user.email;
+            }
             axios
                 .post("/api/v1/login", {
-                    email: user.email,
-                    password: user.password
+                    ...user
                 })
                 .then(response => {
                     console.log(response.data);
