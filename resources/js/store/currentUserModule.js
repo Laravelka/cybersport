@@ -1,27 +1,28 @@
 import axios from "axios";
-import router from "../router/router";
+// import router from "../router/router";
 
 export const currentUserModule = {
     state: () => ({
-        user: {
-            id: '',
-            name: '',
-            email: 'admin@mail.com',
-            phone: '48123456789',
-            firstName: '',
-            lastName: '',
-            telegram: '',
-            discord: '',
-            avatar: '',
-            isAdmin: '',
-            isBanned: '',
-            balance: '',
-            balanceCoins: '',
-            pwPoints: '',
-            referalStatus: '',
-            referalLink: '',
-            posts: []
-        }
+        user: JSON.parse(localStorage.getItem("current_user"))
+        // user: {
+        //     id: '',
+        //     name: '',
+        //     email: 'admin@mail.com',
+        //     phone: '48123456789',
+        //     firstName: '',
+        //     lastName: '',
+        //     telegram: '',
+        //     discord: '',
+        //     avatar: '',
+        //     isAdmin: '',
+        //     isBanned: '',
+        //     balance: '',
+        //     balanceCoins: '',
+        //     pwPoints: '',
+        //     referalStatus: '',
+        //     referalLink: '',
+        //     posts: []
+        // }
     }),
     mutations: {
         setUser(state, data) {
@@ -46,11 +47,27 @@ export const currentUserModule = {
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
                     }
-                    router.replace({name: 'matches'});
+                    window.location.replace("/matches");
+                    // router.replace({name: 'matches'});
                 })
                 .catch(error => {
                     console.log(error);
                 })
+        },
+        logoutUser({state}) {
+            axios
+                .post("/api/v1/logout")
+                .then(response => {
+                    console.log(response.data.message);
+                    localStorage.removeItem("access_token");
+                    localStorage.removeItem("current_user");
+                    window.location.replace("/");
+                    // router.replace({name: 'home'});
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+
         }
     }
 };
