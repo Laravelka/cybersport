@@ -3,33 +3,42 @@ import axios from "axios";
 
 export const currentUserModule = {
     state: () => ({
-        user: JSON.parse(localStorage.getItem("current_user"))
-        // user: {
-        //     id: '',
-        //     name: '',
-        //     email: 'admin@mail.com',
-        //     phone: '48123456789',
-        //     firstName: '',
-        //     lastName: '',
-        //     telegram: '',
-        //     discord: '',
-        //     avatar: '',
-        //     isAdmin: '',
-        //     isBanned: '',
-        //     balance: '',
-        //     balanceCoins: '',
-        //     pwPoints: '',
-        //     referalStatus: '',
-        //     referalLink: '',
-        //     posts: []
-        // }
+        user: null
     }),
+    getters: {
+        user(state) {
+            return state.user;
+        }
+    },
     mutations: {
         setUser(state, data) {
             state.user = data;
         }
     },
     actions: {
+        registerUser({commit}, user) {
+            if (user.email.indexOf('@') === -1) {
+                user.phone = user.email;
+                delete user.email;
+            }
+            axios
+                .post("/api/v1/register", {
+                    ...user
+                })
+                .then(response => {
+                    if (response.data.access_token) {
+                        localStorage.setItem("access_token", response.data.access_token);
+                    }
+                    if (response.data.user) {
+                        localStorage.setItem("current_user", JSON.stringify(response.data.user));
+                        commit('setUser', response.data.user);
+                    }
+                    window.location.replace("/matches");
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
         loginUser({commit}, user) {
             if (user.email.indexOf('@') === -1) {
                 user.phone = user.email;

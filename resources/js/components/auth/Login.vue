@@ -21,7 +21,7 @@
                                     class="login-item__form-input input-login"
                                     placeholder="USER322@mail.ru"
                                     type="text"
-                                    autocomplete="username"
+                                    autocomplete="email"
                             >
                         </fieldset>
                         <fieldset class="login-item__fieldset-input fieldset-input">
