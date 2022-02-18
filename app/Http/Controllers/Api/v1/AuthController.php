@@ -25,7 +25,7 @@ class AuthController extends Controller
         $token = $user->createToken('access token')->accessToken;
 
         $response = [
-            'user' => new UserResource($user),
+            'user' => new UserResource($user->refresh()),
             'access_token' => $token
         ];
 

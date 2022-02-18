@@ -34,7 +34,6 @@ export const currentUserModule = {
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
                         commit('setLoading', false);
-                        // window.location.replace("/matches");
                         router.push({name: 'matches'});
                     }
                 })
