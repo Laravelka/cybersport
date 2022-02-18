@@ -111,7 +111,7 @@
         </div>
 
         <div class="welcome-footer">
-            <router-link class="welcome-footer__btn" :to="{ name: 'matches' }">Начать</router-link>
+            <router-link class="welcome-footer__btn" :to="{ name: 'register' }">Начать</router-link>
         </div>
 
     </div>
