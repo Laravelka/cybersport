@@ -1,5 +1,5 @@
 import axios from "axios";
-// import router from "../router/router";
+import router from "../router/router";
 
 export const currentUserModule = {
     state: () => ({
@@ -17,6 +17,9 @@ export const currentUserModule = {
     },
     actions: {
         registerUser({commit}, user) {
+            commit('clearError');
+            commit('setLoading', true);
+
             if (user.email.indexOf('@') === -1) {
                 user.phone = user.email;
                 delete user.email;
@@ -26,16 +29,18 @@ export const currentUserModule = {
                     ...user
                 })
                 .then(response => {
-                    if (response.data.access_token) {
+                    if (response.data.access_token && response.data.user) {
                         localStorage.setItem("access_token", response.data.access_token);
-                    }
-                    if (response.data.user) {
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
+                        commit('setLoading', false);
+                        // window.location.replace("/matches");
+                        router.push({name: 'matches'});
                     }
-                    window.location.replace("/matches");
                 })
                 .catch(error => {
+                    commit('setLoading', false);
+                    commit('setError', error.message);
                     console.log(error);
                 })
         },

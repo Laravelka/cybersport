@@ -108,7 +108,7 @@
                                     <span>
                                     </span>
                                 </router-link>
-                                <div class="mobile-menu__usermenu-num">{{ user.balance }} $
+                                <div class="mobile-menu__usermenu-num">{{ typeof user.balance }} $
                                     <span>
                                         <img class="mobile-menu__usermenu-numimg" src="images/icons/purse.svg" alt="">
                                     </span>

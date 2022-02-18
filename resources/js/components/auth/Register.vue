@@ -88,7 +88,7 @@
 </template>
 
 <script>
-    import {mapActions} from "vuex";
+    import {mapState, mapActions} from "vuex";
 
     export default {
         components: {
@@ -105,7 +105,9 @@
             }
         },
         computed: {
-
+            ...mapState({
+                loading: state => state.common.loading
+            })
         },
         methods: {
             ...mapActions({
