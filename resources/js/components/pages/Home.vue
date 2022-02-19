@@ -11,7 +11,7 @@
                     <router-link class="welcomehead-top__logo-mobile" :to="{ name: 'home' }">
                         <img class="welcomehead-top__img-mobile" src="images/logo.svg" alt="">
                     </router-link>
-                    <router-link class="welcomehead-top__btn" :to="{ name: 'login' }">Войти</router-link>
+                    <router-link class="welcomehead-top__btn" :to="{ name: headerLink }">Войти</router-link>
                 </div>
                 <div class="welcomehead-content">
                     <div class="wrapper">
@@ -111,12 +111,26 @@
         </div>
 
         <div class="welcome-footer">
-            <router-link class="welcome-footer__btn" :to="{ name: 'register' }">Начать</router-link>
+            <router-link class="welcome-footer__btn" :to="{ name: bottomLink }">Начать</router-link>
         </div>
 
     </div>
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
 
+    export default {
+        computed: {
+            ...mapGetters({
+                isLoggedIn: 'isLoggedIn'
+            }),
+            headerLink() {
+                return this.isLoggedIn ? 'matches' : 'login';
+            },
+            bottomLink() {
+                return this.isLoggedIn ? 'matches' : 'register';
+            }
+        }
+    }
 </script>
