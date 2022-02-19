@@ -9,7 +9,7 @@
 
 <script>
     import axios from "axios";
-    import {mapState} from "vuex";
+    import {mapState, mapGetters} from "vuex";
     import Error from "./UI/Error";
     import Loader from "./UI/Loader";
 
@@ -26,9 +26,15 @@
             ...mapState({
                 loading: state => state.common.loading,
                 errorMessage: state => state.common.error
+            }),
+            ...mapGetters({
+                isLoggedIn: 'isLoggedIn'
             })
         },
         created() {
+            if (localStorage.hasOwnProperty("current_user")) {
+                this.$store.dispatch("autoLoginUser", JSON.parse(localStorage.getItem("current_user")));
+            }
             if (localStorage.hasOwnProperty("access_token")) {
                 axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
             }

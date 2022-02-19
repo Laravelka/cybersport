@@ -56,6 +56,7 @@
                             <div class="header-usermenu__info-box">
 
                                 <router-link
+                                        v-if="user"
                                         class="header-usermenu__name user-name"
                                         :to="{ name: 'profile' }"
                                 >{{ user.name }}
@@ -74,7 +75,10 @@
 
                             </div>
 
-                            <div class="header-usermenu__num purse">{{ user.balance }} $
+                            <div
+                                    v-if="user"
+                                    class="header-usermenu__num purse"
+                            >{{ user.balance }} $
                                 <span>
                                     <img class="header-usermenu__numimg" src="images/icons/purse.svg" alt="">
                                 </span>
@@ -108,13 +112,17 @@
                             </router-link>
                             <div class="mobile-menu__usermenu-info">
                                 <router-link
+                                        v-if="user"
                                         class="mobile-menu__usermenu-name"
                                         :to="{ name: 'profile' }"
                                 >{{ user.name }}
                                     <span>
                                     </span>
                                 </router-link>
-                                <div class="mobile-menu__usermenu-num">{{ user.balance }} $
+                                <div
+                                        v-if="user"
+                                        class="mobile-menu__usermenu-num"
+                                >{{ user.balance }} $
                                     <span>
                                         <img class="mobile-menu__usermenu-numimg" src="images/icons/purse.svg" alt="">
                                     </span>

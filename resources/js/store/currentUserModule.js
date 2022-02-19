@@ -77,7 +77,7 @@ export const currentUserModule = {
                     }
                 })
         },
-        logoutUser({commit}) {
+        logoutUser({state, commit}) {
             axios
                 .post("/api/v1/logout", null, {
                     headers: {
@@ -90,6 +90,7 @@ export const currentUserModule = {
                     localStorage.removeItem("current_user");
                     // window.location.replace("/");
                     router.replace({name: 'home'});
+                    state.user = null;
                 })
                 .catch(error => {
                     if (error.response) {
@@ -98,7 +99,9 @@ export const currentUserModule = {
                         commit('setError', error.message);
                     }
                 })
-
+        },
+        autoLoginUser({commit}, user) {
+            commit('setUser', user);
         }
     }
 };
