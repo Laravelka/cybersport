@@ -77,18 +77,26 @@ export const currentUserModule = {
                     }
                 })
         },
-        logoutUser({state}) {
+        logoutUser({commit}) {
             axios
-                .post("/api/v1/logout")
+                .post("/api/v1/logout", null, {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+                    }
+                })
                 .then(response => {
                     console.log(response.data.message);
                     localStorage.removeItem("access_token");
                     localStorage.removeItem("current_user");
-                    window.location.replace("/");
-                    // router.replace({name: 'home'});
+                    // window.location.replace("/");
+                    router.replace({name: 'home'});
                 })
                 .catch(error => {
-                    console.log(error);
+                    if (error.response) {
+                        commit('setError', error.response.data.message);
+                    } else {
+                        commit('setError', error.message);
+                    }
                 })
 
         }
