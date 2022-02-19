@@ -44,6 +44,9 @@ export const currentUserModule = {
                 })
         },
         loginUser({commit}, user) {
+            commit('clearError');
+            commit('setLoading', true);
+
             if (user.email.indexOf('@') === -1) {
                 user.phone = user.email;
                 delete user.email;
@@ -53,18 +56,22 @@ export const currentUserModule = {
                     ...user
                 })
                 .then(response => {
-                    if (response.data.access_token) {
+                    if (response.data.access_token && response.data.user) {
                         localStorage.setItem("access_token", response.data.access_token);
-                    }
-                    if (response.data.user) {
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
+                        commit('setLoading', false);
+                        // window.location.replace("/matches");
+                        router.replace({name: 'matches'});
                     }
-                    window.location.replace("/matches");
-                    // router.replace({name: 'matches'});
                 })
                 .catch(error => {
-                    console.log(error);
+                    commit('setLoading', false);
+                    if (error.response) {
+                        commit('setError', error.response.data.message);
+                    } else {
+                        commit('setError', error.message);
+                    }
                 })
         },
         logoutUser({state}) {
