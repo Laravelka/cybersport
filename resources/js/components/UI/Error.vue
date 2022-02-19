@@ -8,7 +8,7 @@
                     <img src="images/icons/close.svg" alt="">
                 </button>
 
-                <div class="chooseTeam-wrapper__copy">{{ message }}</div>
+                <div class="error-message">{{ message }}</div>
             </div>
         </div>
     </div>
@@ -47,8 +47,5 @@
         background: #212136;
         opacity: .9;
         z-index: 1001;
-    }
-    .chooseTeam-wrapper__copy {
-        display: block;
     }
 </style>
