@@ -52,12 +52,12 @@ class AuthController extends Controller
                 return response()->json($response);
             } else {
                 return response()->json([
-                    'message' => 'Password mismatch'
+                    'message' => 'Введен неверный пароль'
                 ], 422);
             }
         } else {
             return response()->json([
-                'message' => 'User does not exist'
+                'message' => 'Пользователь с указанным email или номером телефона отсутствует'
             ], 422);
         }
     }
