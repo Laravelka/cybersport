@@ -18033,14 +18033,25 @@ var currentUserModule = {
       });
     },
     logoutUser: function logoutUser(_ref3) {
-      var state = _ref3.state;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/v1/logout").then(function (response) {
+      var commit = _ref3.commit;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/v1/logout", null, {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+        }
+      }).then(function (response) {
         console.log(response.data.message);
         localStorage.removeItem("access_token");
-        localStorage.removeItem("current_user");
-        window.location.replace("/"); // router.replace({name: 'home'});
+        localStorage.removeItem("current_user"); // window.location.replace("/");
+
+        _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].replace({
+          name: 'home'
+        });
       })["catch"](function (error) {
-        console.log(error);
+        if (error.response) {
+          commit('setError', error.response.data.message);
+        } else {
+          commit('setError', error.message);
+        }
       });
     }
   }
