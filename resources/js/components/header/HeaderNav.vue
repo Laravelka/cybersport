@@ -53,21 +53,27 @@
                             </div>
                         </router-link>
                         <div class="header-usermenu__info">
-                            <router-link
-                                    class="header-usermenu__name user-name"
-                                    :to="{ name: 'profile' }"
-                            >{{ user.name }}
+                            <div class="header-usermenu__info-box">
 
-                            </router-link>
-                            <span class="header-usermenu__settings-icon">
+                                <router-link
+                                        class="header-usermenu__name user-name"
+                                        :to="{ name: 'profile' }"
+                                >{{ user.name }}
+
+                                </router-link>
+                                <a class="header-usermenu__settings-link" href="#">
                                     <img class="header-usermenu__settings" src="images/icons/settings.svg" alt="">
-                                </span>
-                            <span
-                                    @click="logout"
-                                    class="header-usermenu__exit-icon"
-                            >
+                                </a>
+                                <a
+                                        @click.prevent="logout"
+                                        class="header-usermenu__exit-link"
+                                        href="#"
+                                >
                                     <img class="header-usermenu__exit" src="images/icons/exit-icon.svg" alt="">
-                                </span>
+                                </a>
+
+                            </div>
+
                             <div class="header-usermenu__num purse">{{ user.balance }} $
                                 <span>
                                     <img class="header-usermenu__numimg" src="images/icons/purse.svg" alt="">
