@@ -64,7 +64,6 @@ export const currentUserModule = {
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
                         commit('setLoading', false);
-                        // window.location.replace("/matches");
                         router.replace({name: 'matches'});
                     }
                 })
@@ -88,7 +87,6 @@ export const currentUserModule = {
                     console.log(response.data.message);
                     localStorage.removeItem("access_token");
                     localStorage.removeItem("current_user");
-                    // window.location.replace("/");
                     router.replace({name: 'home'});
                     state.user = null;
                 })
