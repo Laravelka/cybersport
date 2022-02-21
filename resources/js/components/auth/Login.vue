@@ -90,6 +90,11 @@
             ...mapActions({
                 login: 'loginUser'
             })
+        },
+        created() {
+            if (this.$route.query['authError']) {
+                this.$store.dispatch('setError', 'Для доступа к данной странице необходимо войти или зарегистрироваться');
+            }
         }
     }
 </script>
