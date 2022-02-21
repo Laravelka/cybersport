@@ -15298,7 +15298,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: {},
   methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
     login: 'loginUser'
-  }))
+  })),
+  created: function created() {
+    if (this.$route.query['authError']) {
+      this.$store.dispatch('setError', 'Для доступа к данной странице необходимо войти или зарегистрироваться');
+    }
+  }
 });
 
 /***/ }),
