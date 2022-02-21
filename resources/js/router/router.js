@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import authGuard from "./authGuard";
 import Feed from "../components/pages/Feed";
 import Friends from "../components/pages/Friends";
 import Home from "../components/pages/Home";
@@ -19,17 +20,20 @@ const routes = [
     {
         path: '/matches',
         name: 'matches',
-        component: Matches
+        component: Matches,
+        beforeEnter: [authGuard]
     },
     {
         path: '/feed',
         name: 'feed',
-        component: Feed
+        component: Feed,
+        beforeEnter: [authGuard]
     },
     {
         path: '/friends',
         name: 'friends',
-        component: Friends
+        component: Friends,
+        beforeEnter: [authGuard]
     },
     {
         path: '/login',
@@ -39,12 +43,14 @@ const routes = [
     {
         path: '/profile',
         name: 'profile',
-        component: Profile
+        component: Profile,
+        beforeEnter: [authGuard]
     },
     {
         path: '/referral',
         name: 'referral',
-        component: Referral
+        component: Referral,
+        beforeEnter: [authGuard]
     },
     {
         path: '/register',
@@ -54,12 +60,14 @@ const routes = [
     {
         path: '/stats',
         name: 'stats',
-        component: Stats
+        component: Stats,
+        beforeEnter: [authGuard]
     },
     {
         path: '/toprate',
         name: 'toprate',
-        component: Toprate
+        component: Toprate,
+        beforeEnter: [authGuard]
     }
 ];
 
