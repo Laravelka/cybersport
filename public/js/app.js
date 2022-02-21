@@ -18064,8 +18064,7 @@ var currentUserModule = {
           localStorage.setItem("access_token", response.data.access_token);
           localStorage.setItem("current_user", JSON.stringify(response.data.user));
           commit('setUser', response.data.user);
-          commit('setLoading', false); // window.location.replace("/matches");
-
+          commit('setLoading', false);
           _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].replace({
             name: 'matches'
           });
@@ -18090,8 +18089,7 @@ var currentUserModule = {
       }).then(function (response) {
         console.log(response.data.message);
         localStorage.removeItem("access_token");
-        localStorage.removeItem("current_user"); // window.location.replace("/");
-
+        localStorage.removeItem("current_user");
         _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].replace({
           name: 'home'
         });
