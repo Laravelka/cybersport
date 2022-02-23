@@ -15211,13 +15211,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.token) {
       (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer " + this.token;
-    }
-  } // beforeUpdate() {
-  //     if (localStorage.hasOwnProperty("access_token")) {
-  //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
-  //     }
-  // }
+    } //     if (localStorage.hasOwnProperty("access_token")) {
+    //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
+    //     }
 
+  }
 });
 
 /***/ }),

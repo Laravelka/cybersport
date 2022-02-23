@@ -43,11 +43,10 @@
             if (this.token) {
                 axios.defaults.headers.common["Authorization"] = "Bearer " + this.token;
             }
-        },
-        // beforeUpdate() {
-        //     if (localStorage.hasOwnProperty("access_token")) {
-        //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
-        //     }
-        // }
+
+            //     if (localStorage.hasOwnProperty("access_token")) {
+            //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
+            //     }
+        }
     }
 </script>
