@@ -15194,19 +15194,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     errorMessage: function errorMessage(state) {
       return state.common.error;
+    },
+    token: function token(state) {
+      return state.currentUser.token;
     }
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)({
     isLoggedIn: 'isLoggedIn'
   })),
   created: function created() {
-    if (localStorage.hasOwnProperty("current_user")) {
-      this.$store.dispatch("autoLoginUser", JSON.parse(localStorage.getItem("current_user")));
+    if (localStorage.hasOwnProperty("current_user") && localStorage.hasOwnProperty("access_token")) {
+      this.$store.dispatch("autoLoginUser", {
+        user: JSON.parse(localStorage.getItem("current_user")),
+        token: localStorage.getItem("access_token")
+      });
     }
 
-    if (localStorage.hasOwnProperty("access_token")) {
-      (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer " + localStorage.getItem("access_token");
+    if (this.token) {
+      (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer " + this.token;
     }
-  }
+  } // beforeUpdate() {
+  //     if (localStorage.hasOwnProperty("access_token")) {
+  //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
+  //     }
+  // }
+
 });
 
 /***/ }),
@@ -18046,7 +18057,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var currentUserModule = {
   state: function state() {
     return {
-      user: null
+      user: null,
+      token: null
     };
   },
   getters: {
@@ -18060,6 +18072,9 @@ var currentUserModule = {
   mutations: {
     setUser: function setUser(state, data) {
       state.user = data;
+    },
+    setToken: function setToken(state, data) {
+      state.token = data;
     }
   },
   actions: {
@@ -18078,6 +18093,7 @@ var currentUserModule = {
           localStorage.setItem("access_token", response.data.access_token);
           localStorage.setItem("current_user", JSON.stringify(response.data.user));
           commit('setUser', response.data.user);
+          commit('setToken', response.data.access_token);
           commit('setLoading', false);
           _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].push({
             name: 'matches'
@@ -18104,6 +18120,7 @@ var currentUserModule = {
           localStorage.setItem("access_token", response.data.access_token);
           localStorage.setItem("current_user", JSON.stringify(response.data.user));
           commit('setUser', response.data.user);
+          commit('setToken', response.data.access_token);
           commit('setLoading', false);
           _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].replace({
             name: 'matches'
@@ -18130,10 +18147,11 @@ var currentUserModule = {
         console.log(response.data.message);
         localStorage.removeItem("access_token");
         localStorage.removeItem("current_user");
+        commit('setUser', null);
+        commit('setToken', null);
         _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].replace({
           name: 'home'
         });
-        state.user = null;
       })["catch"](function (error) {
         if (error.response) {
           commit('setError', error.response.data.message);
@@ -18142,9 +18160,10 @@ var currentUserModule = {
         }
       });
     },
-    autoLoginUser: function autoLoginUser(_ref4, user) {
+    autoLoginUser: function autoLoginUser(_ref4, data) {
       var commit = _ref4.commit;
-      commit('setUser', user);
+      commit('setUser', data.user);
+      commit('setToken', data.token);
     }
   }
 };
