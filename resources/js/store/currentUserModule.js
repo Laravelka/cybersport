@@ -3,7 +3,8 @@ import router from "../router/router";
 
 export const currentUserModule = {
     state: () => ({
-        user: null
+        user: null,
+        token: null
     }),
     getters: {
         user(state) {
@@ -16,6 +17,9 @@ export const currentUserModule = {
     mutations: {
         setUser(state, data) {
             state.user = data;
+        },
+        setToken(state, data) {
+            state.token = data;
         }
     },
     actions: {
@@ -36,6 +40,7 @@ export const currentUserModule = {
                         localStorage.setItem("access_token", response.data.access_token);
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
+                        commit('setToken', response.data.access_token);
                         commit('setLoading', false);
                         router.push({name: 'matches'});
                     }
@@ -63,6 +68,7 @@ export const currentUserModule = {
                         localStorage.setItem("access_token", response.data.access_token);
                         localStorage.setItem("current_user", JSON.stringify(response.data.user));
                         commit('setUser', response.data.user);
+                        commit('setToken', response.data.access_token);
                         commit('setLoading', false);
                         router.replace({name: 'matches'});
                     }
@@ -87,8 +93,9 @@ export const currentUserModule = {
                     console.log(response.data.message);
                     localStorage.removeItem("access_token");
                     localStorage.removeItem("current_user");
+                    commit('setUser', null);
+                    commit('setToken', null);
                     router.replace({name: 'home'});
-                    state.user = null;
                 })
                 .catch(error => {
                     if (error.response) {
@@ -98,8 +105,9 @@ export const currentUserModule = {
                     }
                 })
         },
-        autoLoginUser({commit}, user) {
-            commit('setUser', user);
+        autoLoginUser({commit}, data) {
+            commit('setUser', data.user);
+            commit('setToken', data.token);
         }
     }
 };
