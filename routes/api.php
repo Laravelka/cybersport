@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\v1\Admin\SettingController;
 use App\Http\Controllers\Api\v1\Admin\TeamController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
+use App\Http\Controllers\Api\v1\ChatController as UsersChatController;
 use App\Http\Controllers\Api\v1\CommentController;
 use App\Http\Controllers\Api\v1\FriendController;
 use App\Http\Controllers\Api\v1\LikeController;
@@ -37,6 +38,9 @@ Route::post('/login', [AuthController::class, 'login'])
 Route::middleware(['auth:api'])->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
+
+    // users chat
+//    Route::get();
 
     Route::apiResources([
         'comments' => CommentController::class,
