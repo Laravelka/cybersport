@@ -13,4 +13,9 @@ class Chat extends Model
         'title',
         'slug'
     ];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }
