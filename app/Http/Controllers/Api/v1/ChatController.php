@@ -20,9 +20,8 @@ class ChatController extends Controller
         $requestData['user_id'] = Auth::id();
 
         $chat = Chat::findOrFail($chatId);
-        $newMessage = new Message($requestData);
 
-        $chat->messages()->save($newMessage);
+        $newMessage = $chat->messages()->create($requestData);
 
         ChatMessage::dispatch($newMessage);
 
