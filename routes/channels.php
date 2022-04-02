@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 
-Broadcast::channel('chat', function ($user, $id) {
+Broadcast::channel('chat.{id}', function ($user, $id) {
     if (Auth::check() && !$user->is_banned) {
         return true;
     } else {
