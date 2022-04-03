@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
+    public function getMessages($chatId)
+    {
+        $messages = Message::where('chat_id', $chatId)->get();
+
+        return ChatMessageResource::collection($messages);
+    }
+
     public function newMessage(MessageStoreRequest $request, $chatId)
     {
         $requestData = array_diff($request->validated(), [null]);
