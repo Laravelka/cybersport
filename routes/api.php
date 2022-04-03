@@ -41,6 +41,8 @@ Route::middleware(['auth:api'])->group(function() {
 
     // users chat
 //    Route::get();
+    Route::post('/chat/{chatId}/message', [UsersChatController::class, 'newMessage'])
+        ->name('message.store');
 
     Route::apiResources([
         'comments' => CommentController::class,

@@ -15382,7 +15382,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      message: ''
+      messageData: {
+        message: '',
+        chatId: '2'
+      }
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
@@ -15396,11 +15399,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   methods: _objectSpread({
     sendMessage: function sendMessage() {
-      this.saveMessage(this.message);
-      this.message = '';
+      this.saveMessage(this.messageData);
+      this.messageData.message = '';
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
-    saveMessage: 'addMessage'
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
+    saveMessage: 'saveMessage'
   }))
 });
 
@@ -16714,14 +16717,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* KEYED_FRAGMENT */
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.message = $event;
+      return $data.messageData.message = $event;
     }),
     "class": "match-chat__form-input",
     placeholder: "Сообщение...",
     type: "text"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.message]]), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.messageData.message]]), _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.sendMessage && $options.sendMessage.apply($options, arguments);
     }),
@@ -17920,55 +17923,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "chatMessagesModule": () => (/* binding */ chatMessagesModule)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 var chatMessagesModule = {
   state: function state() {
     return {
-      messages: [{
-        id: 1,
-        userName: "First User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то сообщение",
-        time: "22:44"
-      }, {
-        id: 2,
-        userName: "Second User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то сообщение от пользователя",
-        time: "22:45"
-      }, {
-        id: 3,
-        userName: "Third User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то длинное сообщение от третьего пользователя",
-        time: "22:46"
-      }, {
-        id: 4,
-        userName: "First User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то длинное сообщение от первого пользователя с кучей текста",
-        time: "22:47"
-      }, {
-        id: 5,
-        userName: "Second User",
-        userAvatar: "images/user/1.png",
-        message: "Какое-то длинное сообщение от второго пользователя с кучей текста",
-        time: "22:53"
-      }]
+      messages: []
     };
   },
   mutations: {
-    addMessage: function addMessage(state, payload) {
-      var id = state.messages[state.messages.length - 1].id + 1; // temp for test
+    addMessage: function addMessage(state, payload) {// let id = state.messages[state.messages.length - 1].id + 1; // temp for test
+      // let date = new Date(); // temp for test
+      // state.messages.push({
+      //     id,
+      //     userName: "Current User",
+      //     userAvatar: "images/user/1.png",
+      //     message: payload,
+      //     time: date.getHours() + ':' + date.getMinutes()
+      // });
+    }
+  },
+  actions: {
+    saveMessage: function saveMessage(_ref, messageData) {
+      var commit = _ref.commit;
 
-      var date = new Date(); // temp for test
-
-      state.messages.push({
-        id: id,
-        userName: "Current User",
-        userAvatar: "images/user/1.png",
-        message: payload,
-        time: date.getHours() + ':' + date.getMinutes()
-      });
+      if (messageData.message.trim() != '' && messageData.chatId != '') {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/v1/chat/".concat(messageData.chatId, "/message"), {
+          message: messageData.message
+        }).then(function (response) {
+          console.log(response.data);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        return;
+      }
     }
   }
 };
