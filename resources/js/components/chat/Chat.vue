@@ -24,7 +24,7 @@
                     </div>
                     <div class="match-chat__input-box">
                         <input
-                                v-model="message"
+                                v-model="messageData.message"
                                 class="match-chat__form-input"
                                 placeholder="Сообщение..."
                                 type="text"
@@ -51,12 +51,15 @@
 </template>
 
 <script>
-    import {mapState, mapMutations} from "vuex";
+    import {mapState, mapActions} from "vuex";
 
     export default {
         data() {
             return {
-                message: '',
+                messageData: {
+                    message: '',
+                    chatId: '2'
+                },
             }
         },
         computed: {
@@ -69,11 +72,11 @@
         },
         methods: {
             sendMessage() {
-                this.saveMessage(this.message);
-                this.message = '';
+                this.saveMessage(this.messageData);
+                this.messageData.message = '';
             },
-            ...mapMutations({
-                saveMessage: 'addMessage'
+            ...mapActions({
+                saveMessage: 'saveMessage'
             })
         }
     }
