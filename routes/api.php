@@ -40,7 +40,8 @@ Route::middleware(['auth:api'])->group(function() {
         ->name('logout');
 
     // users chat
-//    Route::get();
+    Route::get('/chat/{chatId}', [UsersChatController::class, 'getMessages'])
+        ->name('messages');
     Route::post('/chat/{chatId}/message', [UsersChatController::class, 'newMessage'])
         ->name('message.store');
 

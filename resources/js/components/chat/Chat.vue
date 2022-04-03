@@ -62,6 +62,9 @@
                 },
             }
         },
+        created() {
+            this.getMessages(2);
+        },
         computed: {
             ...mapState({
                 chatMessages: state => state.messages.messages
@@ -76,6 +79,7 @@
                 this.messageData.message = '';
             },
             ...mapActions({
+                getMessages: 'getMessages',
                 saveMessage: 'saveMessage'
             })
         }

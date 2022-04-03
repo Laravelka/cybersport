@@ -15388,6 +15388,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
+  created: function created() {
+    this.getMessages(2);
+  },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
     chatMessages: function chatMessages(state) {
       return state.messages.messages;
@@ -15403,6 +15406,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.messageData.message = '';
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
+    getMessages: 'getMessages',
     saveMessage: 'saveMessage'
   }))
 });
@@ -17933,6 +17937,17 @@ var chatMessagesModule = {
     };
   },
   mutations: {
+    addMessages: function addMessages(state, payload) {
+      if (payload.data) {
+        payload.data.forEach(function (item, index, array) {
+          if (item.time) {
+            var time = new Date(Date.parse(item.time));
+            item.time = "".concat(time.getHours(), ":").concat(time.getMinutes());
+          }
+        });
+        state.messages = payload.data;
+      }
+    },
     addMessage: function addMessage(state, payload) {// let id = state.messages[state.messages.length - 1].id + 1; // temp for test
       // let date = new Date(); // temp for test
       // state.messages.push({
@@ -17945,8 +17960,21 @@ var chatMessagesModule = {
     }
   },
   actions: {
-    saveMessage: function saveMessage(_ref, messageData) {
+    getMessages: function getMessages(_ref, chatId) {
       var commit = _ref.commit;
+
+      if (chatId != '') {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/v1/chat/".concat(chatId)).then(function (response) {
+          commit('addMessages', response.data);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        return;
+      }
+    },
+    saveMessage: function saveMessage(_ref2, messageData) {
+      var commit = _ref2.commit;
 
       if (messageData.message.trim() != '' && messageData.chatId != '') {
         axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/v1/chat/".concat(messageData.chatId, "/message"), {
