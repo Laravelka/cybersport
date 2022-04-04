@@ -65,6 +65,12 @@
         created() {
             this.getMessages(2);
         },
+        mounted() {
+            window.Echo.channel('chat.2')
+                .listen('ChatMessage', () => {
+                    this.getMessages(2);
+                });
+        },
         computed: {
             ...mapState({
                 chatMessages: state => state.messages.messages
