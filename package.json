@@ -12,15 +12,15 @@
     "devDependencies": {
         "@vue/compiler-sfc": "^3.2.9",
         "axios": "^0.21",
+        "laravel-echo": "^1.11.4",
         "laravel-mix": "^6.0.41",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
+        "pusher-js": "^7.0.6",
         "vue": "^3.2.29",
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
-        "laravel-echo": "^1.11.3",
-        "pusher-js": "^7.0.6",
         "vue-router": "^4.0.12",
         "vuex": "^4.0.2"
     }

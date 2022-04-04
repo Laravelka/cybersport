@@ -35,6 +35,6 @@ class ChatMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat.' . $this->message->chat_id);
+        return new Channel('chat.' . $this->message->chat_id);
     }
 }

@@ -13,6 +13,9 @@
     import Error from "./UI/Error";
     import Loader from "./UI/Loader";
 
+    import Echo from "laravel-echo";
+
+
     export default {
         components: {
             Error, Loader
@@ -47,6 +50,18 @@
             //     if (localStorage.hasOwnProperty("access_token")) {
             //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
             //     }
+
+            window.Pusher = require('pusher-js');
+
+            window.Echo = new Echo({
+                broadcaster: 'pusher',
+                key: process.env.MIX_PUSHER_APP_KEY,
+                cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+                wsHost: window.location.hostname,
+                wsPort: 6001,
+                forceTLS: false,
+                disableStats: true,
+            });
         }
     }
 </script>
