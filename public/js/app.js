@@ -15288,6 +15288,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/auth/Login.vue?vue&type=script&lang=js":
 /*!****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/auth/Login.vue?vue&type=script&lang=js ***!
@@ -16307,6 +16322,31 @@ function render(_ctx, _cache) {
     /* STABLE */
 
   })]), _hoisted_16])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326 ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "main"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"header\"><a class=\"header__icon\" href=\"#\"><div class=\"header__icongradient icon\"><img class=\"header__iconimg\" src=\"images/admin/user/1.png\" alt=\"\"><span>10</span></div></a><div class=\"header__info\"><a class=\"header__name user-name\" href=\"#\">Kushiro Nara <span class=\"header__settings-icon\"><img class=\"header__settings\" src=\"images/admin/icons/settings.svg\" alt=\"\"></span></a><div class=\"header__num purse\">999,99 $ <span><img class=\"header__numimg\" src=\"images/admin/icons/purse.svg\" alt=\"\"></span></div></div></div><div class=\"wrapper\"><!-- panel --><div class=\"panel\"><a class=\"logo\" href=\"#\"><img class=\"logo__img\" src=\"images/admin/logo.svg\" alt=\"\"></a><div class=\"panel__title title\">АДМИН ПАНЕЛЬ</div><div class=\"panel__list\"><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-1.png\" alt=\"\"><div class=\"panel__list-link\">Статистика</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-2.png\" alt=\"\"><div class=\"panel__list-link\">Предметы и кастом</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-3.png\" alt=\"\"><div class=\"panel__list-link\">Матчи</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-4.png\" alt=\"\"><div class=\"panel__list-link\">Игрок</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-5.png\" alt=\"\"><div class=\"panel__list-link\">Выплаты</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-6.png\" alt=\"\"><div class=\"panel__list-link\">Запросы</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-7.png\" alt=\"\"><div class=\"panel__list-link\">Бонусы</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-8.png\" alt=\"\"><div class=\"panel__list-link\">Турнирные заявки</div></a><a class=\"panel__list-item panel__list-item_active\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-9.svg\" alt=\"\"><div class=\"panel__list-link\">Чат</div></a></div><button class=\"panel__user-btn\"><img src=\"images/admin/icons/exit-icon.png\" alt=\"\"> Режим пользтователя </button></div><!-- adStatistics --><section class=\"adStatistics admin-container\"><div class=\"adStatistics__title section-title\">СТАТИСТИКА</div><div class=\"adStatistics__inner\"><div class=\"adStatistics-top\"><div class=\"adStatistics-top__tabs\"><button class=\"adStatistics-top__tabs-btn adStatistics-top__tabs-btn_active\">CS:GO</button><button class=\"adStatistics-top__tabs-btn\">Dota 2</button><button class=\"adStatistics-top__tabs-btn\">Все игры</button><button class=\"adStatistics-top__tabs-btn\">Predict Wars Elite</button><button class=\"adStatistics-top__tabs-btn\">Predict Wars</button></div><div class=\"adStatistics-top__charts\"><div class=\"adStatistics-bar\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-bar__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-bar__column-items\"><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:60px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:60px;\"></div></div></div></div><div class=\"adStatistics-line\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-line__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-line__items\"></div></div></div></div><button class=\"adStatistics-top__btn\">Изменить объём</button></div><div class=\"adStatistics-bottom\"><div class=\"adStatistics-bottom__percent-inner\"><div class=\"adStatistics-bottom__percent-items\"><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Средний винрейт</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Среднее пополнение</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Среднее кол-во ставок</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Сумма ставок</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent2-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Средний винстрик</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent2-icon.png\" alt=\"\"></span></div></div></div><div class=\"adStatistics-bottom__percent-buttons\"><div class=\"adStatistics-bottom__percentBtn-box\"><button class=\"adStatistics-bottom__arrow-left\"><img src=\"images/admin/icons/arrow-left.svg\" alt=\"\"></button><button class=\"adStatistics-bottom__percent-btn\">День</button><button class=\"adStatistics-bottom__arrow-right\"><img src=\"images/admin/icons/arrow-right.svg\" alt=\"\"></button></div><div class=\"adStatistics-bottom__percentBtn-box\"><button class=\"adStatistics-bottom__arrow-left\"><img src=\"images/admin/icons/arrow-left.svg\" alt=\"\"></button><button class=\"adStatistics-bottom__percent-btn\">Predict Wars</button><button class=\"adStatistics-bottom__arrow-right\"><img src=\"images/admin/icons/arrow-right.svg\" alt=\"\"></button></div></div></div><div class=\"adStatistics-lineChart\"><div class=\"adStatistics-lineChart__box-btn\"><button class=\"adStatistics-lineChart__btn adStatistics-lineChart__btn_active\">День</button><button class=\"adStatistics-lineChart__btn\">Оборот</button><button class=\"adStatistics-lineChart__btn\">Кол-во ставок</button></div><div class=\"adStatistics-line\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-line__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-line__items\"></div></div></div><div class=\"adStatistics-lineChart__color-box\"><div class=\"adStatistics-lineChart__color-item\">PW<span style=\"background-color:#FFF200;\"></span></div><div class=\"adStatistics-lineChart__color-item\">DOTA<span style=\"background-color:#CE0D12;\"></span></div><div class=\"adStatistics-lineChart__color-item\">CS:GO<span style=\"background-color:#933DEE;\"></span></div><div class=\"adStatistics-lineChart__color-item\">ELITE<span style=\"background-color:#56BAE4;\"></span></div></div><div class=\"adStatistics-lineChart__profit\"><div class=\"adStatistics-lineChart__profit-title\">Profit:</div><div class=\"adStatistics-lineChart__profit-num\">8000$</div></div></div></div></div></section></div>", 2);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" header "), _hoisted_2]);
 }
 
 /***/ }),
@@ -17819,6 +17859,34 @@ app.use(_router_router__WEBPACK_IMPORTED_MODULE_2__["default"]).use(_store__WEBP
 
 /***/ }),
 
+/***/ "./resources/js/router/adminGuard.js":
+/*!*******************************************!*\
+  !*** ./resources/js/router/adminGuard.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(to, from) {
+  var user = _store__WEBPACK_IMPORTED_MODULE_0__["default"].getters.user;
+
+  if (!user || !user.is_admin) {
+    return {
+      path: from.path,
+      query: {
+        authError: true
+      }
+    };
+  }
+}
+
+/***/ }),
+
 /***/ "./resources/js/router/authGuard.js":
 /*!******************************************!*\
   !*** ./resources/js/router/authGuard.js ***!
@@ -17856,18 +17924,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var _authGuard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./authGuard */ "./resources/js/router/authGuard.js");
-/* harmony import */ var _components_pages_Feed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/pages/Feed */ "./resources/js/components/pages/Feed.vue");
-/* harmony import */ var _components_pages_Friends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/Friends */ "./resources/js/components/pages/Friends.vue");
-/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/Home */ "./resources/js/components/pages/Home.vue");
-/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/auth/Login */ "./resources/js/components/auth/Login.vue");
-/* harmony import */ var _components_pages_Matches__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/Matches */ "./resources/js/components/pages/Matches.vue");
-/* harmony import */ var _components_pages_Profile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/Profile */ "./resources/js/components/pages/Profile.vue");
-/* harmony import */ var _components_pages_Referral__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/Referral */ "./resources/js/components/pages/Referral.vue");
-/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/auth/Register */ "./resources/js/components/auth/Register.vue");
-/* harmony import */ var _components_pages_Stats__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/pages/Stats */ "./resources/js/components/pages/Stats.vue");
-/* harmony import */ var _components_pages_Toprate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/pages/Toprate */ "./resources/js/components/pages/Toprate.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var _adminGuard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adminGuard */ "./resources/js/router/adminGuard.js");
+/* harmony import */ var _authGuard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./authGuard */ "./resources/js/router/authGuard.js");
+/* harmony import */ var _components_pages_Feed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/Feed */ "./resources/js/components/pages/Feed.vue");
+/* harmony import */ var _components_pages_Friends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/Friends */ "./resources/js/components/pages/Friends.vue");
+/* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/Home */ "./resources/js/components/pages/Home.vue");
+/* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/auth/Login */ "./resources/js/components/auth/Login.vue");
+/* harmony import */ var _components_pages_Matches__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/Matches */ "./resources/js/components/pages/Matches.vue");
+/* harmony import */ var _components_pages_Profile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/Profile */ "./resources/js/components/pages/Profile.vue");
+/* harmony import */ var _components_pages_Referral__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/pages/Referral */ "./resources/js/components/pages/Referral.vue");
+/* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/auth/Register */ "./resources/js/components/auth/Register.vue");
+/* harmony import */ var _components_pages_Stats__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/pages/Stats */ "./resources/js/components/pages/Stats.vue");
+/* harmony import */ var _components_pages_Toprate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/pages/Toprate */ "./resources/js/components/pages/Toprate.vue");
+/* harmony import */ var _components_admin_pages_AdminStats__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/admin/pages/AdminStats */ "./resources/js/components/admin/pages/AdminStats.vue");
+
+
 
 
 
@@ -17883,54 +17955,59 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: '/',
   name: 'home',
-  component: _components_pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/matches',
   name: 'matches',
-  component: _components_pages_Matches__WEBPACK_IMPORTED_MODULE_5__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Matches__WEBPACK_IMPORTED_MODULE_6__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
 }, {
   path: '/feed',
   name: 'feed',
-  component: _components_pages_Feed__WEBPACK_IMPORTED_MODULE_1__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Feed__WEBPACK_IMPORTED_MODULE_2__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
 }, {
   path: '/friends',
   name: 'friends',
-  component: _components_pages_Friends__WEBPACK_IMPORTED_MODULE_2__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Friends__WEBPACK_IMPORTED_MODULE_3__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
 }, {
   path: '/login',
   name: 'login',
-  component: _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _components_auth_Login__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
   path: '/profile',
   name: 'profile',
-  component: _components_pages_Profile__WEBPACK_IMPORTED_MODULE_6__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Profile__WEBPACK_IMPORTED_MODULE_7__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
 }, {
   path: '/referral',
   name: 'referral',
-  component: _components_pages_Referral__WEBPACK_IMPORTED_MODULE_7__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Referral__WEBPACK_IMPORTED_MODULE_8__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
 }, {
   path: '/register',
   name: 'register',
-  component: _components_auth_Register__WEBPACK_IMPORTED_MODULE_8__["default"]
+  component: _components_auth_Register__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
   path: '/stats',
   name: 'stats',
-  component: _components_pages_Stats__WEBPACK_IMPORTED_MODULE_9__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Stats__WEBPACK_IMPORTED_MODULE_10__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
 }, {
   path: '/toprate',
   name: 'toprate',
-  component: _components_pages_Toprate__WEBPACK_IMPORTED_MODULE_10__["default"],
-  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  component: _components_pages_Toprate__WEBPACK_IMPORTED_MODULE_11__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"]]
+}, {
+  path: '/admin/stats',
+  name: 'adminStats',
+  component: _components_admin_pages_AdminStats__WEBPACK_IMPORTED_MODULE_12__["default"],
+  beforeEnter: [_authGuard__WEBPACK_IMPORTED_MODULE_1__["default"], _adminGuard__WEBPACK_IMPORTED_MODULE_0__["default"]]
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.createRouter)({
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_13__.createRouter)({
   routes: routes,
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.createWebHistory)()
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_13__.createWebHistory)()
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
@@ -25312,6 +25389,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/pages/AdminStats.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/pages/AdminStats.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminStats_vue_vue_type_template_id_74e63326__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminStats.vue?vue&type=template&id=74e63326 */ "./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326");
+/* harmony import */ var _AdminStats_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminStats.vue?vue&type=script&lang=js */ "./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js");
+/* harmony import */ var G_OpenServer8_domains_cybersport_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,G_OpenServer8_domains_cybersport_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AdminStats_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AdminStats_vue_vue_type_template_id_74e63326__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/admin/pages/AdminStats.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/auth/Login.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/auth/Login.vue ***!
@@ -25724,6 +25829,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminStats_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminStats_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AdminStats.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/auth/Login.vue?vue&type=script&lang=js":
 /*!************************************************************************!*\
   !*** ./resources/js/components/auth/Login.vue?vue&type=script&lang=js ***!
@@ -26008,6 +26129,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileSideNav_vue_vue_type_template_id_417d94ba__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileSideNav_vue_vue_type_template_id_417d94ba__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileSideNav.vue?vue&type=template&id=417d94ba */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileSideNav.vue?vue&type=template&id=417d94ba");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326 ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminStats_vue_vue_type_template_id_74e63326__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminStats_vue_vue_type_template_id_74e63326__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AdminStats.vue?vue&type=template&id=74e63326 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326");
 
 
 /***/ }),
