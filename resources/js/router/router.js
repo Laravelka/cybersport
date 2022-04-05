@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import adminGuard from "./adminGuard";
 import authGuard from "./authGuard";
 import Feed from "../components/pages/Feed";
 import Friends from "../components/pages/Friends";
@@ -10,6 +11,7 @@ import Referral from "../components/pages/Referral";
 import Register from "../components/auth/Register";
 import Stats from "../components/pages/Stats";
 import Toprate from "../components/pages/Toprate";
+import AdminStats from "../components/admin/pages/AdminStats";
 
 const routes = [
     {
@@ -68,6 +70,12 @@ const routes = [
         name: 'toprate',
         component: Toprate,
         beforeEnter: [authGuard]
+    },
+    {
+        path: '/admin/stats',
+        name: 'adminStats',
+        component: AdminStats,
+        beforeEnter: [authGuard, adminGuard]
     }
 ];
 

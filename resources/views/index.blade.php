@@ -9,6 +9,7 @@
         <title>Cybersport App</title>
 
         <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style-admin.min.css') }}">
     </head>
     <body>
         <div id="app"></div>
