@@ -15288,6 +15288,41 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {};
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    user: function user(state) {
+      return state.currentUser.user;
+    }
+  })),
+  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
+    logout: 'logoutUser'
+  }))
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js ***!
@@ -15299,7 +15334,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var _header_AdminHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../header/AdminHeader */ "./resources/js/components/admin/header/AdminHeader.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    AdminHeader: _header_AdminHeader__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
 
 /***/ }),
 
@@ -16326,6 +16367,91 @@ function render(_ctx, _cache) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/header/AdminHeader.vue?vue&type=template&id=07c78b25":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/header/AdminHeader.vue?vue&type=template&id=07c78b25 ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "header"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "header__icongradient icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "header__iconimg",
+  src: "images/admin/user/1.png",
+  alt: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "10")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "header__info"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Kushiro Nara ");
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "header__settings-icon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "header__settings",
+  src: "images/admin/icons/settings.svg",
+  alt: ""
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "header__num purse"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("999,99 $ "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "header__numimg",
+  src: "images/admin/icons/purse.svg",
+  alt: ""
+})])], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "header__icon",
+    to: {
+      name: 'profile'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_2];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "header__name user-name",
+    to: {
+      name: 'profile'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_4, _hoisted_5];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_6])]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/pages/AdminStats.vue?vue&type=template&id=74e63326 ***!
@@ -16343,10 +16469,12 @@ var _hoisted_1 = {
   "class": "main"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"header\"><a class=\"header__icon\" href=\"#\"><div class=\"header__icongradient icon\"><img class=\"header__iconimg\" src=\"images/admin/user/1.png\" alt=\"\"><span>10</span></div></a><div class=\"header__info\"><a class=\"header__name user-name\" href=\"#\">Kushiro Nara <span class=\"header__settings-icon\"><img class=\"header__settings\" src=\"images/admin/icons/settings.svg\" alt=\"\"></span></a><div class=\"header__num purse\">999,99 $ <span><img class=\"header__numimg\" src=\"images/admin/icons/purse.svg\" alt=\"\"></span></div></div></div><div class=\"wrapper\"><!-- panel --><div class=\"panel\"><a class=\"logo\" href=\"#\"><img class=\"logo__img\" src=\"images/admin/logo.svg\" alt=\"\"></a><div class=\"panel__title title\">АДМИН ПАНЕЛЬ</div><div class=\"panel__list\"><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-1.png\" alt=\"\"><div class=\"panel__list-link\">Статистика</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-2.png\" alt=\"\"><div class=\"panel__list-link\">Предметы и кастом</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-3.png\" alt=\"\"><div class=\"panel__list-link\">Матчи</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-4.png\" alt=\"\"><div class=\"panel__list-link\">Игрок</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-5.png\" alt=\"\"><div class=\"panel__list-link\">Выплаты</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-6.png\" alt=\"\"><div class=\"panel__list-link\">Запросы</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-7.png\" alt=\"\"><div class=\"panel__list-link\">Бонусы</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-8.png\" alt=\"\"><div class=\"panel__list-link\">Турнирные заявки</div></a><a class=\"panel__list-item panel__list-item_active\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-9.svg\" alt=\"\"><div class=\"panel__list-link\">Чат</div></a></div><button class=\"panel__user-btn\"><img src=\"images/admin/icons/exit-icon.png\" alt=\"\"> Режим пользтователя </button></div><!-- adStatistics --><section class=\"adStatistics admin-container\"><div class=\"adStatistics__title section-title\">СТАТИСТИКА</div><div class=\"adStatistics__inner\"><div class=\"adStatistics-top\"><div class=\"adStatistics-top__tabs\"><button class=\"adStatistics-top__tabs-btn adStatistics-top__tabs-btn_active\">CS:GO</button><button class=\"adStatistics-top__tabs-btn\">Dota 2</button><button class=\"adStatistics-top__tabs-btn\">Все игры</button><button class=\"adStatistics-top__tabs-btn\">Predict Wars Elite</button><button class=\"adStatistics-top__tabs-btn\">Predict Wars</button></div><div class=\"adStatistics-top__charts\"><div class=\"adStatistics-bar\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-bar__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-bar__column-items\"><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:60px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:60px;\"></div></div></div></div><div class=\"adStatistics-line\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-line__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-line__items\"></div></div></div></div><button class=\"adStatistics-top__btn\">Изменить объём</button></div><div class=\"adStatistics-bottom\"><div class=\"adStatistics-bottom__percent-inner\"><div class=\"adStatistics-bottom__percent-items\"><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Средний винрейт</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Среднее пополнение</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Среднее кол-во ставок</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Сумма ставок</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent2-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Средний винстрик</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent2-icon.png\" alt=\"\"></span></div></div></div><div class=\"adStatistics-bottom__percent-buttons\"><div class=\"adStatistics-bottom__percentBtn-box\"><button class=\"adStatistics-bottom__arrow-left\"><img src=\"images/admin/icons/arrow-left.svg\" alt=\"\"></button><button class=\"adStatistics-bottom__percent-btn\">День</button><button class=\"adStatistics-bottom__arrow-right\"><img src=\"images/admin/icons/arrow-right.svg\" alt=\"\"></button></div><div class=\"adStatistics-bottom__percentBtn-box\"><button class=\"adStatistics-bottom__arrow-left\"><img src=\"images/admin/icons/arrow-left.svg\" alt=\"\"></button><button class=\"adStatistics-bottom__percent-btn\">Predict Wars</button><button class=\"adStatistics-bottom__arrow-right\"><img src=\"images/admin/icons/arrow-right.svg\" alt=\"\"></button></div></div></div><div class=\"adStatistics-lineChart\"><div class=\"adStatistics-lineChart__box-btn\"><button class=\"adStatistics-lineChart__btn adStatistics-lineChart__btn_active\">День</button><button class=\"adStatistics-lineChart__btn\">Оборот</button><button class=\"adStatistics-lineChart__btn\">Кол-во ставок</button></div><div class=\"adStatistics-line\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-line__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-line__items\"></div></div></div><div class=\"adStatistics-lineChart__color-box\"><div class=\"adStatistics-lineChart__color-item\">PW<span style=\"background-color:#FFF200;\"></span></div><div class=\"adStatistics-lineChart__color-item\">DOTA<span style=\"background-color:#CE0D12;\"></span></div><div class=\"adStatistics-lineChart__color-item\">CS:GO<span style=\"background-color:#933DEE;\"></span></div><div class=\"adStatistics-lineChart__color-item\">ELITE<span style=\"background-color:#56BAE4;\"></span></div></div><div class=\"adStatistics-lineChart__profit\"><div class=\"adStatistics-lineChart__profit-title\">Profit:</div><div class=\"adStatistics-lineChart__profit-num\">8000$</div></div></div></div></div></section></div>", 2);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"wrapper\"><!-- panel --><div class=\"panel\"><a class=\"logo\" href=\"#\"><img class=\"logo__img\" src=\"images/admin/logo.svg\" alt=\"\"></a><div class=\"panel__title title\">АДМИН ПАНЕЛЬ</div><div class=\"panel__list\"><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-1.png\" alt=\"\"><div class=\"panel__list-link\">Статистика</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-2.png\" alt=\"\"><div class=\"panel__list-link\">Предметы и кастом</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-3.png\" alt=\"\"><div class=\"panel__list-link\">Матчи</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-4.png\" alt=\"\"><div class=\"panel__list-link\">Игрок</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-5.png\" alt=\"\"><div class=\"panel__list-link\">Выплаты</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-6.png\" alt=\"\"><div class=\"panel__list-link\">Запросы</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-7.png\" alt=\"\"><div class=\"panel__list-link\">Бонусы</div></a><a class=\"panel__list-item\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-8.png\" alt=\"\"><div class=\"panel__list-link\">Турнирные заявки</div></a><a class=\"panel__list-item panel__list-item_active\" href=\"#\"><img class=\"panel__list-img\" src=\"images/admin/icons/panel-icon-9.svg\" alt=\"\"><div class=\"panel__list-link\">Чат</div></a></div><button class=\"panel__user-btn\"><img src=\"images/admin/icons/exit-icon.png\" alt=\"\"> Режим пользтователя </button></div><!-- adStatistics --><section class=\"adStatistics admin-container\"><div class=\"adStatistics__title section-title\">СТАТИСТИКА</div><div class=\"adStatistics__inner\"><div class=\"adStatistics-top\"><div class=\"adStatistics-top__tabs\"><button class=\"adStatistics-top__tabs-btn adStatistics-top__tabs-btn_active\">CS:GO</button><button class=\"adStatistics-top__tabs-btn\">Dota 2</button><button class=\"adStatistics-top__tabs-btn\">Все игры</button><button class=\"adStatistics-top__tabs-btn\">Predict Wars Elite</button><button class=\"adStatistics-top__tabs-btn\">Predict Wars</button></div><div class=\"adStatistics-top__charts\"><div class=\"adStatistics-bar\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-bar__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-bar__column-items\"><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:60px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:183px;\"></div><div class=\"adStatistics-bar__column-item\" style=\"height:60px;\"></div></div></div></div><div class=\"adStatistics-line\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-line__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-line__items\"></div></div></div></div><button class=\"adStatistics-top__btn\">Изменить объём</button></div><div class=\"adStatistics-bottom\"><div class=\"adStatistics-bottom__percent-inner\"><div class=\"adStatistics-bottom__percent-items\"><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Средний винрейт</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Среднее пополнение</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Среднее кол-во ставок</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Сумма ставок</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent2-icon.png\" alt=\"\"></span></div></div><div class=\"adStatistics-bottom__percent-item\"><div class=\"adStatistics-bottom__percent-title\">Средний винстрик</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58%</div><div class=\"adStatistics-bottom__percent-num\">58% <span><img src=\"images/admin/icons/percent2-icon.png\" alt=\"\"></span></div></div></div><div class=\"adStatistics-bottom__percent-buttons\"><div class=\"adStatistics-bottom__percentBtn-box\"><button class=\"adStatistics-bottom__arrow-left\"><img src=\"images/admin/icons/arrow-left.svg\" alt=\"\"></button><button class=\"adStatistics-bottom__percent-btn\">День</button><button class=\"adStatistics-bottom__arrow-right\"><img src=\"images/admin/icons/arrow-right.svg\" alt=\"\"></button></div><div class=\"adStatistics-bottom__percentBtn-box\"><button class=\"adStatistics-bottom__arrow-left\"><img src=\"images/admin/icons/arrow-left.svg\" alt=\"\"></button><button class=\"adStatistics-bottom__percent-btn\">Predict Wars</button><button class=\"adStatistics-bottom__arrow-right\"><img src=\"images/admin/icons/arrow-right.svg\" alt=\"\"></button></div></div></div><div class=\"adStatistics-lineChart\"><div class=\"adStatistics-lineChart__box-btn\"><button class=\"adStatistics-lineChart__btn adStatistics-lineChart__btn_active\">День</button><button class=\"adStatistics-lineChart__btn\">Оборот</button><button class=\"adStatistics-lineChart__btn\">Кол-во ставок</button></div><div class=\"adStatistics-line\"><div class=\"adStatistics-bar__tabs\"><button class=\"adStatistics-bar__tabs-btn adStatistics-bar__tabs-btn_active\">День</button><button class=\"adStatistics-bar__tabs-btn\">Неделя</button><button class=\"adStatistics-bar__tabs-btn\">Месяц</button><button class=\"adStatistics-bar__tabs-btn\">Год</button><button class=\"adStatistics-bar__tabs-btn\">За все время</button></div><div class=\"adStatistics-line__inner-chart\"><div class=\"adStatistics-bar__vertical-items\"><div class=\"adStatistics-bar__vertical-item\">6000</div><div class=\"adStatistics-bar__vertical-item\">5000</div><div class=\"adStatistics-bar__vertical-item\">4000</div><div class=\"adStatistics-bar__vertical-item\">3000</div><div class=\"adStatistics-bar__vertical-item\">2000</div><div class=\"adStatistics-bar__vertical-item\">1000</div></div><div class=\"adStatistics-bar__gorizontal-items\"><div class=\"adStatistics-bar__gorizontal-item\">1</div><div class=\"adStatistics-bar__gorizontal-item\">2</div><div class=\"adStatistics-bar__gorizontal-item\">3</div><div class=\"adStatistics-bar__gorizontal-item\">4</div><div class=\"adStatistics-bar__gorizontal-item\">5</div><div class=\"adStatistics-bar__gorizontal-item\">6</div><div class=\"adStatistics-bar__gorizontal-item\">7</div></div><div class=\"adStatistics-line__items\"></div></div></div><div class=\"adStatistics-lineChart__color-box\"><div class=\"adStatistics-lineChart__color-item\">PW<span style=\"background-color:#FFF200;\"></span></div><div class=\"adStatistics-lineChart__color-item\">DOTA<span style=\"background-color:#CE0D12;\"></span></div><div class=\"adStatistics-lineChart__color-item\">CS:GO<span style=\"background-color:#933DEE;\"></span></div><div class=\"adStatistics-lineChart__color-item\">ELITE<span style=\"background-color:#56BAE4;\"></span></div></div><div class=\"adStatistics-lineChart__profit\"><div class=\"adStatistics-lineChart__profit-title\">Profit:</div><div class=\"adStatistics-lineChart__profit-num\">8000$</div></div></div></div></div></section></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" header "), _hoisted_2]);
+  var _component_admin_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("admin-header");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_admin_header), _hoisted_2]);
 }
 
 /***/ }),
@@ -25389,6 +25517,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/header/AdminHeader.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/admin/header/AdminHeader.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminHeader_vue_vue_type_template_id_07c78b25__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminHeader.vue?vue&type=template&id=07c78b25 */ "./resources/js/components/admin/header/AdminHeader.vue?vue&type=template&id=07c78b25");
+/* harmony import */ var _AdminHeader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminHeader.vue?vue&type=script&lang=js */ "./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js");
+/* harmony import */ var G_OpenServer8_domains_cybersport_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,G_OpenServer8_domains_cybersport_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AdminHeader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AdminHeader_vue_vue_type_template_id_07c78b25__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/admin/header/AdminHeader.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/pages/AdminStats.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/admin/pages/AdminStats.vue ***!
@@ -25829,6 +25985,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminHeader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminHeader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AdminHeader.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js":
 /*!************************************************************************************!*\
   !*** ./resources/js/components/admin/pages/AdminStats.vue?vue&type=script&lang=js ***!
@@ -26129,6 +26301,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileSideNav_vue_vue_type_template_id_417d94ba__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileSideNav_vue_vue_type_template_id_417d94ba__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileSideNav.vue?vue&type=template&id=417d94ba */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileSideNav.vue?vue&type=template&id=417d94ba");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/header/AdminHeader.vue?vue&type=template&id=07c78b25":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/admin/header/AdminHeader.vue?vue&type=template&id=07c78b25 ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminHeader_vue_vue_type_template_id_07c78b25__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminHeader_vue_vue_type_template_id_07c78b25__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AdminHeader.vue?vue&type=template&id=07c78b25 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/header/AdminHeader.vue?vue&type=template&id=07c78b25");
 
 
 /***/ }),

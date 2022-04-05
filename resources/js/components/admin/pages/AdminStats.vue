@@ -1,28 +1,7 @@
 <template>
     <div class="main">
 
-        <!-- header -->
-
-        <div class="header">
-            <a class="header__icon" href="#">
-                <div class="header__icongradient icon">
-                    <img class="header__iconimg" src="images/admin/user/1.png" alt="">
-                    <span>10</span>
-                </div>
-            </a>
-            <div class="header__info">
-                <a class="header__name user-name" href="#">Kushiro Nara
-                    <span class="header__settings-icon">
-            <img class="header__settings" src="images/admin/icons/settings.svg" alt="">
-          </span>
-                </a>
-                <div class="header__num purse">999,99 $
-                    <span>
-            <img class="header__numimg" src="images/admin/icons/purse.svg" alt="">
-          </span>
-                </div>
-            </div>
-        </div>
+        <admin-header/>
 
         <div class="wrapper">
 
@@ -303,8 +282,11 @@
 </template>
 
 <script>
+    import AdminHeader from "../header/AdminHeader";
 
     export default {
-
+        components: {
+            AdminHeader
+        }
     }
 </script>
