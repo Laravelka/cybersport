@@ -1,24 +1,25 @@
 <template>
     <router-view></router-view>
     <loader v-show="loading"></loader>
-    <error
-            v-show="errorMessage"
-            :message="errorMessage"
-    ></error>
+	<Toast
+		:is-spin="true"
+		:is-open="errorMessage !== null"
+		color="danger"
+		placement="top-center"
+		:body="errorMessage"
+		icon-size="35px"
+	/>
 </template>
 
 <script>
-    import axios from "axios";
-    import {mapState, mapGetters} from "vuex";
+    import { mapState, mapGetters } from "vuex";
     import Error from "./UI/Error";
     import Loader from "./UI/Loader";
-
-    import Echo from "laravel-echo";
-
+    import Toast from "./Toast";
 
     export default {
         components: {
-            Error, Loader
+            Error, Loader, Toast
         },
         data() {
             return {
@@ -42,26 +43,6 @@
                     token: localStorage.getItem("access_token")
                 });
             }
-
-            if (this.token) {
-                axios.defaults.headers.common["Authorization"] = "Bearer " + this.token;
-            }
-
-            //     if (localStorage.hasOwnProperty("access_token")) {
-            //         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("access_token");
-            //     }
-
-            window.Pusher = require('pusher-js');
-
-            window.Echo = new Echo({
-                broadcaster: 'pusher',
-                key: process.env.MIX_PUSHER_APP_KEY,
-                cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-                wsHost: window.location.hostname,
-                wsPort: 6001,
-                forceTLS: false,
-                disableStats: true,
-            });
         }
     }
 </script>

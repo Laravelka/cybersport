@@ -23,6 +23,13 @@ class EventServiceProvider extends ServiceProvider
         ChatMessage::class => [
             SendChatMessageNotification::class,
         ],
+		\SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            \SocialiteProviders\Steam\SteamExtendSocialite::class.'@handle',
+            \SocialiteProviders\Yandex\YandexExtendSocialite::class.'@handle',
+			\SocialiteProviders\VKontakte\VKontakteExtendSocialite::class.'@handle',
+
+		],
+
     ];
 
     /**

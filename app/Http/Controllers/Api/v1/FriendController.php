@@ -60,10 +60,10 @@ class FriendController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FriendUpdateRequest $request, $id)
+    public function update(FriendUpdateRequest $request, int $id)
     {
         $friend = Friend::findOrFail($id);
 
@@ -90,11 +90,11 @@ class FriendController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy(int $id): \Illuminate\Http\Response
+	{
         $friend = Friend::findOrFail($id);
 
         if ($friend->user_id === Auth::id()) {
@@ -108,12 +108,10 @@ class FriendController extends Controller
         }
     }
 
-    public function hasSubscribe($user_id, $subscriber_id)
-    {
-        return (
-            Friend::where('user_id', $user_id)
-            ->where('subscriber_id', $subscriber_id)
-            ->first()
-        ) ? true : false;
+    public function hasSubscribe($user_id, $subscriber_id): bool
+	{
+        return (bool) Friend::where('user_id', $user_id)
+			->where('subscriber_id', $subscriber_id)
+			->first();
     }
 }

@@ -42,9 +42,20 @@ const routes = [
         name: 'login',
         component: Login
     },
+	{
+		path: '/:driver/callback',
+		name: 'socialLogin',
+		component: Login
+	},
     {
         path: '/profile',
         name: 'profile',
+        component: Profile,
+        beforeEnter: [authGuard]
+    },
+    {
+        path: '/id:id?',
+        name: 'getProfile',
         component: Profile,
         beforeEnter: [authGuard]
     },

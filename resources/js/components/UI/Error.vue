@@ -3,11 +3,11 @@
         <div class="chooseTeam-inner">
             <div class="chooseTeam-wrapper">
                 <button
-                        @click="clearError"
-                        class="chooseTeam-wrapper__btn-close btn-close">
-                    <img src="images/icons/close.svg" alt="">
+					@click="clearError"
+					class="chooseTeam-wrapper__btn-close btn-close"
+				>
+                    <img src="/images/icons/close.svg" alt="">
                 </button>
-
                 <div class="error-message">{{ message }}</div>
             </div>
         </div>
@@ -24,7 +24,10 @@
             }
         },
         props: {
-            message: String
+            message: {
+				type: String,
+				default: 'Неизвестная ошибка'
+			}
         },
         computed: {
         },
@@ -48,4 +51,8 @@
         opacity: .9;
         z-index: 1001;
     }
+
+	.error-message {
+		color: #d9516a;
+	}
 </style>

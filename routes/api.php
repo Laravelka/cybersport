@@ -7,13 +7,13 @@ use App\Http\Controllers\Api\v1\Admin\TeamController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\ChatController as UsersChatController;
+use App\Http\Controllers\Api\v1\UserController as ProfileController;
 use App\Http\Controllers\Api\v1\CommentController;
 use App\Http\Controllers\Api\v1\FriendController;
 use App\Http\Controllers\Api\v1\LikeController;
 use App\Http\Controllers\Api\v1\PostController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\Api\v1\UserController;
+// use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,15 +47,19 @@ Route::middleware(['auth:api'])->group(function() {
 
     Route::apiResources([
         'comments' => CommentController::class,
+        'profiles' => ProfileController::class,
         'friends' => FriendController::class,
         'likes' => LikeController::class,
-        'posts' => PostController::class
+        'posts' => PostController::class,
+
     ]);
 
-/*
- * Admin routes
- */
-    Route::prefix('admin')->name('admin.')->middleware('admin')
+	/*
+	 * Admin routes
+	 */
+    Route::prefix('admin')
+		->name('admin.')
+		->middleware('admin')
         ->group(function() {
             Route::apiResources([
                 'chats' => ChatController::class,

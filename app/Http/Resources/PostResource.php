@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\User;
 
 class PostResource extends JsonResource
 {
@@ -16,6 +17,7 @@ class PostResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'user' => $this->user()->first(),
             'user_id' => $this->user_id,
             'title' => $this->title,
             'content' => $this->content,
@@ -25,6 +27,7 @@ class PostResource extends JsonResource
             'comments' => CommentResource::collection($this->comments),
             'awards' => AwardResource::collection($this->awards),
             'likes' => LikeResource::collection($this->likes),
+
         ];
     }
 }

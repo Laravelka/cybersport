@@ -21,8 +21,8 @@ class MatchStoreRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(): array
+	{
         return [
             'title' => 'required|max:255',
             'slug' => 'required|max:255',

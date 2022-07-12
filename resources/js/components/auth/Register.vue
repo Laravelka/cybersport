@@ -66,18 +66,23 @@
                     <div class="signup-item__social">Войти через:</div>
                     <ul class="signup-item__social-list">
                         <li class="signup-item__social-item">
-                            <a class="signup-item__social-link" href="#">
+                            <a class="signup-item__social-link" href="/vkontakte/redirect">
                                 <img class="signup-item__social-linkimg" src="images/icons/vk.svg" alt="">
                             </a>
                         </li>
                         <li class="signup-item__social-item">
-                            <a class="signup-item__social-link" href="#">
+                            <a class="signup-item__social-link" href="/yandex/redirect">
                                 <img class="signup-item__social-linkimg" src="images/icons/yandex.svg" alt="">
                             </a>
                         </li>
                         <li class="signup-item__social-item">
-                            <a class="signup-item__social-link" href="#">
+                            <a class="signup-item__social-link" href="/google/redirect">
                                 <img class="signup-item__social-linkimg" src="images/icons/google.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="login-item__social-item">
+                            <a class="login-item__social-link" href="/steam/redirect">
+                                <img class="login-item__social-linkimg" src="images/icons/steam.svg" alt="" style="filter: invert(57%) sepia(9%) saturate(694%) hue-rotate(209deg) brightness(96%) contrast(89%);width: 36px;height: auto;">
                             </a>
                         </li>
                     </ul>

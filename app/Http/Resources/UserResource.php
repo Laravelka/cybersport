@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use http\Env\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -14,6 +15,8 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
+        $friends = FriendResource::collection($this->whenLoaded('friends'))->toArray($request);
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -27,11 +30,20 @@ class UserResource extends JsonResource
             'is_admin' => $this->is_admin,
             'is_banned' => $this->is_banned,
             'balance' => $this->balance,
+            'vk_id' => $this->vk_id,
+            'steam_id' => $this->steam_id,
+            'yandex_id' => $this->yandex_id,
             'balance_coins' => $this->balance_coins,
             'pw_points' => $this->pw_points,
             'referal_status' => $this->referal_status,
             'referal_link' => $this->referal_link,
-            'posts' => PostResource::collection($this->whenLoaded('posts'))
+            'posts' => PostResource::collection($this->whenLoaded('posts')),
+            'friends' => array_filter($friends, function($friend) {
+                return $friend['is_friend'] == 1;
+            }),
+            'subscribers' => array_filter($friends, function($friend) {
+                return $friend['is_friend'] == 0;
+            }),
         ];
     }
 }

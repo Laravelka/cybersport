@@ -106,6 +106,10 @@ export const currentUserModule = {
                 })
         },
         autoLoginUser({commit}, data) {
+			localStorage.setItem("access_token", data.token);
+			localStorage.setItem("current_user", JSON.stringify(data.user));
+            window.axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+
             commit('setUser', data.user);
             commit('setToken', data.token);
         }

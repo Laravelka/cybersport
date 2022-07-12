@@ -32,7 +32,7 @@ export const chatMessagesModule = {
     },
     actions: {
         getMessages({commit}, chatId) {
-            if (chatId != '') {
+            if (chatId !== '') {
                 axios
                     .get(`/api/v1/chat/${chatId}`)
                     .then(response => {
@@ -46,7 +46,7 @@ export const chatMessagesModule = {
             }
         },
         saveMessage({commit}, messageData) {
-            if (messageData.message.trim() != '' && messageData.chatId != '') {
+            if (messageData.message.trim() !== '' && messageData.chatId !== '') {
                 axios
                     .post(`/api/v1/chat/${messageData.chatId}/message`, {
                         message: messageData.message

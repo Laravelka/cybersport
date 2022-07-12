@@ -6,14 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Cybersport App</title>
+        <title>CyberSport App</title>
 
-        <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style-admin.min.css') }}">
-    </head>
-    <body>
-        <div id="app"></div>
+        <link rel="stylesheet" href="/css/style.min.css">
+        @if (str_contains(Route::current()->parameters['any'] ?? '', 'admin'))
+            <link rel="stylesheet" href="/css/style-admin.min.css">
+        @endif
+		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
 
-        <script src="{{ mix('js/app.js') }}"></script>
-    </body>
+		<script>
+			window.arrUser = {{ Illuminate\Support\Js::from($arrUser ?? null) }};
+			window.accessToken = {{ Illuminate\Support\Js::from($accessToken ?? null) }};
+		</script>
+	</head>
+	<body class="dark">
+		<div id="app"></div>
+		<script src="{{ mix('js/app.js') }}"></script>
+	</body>
 </html>

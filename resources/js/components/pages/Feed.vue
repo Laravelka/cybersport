@@ -6,7 +6,6 @@
         <section class="feed">
             <div class="feed__inner">
                 <div class="feed-item">
-
                     <div class="feed-top">
                         <div class="feed-top__box">
                             <a class="feed-top__icon" href="#">
