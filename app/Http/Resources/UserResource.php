@@ -15,7 +15,7 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        $friends = FriendResource::collection($this->whenLoaded('friends'))->toArray($request);
+        $friends = FriendResource::collection($this->whenLoaded('friends'))->toArray($request) ?? [];
 
         return [
             'id' => $this->id,

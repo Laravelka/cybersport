@@ -47,7 +47,7 @@ export default defineComponent({
 	props: {
 		colorizedTitle: {
 			type: [Boolean],
-			default: false,
+			default: true,
 			required: false
 		},
 		placement: {
@@ -61,7 +61,7 @@ export default defineComponent({
 		},
 		title: {
 			type: [String],
-			default: null,
+			default: 'Произошла ошибка!',
 			required: false
 		},
 		color: {
@@ -103,6 +103,8 @@ export default defineComponent({
 
 		watch(() => props.isOpen, (first) => {
 			isOpenRef.value = first;
+
+			console.log(bodyRef.value, titleRef.value);
 		});
 
 		return {
@@ -352,7 +354,7 @@ body.dark .toast .center-container h2 {
 	font-size: 12px;
 	font-weight: 400;
 	color: #c5c5c5;
-	padding: 8px 0;
+	padding: 4px 0;
 }
 
 .left-container {
@@ -367,8 +369,8 @@ body.dark .toast .center-container h2 {
 	width: 100%;
 	height: 100%;
 	height: 100%;
-	display: flex;
-	align-items: center;
+	/*display: flex;
+	align-items: center;*/
 }
 
 .right-container {

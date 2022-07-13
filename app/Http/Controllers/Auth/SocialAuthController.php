@@ -141,7 +141,9 @@ class SocialAuthController extends Controller
 				'message' => 'Указанная соц. сеть не найдена',
 				'image' => '/images/decor/welcome-bg2.png'
 			], 404);
-		} catch (OpenIDValidationException|ClientException $exception) {
+		} catch (InvalidStateException|OpenIDValidationException|ClientException $exception) {
+			dd($exception);
+
 			return response()->view('errors.illustrated-layout', [
 				'code' => '404',
 				'message' => 'Время жизни токена истекло',

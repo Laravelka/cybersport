@@ -15717,7 +15717,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     colorizedTitle: {
       type: [Boolean],
-      "default": false,
+      "default": true,
       required: false
     },
     placement: {
@@ -15731,7 +15731,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     title: {
       type: [String],
-      "default": null,
+      "default": 'Произошла ошибка!',
       required: false
     },
     color: {
@@ -15773,6 +15773,7 @@ __webpack_require__.r(__webpack_exports__);
       return props.isOpen;
     }, function (first) {
       isOpenRef.value = first;
+      console.log(bodyRef.value, titleRef.value);
     });
     return {
       bodyRef: bodyRef,
@@ -15847,6 +15848,39 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {},
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileInfo.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileInfo.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'ProfileInfo',
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    user: function user(state) {
+      return state.currentUser.user;
+    }
+  })),
+  beforeCreate: function beforeCreate() {
+    this.$store.dispatch('updateUser');
+  }
 });
 
 /***/ }),
@@ -16161,7 +16195,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _header_HeaderNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../header/HeaderNav */ "./resources/js/components/header/HeaderNav.vue");
 /* harmony import */ var _UI_MobileNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/MobileNav */ "./resources/js/components/UI/MobileNav.vue");
-/* harmony import */ var _UI_ProfileSideNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/ProfileSideNav */ "./resources/js/components/UI/ProfileSideNav.vue");
+/* harmony import */ var _UI_ProfileInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/ProfileInfo */ "./resources/js/components/UI/ProfileInfo.vue");
+/* harmony import */ var _UI_ProfileSideNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UI/ProfileSideNav */ "./resources/js/components/UI/ProfileSideNav.vue");
+
 
 
 
@@ -16169,7 +16205,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     HeaderNav: _header_HeaderNav__WEBPACK_IMPORTED_MODULE_0__["default"],
     MobileNav: _UI_MobileNav__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ProfileSideNav: _UI_ProfileSideNav__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ProfileInfo: _UI_ProfileInfo__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ProfileSideNav: _UI_ProfileSideNav__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 });
 
@@ -16377,6 +16414,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_HeaderNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../header/HeaderNav */ "./resources/js/components/header/HeaderNav.vue");
 /* harmony import */ var _UI_MobileNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/MobileNav */ "./resources/js/components/UI/MobileNav.vue");
 /* harmony import */ var _UI_ProfileSideNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/ProfileSideNav */ "./resources/js/components/UI/ProfileSideNav.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+
+
+
+
 
 
 
@@ -16385,6 +16431,33 @@ __webpack_require__.r(__webpack_exports__);
     HeaderNav: _header_HeaderNav__WEBPACK_IMPORTED_MODULE_0__["default"],
     MobileNav: _UI_MobileNav__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProfileSideNav: _UI_ProfileSideNav__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  setup: function setup() {
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_5__.useStore)();
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRoute)();
+    var profileRef = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)({});
+    var user = store.state.currentUser.user;
+    store.commit('setLoading', true);
+
+    var getProfile = function getProfile(name) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/api/v1/profiles/' + user.id).then(function (response) {
+        var data = response.data;
+        profileRef.value = data.data;
+        store.commit('setLoading', false);
+      })["catch"](function (error) {
+        store.commit('setError', error.message);
+      });
+    };
+
+    (0,vue_router__WEBPACK_IMPORTED_MODULE_6__.useRouter)().afterEach(function (to, from, next) {
+      store.commit('setLoading', true);
+      getProfile(to.name);
+      next();
+    });
+    getProfile();
+    return {
+      profileRef: profileRef
+    };
   }
 });
 
@@ -16918,6 +16991,154 @@ function render(_ctx, _cache) {
     /* STABLE */
 
   })])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileInfo.vue?vue&type=template&id=3ab017e7":
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileInfo.vue?vue&type=template&id=3ab017e7 ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "profile-info"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "profile-info__title title"
+}, "ИНФОРМАЦИЯ О ПРОФИЛЕ", -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "profile-info__user-box"
+};
+var _hoisted_4 = {
+  "class": "header-usermenu__icon",
+  href: "#"
+};
+var _hoisted_5 = {
+  "class": "header-usermenu__icongradient icon"
+};
+var _hoisted_6 = ["src"];
+var _hoisted_7 = {
+  "class": "profile-info__content"
+};
+var _hoisted_8 = {
+  "class": "profile-info__content-id profile-id"
+};
+var _hoisted_9 = {
+  "class": "profile-info__content-name profile-name",
+  href: "#"
+};
+var _hoisted_10 = {
+  key: 0
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "profile-info__content-crown",
+  src: "images/icons/crown.png",
+  alt: ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_12 = [_hoisted_11];
+var _hoisted_13 = {
+  "class": "profile-info__content-subname profile-subname"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "profile-info__content-edit",
+  href: "#"
+}, "Редактировать профиль", -1
+/* HOISTED */
+);
+
+var _hoisted_15 = {
+  "class": "profile-info__list"
+};
+var _hoisted_16 = {
+  "class": "profile-info__list-item info-list"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "profile-info__list-link info-link",
+  href: "#"
+}, "Друзей:", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
+  "class": "profile-info__list-num profile-info__list-num_blue"
+};
+var _hoisted_19 = {
+  "class": "profile-info__list-item info-list"
+};
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "profile-info__list-link info-link",
+  href: "#"
+}, "Подписчики:", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = {
+  "class": "profile-info__list-num profile-info__list-num_blue"
+};
+var _hoisted_22 = {
+  "class": "profile-info__list-item info-list"
+};
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "profile-info__list-link info-link",
+  href: "#"
+}, "PW баллы:", -1
+/* HOISTED */
+);
+
+var _hoisted_24 = {
+  "class": "profile-info__list-num profile-info__list-num_blue"
+};
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Побед:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">100(52%)</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Матчей:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">120</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Оборот:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">350,00$</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Сумма выигрыша:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">1000$</div></li>", 4);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "profile-info__btn"
+}, "Выйти", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _ctx$user$first_name, _ctx$user$last_name, _ctx$user$friends$len, _ctx$user$friends, _ctx$user$subscribers, _ctx$user$subscribers2;
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "header-usermenu__iconimg",
+    src: _ctx.user.avatar,
+    alt: ""
+  }, null, 8
+  /* PROPS */
+  , _hoisted_6)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, "#" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.id), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.name) + " ", 1
+  /* TEXT */
+  ), _ctx.user.is_admin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_10, _hoisted_12)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$user$first_name = _ctx.user.first_name) !== null && _ctx$user$first_name !== void 0 ? _ctx$user$first_name : '') + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$user$last_name = _ctx.user.last_name) !== null && _ctx$user$last_name !== void 0 ? _ctx$user$last_name : ''), 1
+  /* TEXT */
+  ), _hoisted_14])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$user$friends$len = (_ctx$user$friends = _ctx.user.friends) === null || _ctx$user$friends === void 0 ? void 0 : _ctx$user$friends.length) !== null && _ctx$user$friends$len !== void 0 ? _ctx$user$friends$len : 0), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$user$subscribers = (_ctx$user$subscribers2 = _ctx.user.subscribers) === null || _ctx$user$subscribers2 === void 0 ? void 0 : _ctx$user$subscribers2.length) !== null && _ctx$user$subscribers !== void 0 ? _ctx$user$subscribers : 0), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.pw_points), 1
+  /* TEXT */
+  )]), _hoisted_25]), _hoisted_29]);
 }
 
 /***/ }),
@@ -18427,16 +18648,18 @@ var _hoisted_4 = {
   "class": "friends__inner"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"profile-info\"><div class=\"profile-info__title title\">ИНФОРМАЦИЯ О ПРОФИЛЕ</div><div class=\"profile-info__user-box\"><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"profile-info__content\"><div class=\"profile-info__content-id profile-id\">#112233</div><a class=\"profile-info__content-name profile-name\" href=\"#\">Kushiro Nara <span><img class=\"profile-info__content-crown\" src=\"images/icons/crown.png\" alt=\"\"></span></a><div class=\"profile-info__content-subname profile-subname\">Связь со мной: tg/predictwars</div><a class=\"profile-info__content-edit\" href=\"#\">Редактировать профиль</a></div></div><ul class=\"profile-info__list\"><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Друзей:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">100</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Подписчики:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">120</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">PW баллы:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">999</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Побед:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">100(52%)</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Матчей:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">120</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Оборот:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">350,00$</div></li><li class=\"profile-info__list-item info-list\"><a class=\"profile-info__list-link info-link\" href=\"#\">Сумма выигрыша:</a><div class=\"profile-info__list-num profile-info__list-num_blue\">1000$</div></li></ul><button class=\"profile-info__btn\">Выйти</button></div><div class=\"friends-content\"><div class=\"friends-list\"><div class=\"friends-list__title title\">Друзья</div><div class=\"friends-list__items\"><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Удалить из друзей</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Удалить из друзей</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Удалить из друзей</button></div></div></div><button class=\"friends-list__btn friends-yet\">еще 10</button><div class=\"friends-list__arrows-box\"><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-left.svg\" alt=\"\"></button><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-right.svg\" alt=\"\"></button></div><ul class=\"friends-list__dots-list\"><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item friends-list__dots-item_active\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li></ul></div><div class=\"friends-list\"><div class=\"friends-list__title title\">Заявки в друзья</div><div class=\"friends-list__items\"><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><div class=\"friends-list__btn-box\"><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Оставить в подписчиках</button></div></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><div class=\"friends-list__btn-box\"><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Оставить в подписчиках</button></div></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><div class=\"friends-list__btn-box\"><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Оставить в подписчиках</button></div></div></div></div><button class=\"friends-list__btn friends-yet\">еще 10</button><div class=\"friends-list__arrows-box\"><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-left.svg\" alt=\"\"></button><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-right.svg\" alt=\"\"></button></div><ul class=\"friends-list__dots-list\"><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item friends-list__dots-item_active\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li></ul></div><div class=\"friends-list\"><div class=\"friends-list__title title\">Подписчики</div><div class=\"friends-list__items\"><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button></div></div></div><button class=\"friends-list__btn friends-yet\">еще 10</button><div class=\"friends-list__arrows-box\"><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-left.svg\" alt=\"\"></button><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-right.svg\" alt=\"\"></button></div><ul class=\"friends-list__dots-list\"><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item friends-list__dots-item_active\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li></ul></div></div>", 2);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"friends-content\"><div class=\"friends-list\"><div class=\"friends-list__title title\">Друзья</div><div class=\"friends-list__items\"><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Удалить из друзей</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Удалить из друзей</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Удалить из друзей</button></div></div></div><button class=\"friends-list__btn friends-yet\">еще 10</button><div class=\"friends-list__arrows-box\"><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-left.svg\" alt=\"\"></button><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-right.svg\" alt=\"\"></button></div><ul class=\"friends-list__dots-list\"><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item friends-list__dots-item_active\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li></ul></div><div class=\"friends-list\"><div class=\"friends-list__title title\">Заявки в друзья</div><div class=\"friends-list__items\"><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><div class=\"friends-list__btn-box\"><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Оставить в подписчиках</button></div></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><div class=\"friends-list__btn-box\"><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Оставить в подписчиках</button></div></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><div class=\"friends-list__btn-box\"><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_gray\">Оставить в подписчиках</button></div></div></div></div><button class=\"friends-list__btn friends-yet\">еще 10</button><div class=\"friends-list__arrows-box\"><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-left.svg\" alt=\"\"></button><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-right.svg\" alt=\"\"></button></div><ul class=\"friends-list__dots-list\"><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item friends-list__dots-item_active\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li></ul></div><div class=\"friends-list\"><div class=\"friends-list__title title\">Подписчики</div><div class=\"friends-list__items\"><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button></div></div><div class=\"friends-list__item\"><button class=\"friends-list__close-btn btn-close\"><img src=\"images/icons/close-friends.svg\" alt=\"\"></button><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><div class=\"friends-list__item-box\"><div class=\"friends-list__name-box\"><div class=\"friends-list__item-id profile-id\">#112233</div><a class=\"friends-list__item-name user-name\" href=\"#\">Kushiro Nara </a><a class=\"friends-list__item-online friends-online\" href=\"#\">В сети</a></div><button class=\"friends-list__item-btn friends-btn friends-list__item-btn_purple\">Добавить в друзья</button></div></div></div><button class=\"friends-list__btn friends-yet\">еще 10</button><div class=\"friends-list__arrows-box\"><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-left.svg\" alt=\"\"></button><button class=\"friends-list__arrow-btn\"><img src=\"images/icons/arrow-right.svg\" alt=\"\"></button></div><ul class=\"friends-list__dots-list\"><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item friends-list__dots-item_active\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li><li class=\"friends-list__dots-item\"><button class=\"friends-list__dots-btn\"></button></li></ul></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_header_nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("header-nav");
+
+  var _component_profile_info = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-info");
 
   var _component_profile_side_nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-side-nav");
 
   var _component_mobile_nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("mobile-nav");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_header_nav), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_profile_side_nav)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_mobile_nav)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_header_nav), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_profile_info), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_profile_side_nav)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_mobile_nav)]);
 }
 
 /***/ }),
@@ -18527,9 +18750,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      var _ctx$user$name;
+      var _ctx$user$name, _ctx$user;
 
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$user$name = _ctx.user.name) !== null && _ctx$user$name !== void 0 ? _ctx$user$name : 'Войти'), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$user$name = (_ctx$user = _ctx.user) === null || _ctx$user === void 0 ? void 0 : _ctx$user.name) !== null && _ctx$user$name !== void 0 ? _ctx$user$name : 'Войти'), 1
       /* TEXT */
       )];
     }),
@@ -18961,7 +19184,77 @@ var _hoisted_4 = {
   "class": "statistics__inner"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"statistics-poeple\"><div class=\"statistics-poeple__title title\">Статистика по матчам</div><div class=\"statistics-poeple__items\"><div class=\"statistics-poeple__item-chart\"><figure class=\"chart\"><svg width=\"100%\" height=\"100%\" viewBox=\"0 0 42 42\" class=\"donut\"><circle class=\"donut-hole\" cx=\"21\" cy=\"21\" r=\"15.91549430918954\" fill=\"#212136\"></circle><circle class=\"donut-ring\" cx=\"21\" cy=\"21\" r=\"15.91549430918954\" fill=\"transparent\" stroke=\"#2B2B42\" stroke-width=\"7\"></circle><circle class=\"donut-segment\" cx=\"21\" cy=\"21\" r=\"15.91549430918954\" fill=\"transparent\" stroke=\"url(#Gradient2)\" stroke-width=\"7\" stroke-dasharray=\"85 15\" stroke-dashoffset=\"25\"></circle><defs><linearGradient id=\"Gradient2\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#FD03A3\"></stop><stop offset=\"100%\" stop-color=\"#FEAC00\"></stop></linearGradient></defs></svg><figcaption class=\"chart-text\"><div class=\"chart-text__num chart-num\">150</div></figcaption></figure></div><div class=\"statistics-poeple__item\"><div class=\"statistics-poeple__played-text\">Сыграно матчей</div><div class=\"statistics-poeple__played-num\">150</div><div class=\"statistics-poeple__played\">Выиграно матчей: <span>75</span></div><div class=\"statistics-poeple__played\">Проиграно матчей: 75</div></div></div></div><div class=\"statistics-content\"><div class=\"statistics-content__items\"><div class=\"statistics-private\"><div class=\"statistics-private__title title\">ЛИЧНАЯ СТАТИСТИКА</div><div class=\"statistics-private__inner\"><div class=\"statistics-private__user\"><a class=\"header-usermenu__icon\" href=\"#\"><div class=\"header-usermenu__icongradient icon\"><img class=\"header-usermenu__iconimg\" src=\"images/user/1.png\" alt=\"\"></div></a><a class=\"header-usermenu__name profile-name\" style=\"margin-left:-12px;\" href=\"#\">Kushiro Nara </a></div><div class=\"statistics-private__items\"><div class=\"statistics-private__item\"><img class=\"statistics-private__item-img\" src=\"images/icons/pw-ball.png\" alt=\"\"><div class=\"statistics-private__item-box\"><div class=\"statistics-private__box-text\">PW баллы</div><div class=\"statistics-private__box-num\">31</div></div></div><div class=\"statistics-private__item\"><img class=\"statistics-private__item-img\" src=\"images/icons/played.png\" alt=\"\"><div class=\"statistics-private__item-box\"><div class=\"statistics-private__box-text\">Игр сыграно</div><div class=\"statistics-private__box-num\">300</div></div></div><div class=\"statistics-private__item\"><img class=\"statistics-private__item-img\" src=\"images/icons/money-stat.png\" alt=\"\"><div class=\"statistics-private__item-box\"><div class=\"statistics-private__box-text\">Оборот игрока</div><div class=\"statistics-private__box-num\">999 999</div></div></div></div></div></div><div class=\"statistics-plays\"><div class=\"statistics-plays__title title\">Игровая статистика</div><div class=\"statistics-plays__box-tabs\"><button class=\"statistics-plays__tabs-btn statistics-plays__tabs-btn_active\">По матчам</button><button class=\"statistics-plays__tabs-btn\">Сумма взносов</button></div><div class=\"statistics-plays__inner\"><div class=\"statistics-bar\"><div class=\"statistics-bar__box\"><div class=\"statistics-bar__vertical\"><div class=\"statistics-bar__vertical-num\">8</div><div class=\"statistics-bar__vertical-num\">7</div><div class=\"statistics-bar__vertical-num\">6</div><div class=\"statistics-bar__vertical-num\">5</div><div class=\"statistics-bar__vertical-num\">4</div><div class=\"statistics-bar__vertical-num\">3</div><div class=\"statistics-bar__vertical-num\">2</div><div class=\"statistics-bar__vertical-num\">1</div></div><div class=\"statistics-bar__horizontal\"><div class=\"statistics-bar__horizontal-num\">1 <div class=\"statistics-bar__horizontal-item\" style=\"height:133px;\"></div></div><div class=\"statistics-bar__horizontal-num\">2 <div class=\"statistics-bar__horizontal-item\" style=\"height:100px;\"></div></div><div class=\"statistics-bar__horizontal-num\">3 <div class=\"statistics-bar__horizontal-item\" style=\"height:155px;\"></div></div><div class=\"statistics-bar__horizontal-num\">4 <div class=\"statistics-bar__horizontal-item\" style=\"height:135px;\"></div></div><div class=\"statistics-bar__horizontal-num\">5 <div class=\"statistics-bar__horizontal-item\" style=\"height:135px;\"></div></div><div class=\"statistics-bar__horizontal-num\">6 <div class=\"statistics-bar__horizontal-item\" style=\"height:54px;\"></div></div><div class=\"statistics-bar__horizontal-num\">7 <div class=\"statistics-bar__horizontal-item\" style=\"height:133px;\"></div></div></div></div><div class=\"statistics-bar__descr\">Количество ставок</div></div><div class=\"statistics-graph\"><div class=\"statistics-graph__box\"><div class=\"statistics-graph__vertical\"><div class=\"statistics-graph__vertical-num\">1000</div><div class=\"statistics-graph__vertical-num\">800</div><div class=\"statistics-graph__vertical-num\">600</div><div class=\"statistics-graph__vertical-num\">400</div><div class=\"statistics-graph__vertical-num\">200</div><div class=\"statistics-graph__vertical-num\">0</div></div><div class=\"statistics-graph__horizontal\"><div class=\"statistics-graph__horizontal-num\">1 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:98px;\"></div></div><div class=\"statistics-graph__horizontal-num\">2 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:78px;\"></div></div><div class=\"statistics-graph__horizontal-num\">3 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:98px;\"></div></div><div class=\"statistics-graph__horizontal-num\">4 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:90px;\"></div></div><div class=\"statistics-graph__horizontal-num\">5 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:98px;\"></div></div><div class=\"statistics-graph__horizontal-num\">6 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:90px;\"></div></div><div class=\"statistics-graph__horizontal-num\">7 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:78px;\"></div></div></div></div><div class=\"statistics-graph__descr\">Сумма ставок</div></div></div></div></div></div>", 2);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"statistics-poeple\"><div class=\"statistics-poeple__title title\">Статистика по матчам</div><div class=\"statistics-poeple__items\"><div class=\"statistics-poeple__item-chart\"><figure class=\"chart\"><svg width=\"100%\" height=\"100%\" viewBox=\"0 0 42 42\" class=\"donut\"><circle class=\"donut-hole\" cx=\"21\" cy=\"21\" r=\"15.91549430918954\" fill=\"#212136\"></circle><circle class=\"donut-ring\" cx=\"21\" cy=\"21\" r=\"15.91549430918954\" fill=\"transparent\" stroke=\"#2B2B42\" stroke-width=\"7\"></circle><circle class=\"donut-segment\" cx=\"21\" cy=\"21\" r=\"15.91549430918954\" fill=\"transparent\" stroke=\"url(#Gradient2)\" stroke-width=\"7\" stroke-dasharray=\"85 15\" stroke-dashoffset=\"25\"></circle><defs><linearGradient id=\"Gradient2\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#FD03A3\"></stop><stop offset=\"100%\" stop-color=\"#FEAC00\"></stop></linearGradient></defs></svg><figcaption class=\"chart-text\"><div class=\"chart-text__num chart-num\">150</div></figcaption></figure></div><div class=\"statistics-poeple__item\"><div class=\"statistics-poeple__played-text\">Сыграно матчей</div><div class=\"statistics-poeple__played-num\">150</div><div class=\"statistics-poeple__played\">Выиграно матчей: <span>75</span></div><div class=\"statistics-poeple__played\">Проиграно матчей: 75</div></div></div></div>", 1);
+
+var _hoisted_6 = {
+  "class": "statistics-content"
+};
+var _hoisted_7 = {
+  "class": "statistics-content__items"
+};
+var _hoisted_8 = {
+  "class": "statistics-private"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "statistics-private__title title"
+}, "ЛИЧНАЯ СТАТИСТИКА", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  "class": "statistics-private__inner"
+};
+var _hoisted_11 = {
+  "class": "statistics-private__user"
+};
+var _hoisted_12 = {
+  "class": "header-usermenu__icon",
+  href: "#"
+};
+var _hoisted_13 = {
+  "class": "header-usermenu__icongradient icon"
+};
+var _hoisted_14 = ["src"];
+var _hoisted_15 = {
+  "class": "header-usermenu__name profile-name",
+  style: {
+    "margin-left": "-12px"
+  },
+  href: "#"
+};
+var _hoisted_16 = {
+  "class": "statistics-private__items"
+};
+var _hoisted_17 = {
+  "class": "statistics-private__item"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "statistics-private__item-img",
+  src: "images/icons/pw-ball.png",
+  alt: ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "statistics-private__item-box"
+};
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "statistics-private__box-text"
+}, "PW баллы", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = {
+  "class": "statistics-private__box-num"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"statistics-private__item\"><img class=\"statistics-private__item-img\" src=\"images/icons/played.png\" alt=\"\"><div class=\"statistics-private__item-box\"><div class=\"statistics-private__box-text\">Игр сыграно</div><div class=\"statistics-private__box-num\">300</div></div></div><div class=\"statistics-private__item\"><img class=\"statistics-private__item-img\" src=\"images/icons/money-stat.png\" alt=\"\"><div class=\"statistics-private__item-box\"><div class=\"statistics-private__box-text\">Оборот игрока</div><div class=\"statistics-private__box-num\">999 999</div></div></div>", 2);
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"statistics-plays\"><div class=\"statistics-plays__title title\">Игровая статистика</div><div class=\"statistics-plays__box-tabs\"><button class=\"statistics-plays__tabs-btn statistics-plays__tabs-btn_active\">По матчам</button><button class=\"statistics-plays__tabs-btn\">Сумма взносов</button></div><div class=\"statistics-plays__inner\"><div class=\"statistics-bar\"><div class=\"statistics-bar__box\"><div class=\"statistics-bar__vertical\"><div class=\"statistics-bar__vertical-num\">8</div><div class=\"statistics-bar__vertical-num\">7</div><div class=\"statistics-bar__vertical-num\">6</div><div class=\"statistics-bar__vertical-num\">5</div><div class=\"statistics-bar__vertical-num\">4</div><div class=\"statistics-bar__vertical-num\">3</div><div class=\"statistics-bar__vertical-num\">2</div><div class=\"statistics-bar__vertical-num\">1</div></div><div class=\"statistics-bar__horizontal\"><div class=\"statistics-bar__horizontal-num\">1 <div class=\"statistics-bar__horizontal-item\" style=\"height:133px;\"></div></div><div class=\"statistics-bar__horizontal-num\">2 <div class=\"statistics-bar__horizontal-item\" style=\"height:100px;\"></div></div><div class=\"statistics-bar__horizontal-num\">3 <div class=\"statistics-bar__horizontal-item\" style=\"height:155px;\"></div></div><div class=\"statistics-bar__horizontal-num\">4 <div class=\"statistics-bar__horizontal-item\" style=\"height:135px;\"></div></div><div class=\"statistics-bar__horizontal-num\">5 <div class=\"statistics-bar__horizontal-item\" style=\"height:135px;\"></div></div><div class=\"statistics-bar__horizontal-num\">6 <div class=\"statistics-bar__horizontal-item\" style=\"height:54px;\"></div></div><div class=\"statistics-bar__horizontal-num\">7 <div class=\"statistics-bar__horizontal-item\" style=\"height:133px;\"></div></div></div></div><div class=\"statistics-bar__descr\">Количество ставок</div></div><div class=\"statistics-graph\"><div class=\"statistics-graph__box\"><div class=\"statistics-graph__vertical\"><div class=\"statistics-graph__vertical-num\">1000</div><div class=\"statistics-graph__vertical-num\">800</div><div class=\"statistics-graph__vertical-num\">600</div><div class=\"statistics-graph__vertical-num\">400</div><div class=\"statistics-graph__vertical-num\">200</div><div class=\"statistics-graph__vertical-num\">0</div></div><div class=\"statistics-graph__horizontal\"><div class=\"statistics-graph__horizontal-num\">1 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:98px;\"></div></div><div class=\"statistics-graph__horizontal-num\">2 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:78px;\"></div></div><div class=\"statistics-graph__horizontal-num\">3 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:98px;\"></div></div><div class=\"statistics-graph__horizontal-num\">4 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:90px;\"></div></div><div class=\"statistics-graph__horizontal-num\">5 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:98px;\"></div></div><div class=\"statistics-graph__horizontal-num\">6 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:90px;\"></div></div><div class=\"statistics-graph__horizontal-num\">7 <div class=\"statistics-graph__horizontal-item\" style=\"bottom:78px;\"></div></div></div></div><div class=\"statistics-graph__descr\">Сумма ставок</div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_header_nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("header-nav");
@@ -18970,7 +19263,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_mobile_nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("mobile-nav");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_header_nav), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_profile_side_nav)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_mobile_nav)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_header_nav), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "header-usermenu__iconimg",
+    src: $setup.profileRef.avatar,
+    alt: ""
+  }, null, 8
+  /* PROPS */
+  , _hoisted_14)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.profileRef.name), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.profileRef.pw_points), 1
+  /* TEXT */
+  )])]), _hoisted_22])])]), _hoisted_24])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_profile_side_nav)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_mobile_nav)]);
 }
 
 /***/ }),
@@ -19042,6 +19345,8 @@ app.use(_router_router__WEBPACK_IMPORTED_MODULE_3__["default"]).use(_store__WEBP
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
+window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -19054,13 +19359,13 @@ window.axios.interceptors.response.use(function (response) {
 }, function (error) {
   var response = error.response;
 
-  if (response.status === 4011) {
+  if (response.status === 401) {
     localStorage.removeItem("access_token");
     localStorage.removeItem("current_user");
     window.location.href = '/login';
   }
 
-  return error;
+  return Promise.reject(error);
 });
 window.axios.defaults.headers.common['Accept'] = 'application/json';
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -19069,15 +19374,7 @@ var token = localStorage.getItem("access_token");
 if (token) {
   window.axios.defaults.headers.common['Authorization'] = "Bearer ".concat(token);
 }
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
 
-
-
-window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "78d6df03ae7d2acbdf05",
@@ -19442,11 +19739,13 @@ var currentUserModule = {
       }
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/v1/register", _objectSpread({}, user)).then(function (response) {
-        if (response.data.access_token && response.data.user) {
-          localStorage.setItem("access_token", response.data.access_token);
-          localStorage.setItem("current_user", JSON.stringify(response.data.user));
-          commit('setUser', response.data.user);
-          commit('setToken', response.data.access_token);
+        var data = response.data;
+
+        if (data.access_token && data.user) {
+          localStorage.setItem("access_token", data.access_token);
+          localStorage.setItem("current_user", JSON.stringify(data.user));
+          commit('setUser', data.user);
+          commit('setToken', data.access_token);
           commit('setLoading', false);
           _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].push({
             name: 'matches'
@@ -19469,24 +19768,26 @@ var currentUserModule = {
       }
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/v1/login", _objectSpread({}, user)).then(function (response) {
-        if (response.data.access_token && response.data.user) {
-          localStorage.setItem("access_token", response.data.access_token);
-          localStorage.setItem("current_user", JSON.stringify(response.data.user));
-          commit('setUser', response.data.user);
-          commit('setToken', response.data.access_token);
+        var data = response.data;
+
+        if (data.access_token && data.user) {
+          localStorage.setItem("access_token", data.access_token);
+          localStorage.setItem("current_user", JSON.stringify(data.user));
+          commit('setUser', data.user);
+          commit('setToken', data.access_token);
           commit('setLoading', false);
           _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].replace({
             name: 'matches'
           });
         }
       })["catch"](function (error) {
-        commit('setLoading', false);
-
         if (error.response) {
           commit('setError', error.response.data.message);
         } else {
           commit('setError', error.message);
         }
+
+        commit('setLoading', false);
       });
     },
     logoutUser: function logoutUser(_ref3) {
@@ -19497,7 +19798,6 @@ var currentUserModule = {
           'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
       }).then(function (response) {
-        console.log(response.data.message);
         localStorage.removeItem("access_token");
         localStorage.removeItem("current_user");
         commit('setUser', null);
@@ -19520,6 +19820,17 @@ var currentUserModule = {
       window.axios.defaults.headers.common['Authorization'] = "Bearer ".concat(data.token);
       commit('setUser', data.user);
       commit('setToken', data.token);
+    },
+    updateUser: function updateUser(_ref5) {
+      var commit = _ref5.commit;
+      var isAuth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var user = this.state.currentUser.user;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/v1/profiles/' + user.id).then(function (response) {
+        var data = response.data.data;
+        commit('setUser', data);
+      })["catch"](function (error) {
+        store.commit('setError', error.message);
+      });
     }
   }
 };
@@ -19651,7 +19962,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.toast-container[data-v-3c00b968] {\n\tleft: 0;\n\ttop: 55px;\n\twidth: 100%;\n\tz-index: 100;\n\tdisplay: flex;\n\tposition: fixed;\n\tpointer-events: none;\n\tjustify-content: left;\n\theight: calc(100vh - 96px);\n}\n.ios .toast-container[data-v-3c00b968] {\n\ttop: 95px!important;\n}\n@media (max-width: 992px) {\n.toast-container[data-v-3c00b968] {\n\t\ttop: 55px!important;\n}\n}\n.toast-container.top-left[data-v-3c00b968] {\n\tjustify-content: left;\n\talign-items: start;\n}\n.toast-container.top-left .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(-400px);\n}\n.toast-container.top-center[data-v-3c00b968] {\n\tjustify-content: center;\n\talign-items: start;\n}\n.toast-container.top-center .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateY(-150px);\n}\n.toast-container.top-right[data-v-3c00b968] {\n\tjustify-content: right;\n\talign-items: start;\n}\n.toast-container.top-right .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(400px);\n}\n.toast-container.middle-left[data-v-3c00b968] {\n\tjustify-content: left;\n\talign-items: center;\n}\n.toast-container.middle-left .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(-400px);\n}\n.toast-container.middle-right[data-v-3c00b968] {\n\tjustify-content: right;\n\talign-items: center;\n}\n.toast-container.middle-right .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(400px);\n}\n.toast-container.middle-center[data-v-3c00b968] {\n\tjustify-content: center;\n\talign-items: center;\n}\n.toast-container.middle-center .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0);\n}\n.toast-container.bottom-left[data-v-3c00b968] {\n\tjustify-content: left;\n\talign-items: end;\n}\n.toast-container.bottom-right[data-v-3c00b968] {\n\tjustify-content: right;\n\talign-items: end;\n}\n.toast-container.bottom-center[data-v-3c00b968] {\n\tjustify-content: center;\n\talign-items: end;\n}\n.toast-container.bottom-left .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(-400px);\n}\n.toast-container.bottom-right .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(400px);\n}\n.toast-container.bottom-center .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateY(150px);\n}\n.toast[data-v-3c00b968] {\n\tmargin: 10px;\n\twidth: 380px;\n\theight: 80px;\n\tdisplay: flex;\n\tcolor: #666;\n\tborder-radius: .5rem;\n\tpointer-events: all;\n\t-webkit-backdrop-filter: blur(5px);\n\t        backdrop-filter: blur(5px);\n\tjustify-content: space-between;\n\tbackground-color: rgb(33 33 54 / 60%);\n\tgrid-template-columns: 1.3fr 6fr 0.5fr;\n\tbox-shadow: 0 15px 30px rgba(0,0,0,0.08);\n\ttransition: all .5s cubic-bezier(.155, 1.105, .295, 1.12) 0s;\n\tbox-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);\n}\nbody.dark .toast[data-v-3c00b968] {\n\tcolor: #aaa;\n\tbox-shadow: 0 6px 10px rgba(0,0,0,.15), 0 0 6px rgba(0,0,0,.15);\n}\nbody.dark .ios .toast[data-v-3c00b968] {\n\tborder: 1px solid rgb(255 255 255 / 10%)\n}\n.toast.open[data-v-3c00b968] {\n\topacity: 1!important;\n\ttransform: scale(1) translateX(0) translateY(0)!important;\n\t/*animation: vibrate-1 0.3s linear infinite both;*/\n}\n.toast.success[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-success, #2dd36f);\n}\n.toast.danger[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-danger, #eb445a);\n}\n.toast.primary[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-primary, #3880ff);\n}\n.toast.warning[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-warning, #ffc409);\n}\nbody.dark .toast.primary[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-primary, #3880ff);\n}\nbody.dark .toast.danger[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-danger, #eb445a);\n}\nbody.dark .toast.warning[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-warning, #ffc409);\n}\nbody.dark .toast.success[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-success, #2dd36f);\n}\n/*body.dark .toast {\n\tbackground: #808080;\n}*/\n.toast-container.bl-0 .toast[data-v-3c00b968] {\n\tborder-left: 0px!important;\n}\n.toast-container.vibrate .left-container .xicon[data-v-3c00b968] {\n\t-webkit-animation: vibrate-1-3c00b968 0.3s linear infinite both;\n\t        animation: vibrate-1-3c00b968 0.3s linear infinite both;\n}\n.toast button[data-v-3c00b968] {\n\talign-self: flex-start;\n\tbackground-color: transparent;\n\tfont-size: 25px;\n\tcolor: #656565;\n\tline-height: 0;\n\tcursor: pointer;\n\tborder: 0;\n}\n.toast[data-v-3c00b968]:not(:last-child){\n\tmargin-bottom: 50px;\n}\n.toast .left-container[data-v-3c00b968],.right-container[data-v-3c00b968] {\n\talign-self: center;\n}\n.toast .center-container h2[data-v-3c00b968] {\n\tcolor: #282b2e;\n\tfont-weight: 600;\n\tfont-size: 16px;\n\tmargin-top: 8px!important;\n}\nbody.dark .toast .center-container h2[data-v-3c00b968] {\n\tcolor: #6c757d;\n}\n.toast.success .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-success, #2dd36f);\n}\n.toast.danger .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-danger, #eb445a);\n}\n.toast.primary .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-primary, #3880ff);\n}\n.toast.warning .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-warning, #ffc409);\n}\n.toast .center-container p[data-v-3c00b968] {\n\tfont-size: 12px;\n\tfont-weight: 400;\n\tcolor: #c5c5c5;\n\tpadding: 8px 0;\n}\n.left-container[data-v-3c00b968] {\n\twidth: 100px;\n\theight: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n}\n.center-container[data-v-3c00b968] {\n\twidth: 100%;\n\theight: 100%;\n\theight: 100%;\n\tdisplay: flex;\n\talign-items: center;\n}\n.right-container[data-v-3c00b968] {\n\twidth: 25px;\n\theight: 100%;\n\talign-items: center;\n\tdisplay: flex;\n\tjustify-content: center;\n\tpadding: 12px;\n}\n\n/* vibrate animation\n@-webkit-keyframes vibrate-1 {\n\t0% {\n\t\t-webkit-transform: translate(0);\n\t\t\t\ttransform: translate(0);\n\t}\n\t20% {\n\t\t-webkit-transform: translate(-2px, 2px);\n\t\t\t\ttransform: translate(-2px, 2px);\n\t}\n\t40% {\n\t\t-webkit-transform: translate(-2px, -2px);\n\t\t\t\ttransform: translate(-2px, -2px);\n\t}\n\t60% {\n\t\t-webkit-transform: translate(2px, 2px);\n\t\t\t\ttransform: translate(2px, 2px);\n\t}\n\t80% {\n\t\t-webkit-transform: translate(2px, -2px);\n\t\t\t\ttransform: translate(2px, -2px);\n\t}\n\t100% {\n\t\t-webkit-transform: translate(0);\n\t\t\t\ttransform: translate(0);\n\t}\n}\n*/\n@-webkit-keyframes vibrate-1-3c00b968 {\n0% {\n\t\ttransform: translate(0);\n}\n20% {\n\t\ttransform: translate(-1px, 1px);\n}\n40% {\n\t\ttransform: translate(-1px, -1px);\n}\n60% {\n\t\ttransform: translate(1px, 1px);\n}\n80% {\n\t\ttransform: translate(1px, -1px);\n}\n100% {\n\t\ttransform: translate(0);\n}\n}\n@keyframes vibrate-1-3c00b968 {\n0% {\n\t\ttransform: translate(0);\n}\n20% {\n\t\ttransform: translate(-1px, 1px);\n}\n40% {\n\t\ttransform: translate(-1px, -1px);\n}\n60% {\n\t\ttransform: translate(1px, 1px);\n}\n80% {\n\t\ttransform: translate(1px, -1px);\n}\n100% {\n\t\ttransform: translate(0);\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.toast-container[data-v-3c00b968] {\n\tleft: 0;\n\ttop: 55px;\n\twidth: 100%;\n\tz-index: 100;\n\tdisplay: flex;\n\tposition: fixed;\n\tpointer-events: none;\n\tjustify-content: left;\n\theight: calc(100vh - 96px);\n}\n.ios .toast-container[data-v-3c00b968] {\n\ttop: 95px!important;\n}\n@media (max-width: 992px) {\n.toast-container[data-v-3c00b968] {\n\t\ttop: 55px!important;\n}\n}\n.toast-container.top-left[data-v-3c00b968] {\n\tjustify-content: left;\n\talign-items: start;\n}\n.toast-container.top-left .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(-400px);\n}\n.toast-container.top-center[data-v-3c00b968] {\n\tjustify-content: center;\n\talign-items: start;\n}\n.toast-container.top-center .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateY(-150px);\n}\n.toast-container.top-right[data-v-3c00b968] {\n\tjustify-content: right;\n\talign-items: start;\n}\n.toast-container.top-right .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(400px);\n}\n.toast-container.middle-left[data-v-3c00b968] {\n\tjustify-content: left;\n\talign-items: center;\n}\n.toast-container.middle-left .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(-400px);\n}\n.toast-container.middle-right[data-v-3c00b968] {\n\tjustify-content: right;\n\talign-items: center;\n}\n.toast-container.middle-right .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(400px);\n}\n.toast-container.middle-center[data-v-3c00b968] {\n\tjustify-content: center;\n\talign-items: center;\n}\n.toast-container.middle-center .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0);\n}\n.toast-container.bottom-left[data-v-3c00b968] {\n\tjustify-content: left;\n\talign-items: end;\n}\n.toast-container.bottom-right[data-v-3c00b968] {\n\tjustify-content: right;\n\talign-items: end;\n}\n.toast-container.bottom-center[data-v-3c00b968] {\n\tjustify-content: center;\n\talign-items: end;\n}\n.toast-container.bottom-left .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(-400px);\n}\n.toast-container.bottom-right .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateX(400px);\n}\n.toast-container.bottom-center .toast[data-v-3c00b968] {\n\topacity: 0;\n\ttransform: scale(0) translateY(150px);\n}\n.toast[data-v-3c00b968] {\n\tmargin: 10px;\n\twidth: 380px;\n\theight: 80px;\n\tdisplay: flex;\n\tcolor: #666;\n\tborder-radius: .5rem;\n\tpointer-events: all;\n\t-webkit-backdrop-filter: blur(5px);\n\t        backdrop-filter: blur(5px);\n\tjustify-content: space-between;\n\tbackground-color: rgb(33 33 54 / 60%);\n\tgrid-template-columns: 1.3fr 6fr 0.5fr;\n\tbox-shadow: 0 15px 30px rgba(0,0,0,0.08);\n\ttransition: all .5s cubic-bezier(.155, 1.105, .295, 1.12) 0s;\n\tbox-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);\n}\nbody.dark .toast[data-v-3c00b968] {\n\tcolor: #aaa;\n\tbox-shadow: 0 6px 10px rgba(0,0,0,.15), 0 0 6px rgba(0,0,0,.15);\n}\nbody.dark .ios .toast[data-v-3c00b968] {\n\tborder: 1px solid rgb(255 255 255 / 10%)\n}\n.toast.open[data-v-3c00b968] {\n\topacity: 1!important;\n\ttransform: scale(1) translateX(0) translateY(0)!important;\n\t/*animation: vibrate-1 0.3s linear infinite both;*/\n}\n.toast.success[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-success, #2dd36f);\n}\n.toast.danger[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-danger, #eb445a);\n}\n.toast.primary[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-primary, #3880ff);\n}\n.toast.warning[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-warning, #ffc409);\n}\nbody.dark .toast.primary[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-primary, #3880ff);\n}\nbody.dark .toast.danger[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-danger, #eb445a);\n}\nbody.dark .toast.warning[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-warning, #ffc409);\n}\nbody.dark .toast.success[data-v-3c00b968] {\n\tborder-left: 8px solid var(--app-color-success, #2dd36f);\n}\n/*body.dark .toast {\n\tbackground: #808080;\n}*/\n.toast-container.bl-0 .toast[data-v-3c00b968] {\n\tborder-left: 0px!important;\n}\n.toast-container.vibrate .left-container .xicon[data-v-3c00b968] {\n\t-webkit-animation: vibrate-1-3c00b968 0.3s linear infinite both;\n\t        animation: vibrate-1-3c00b968 0.3s linear infinite both;\n}\n.toast button[data-v-3c00b968] {\n\talign-self: flex-start;\n\tbackground-color: transparent;\n\tfont-size: 25px;\n\tcolor: #656565;\n\tline-height: 0;\n\tcursor: pointer;\n\tborder: 0;\n}\n.toast[data-v-3c00b968]:not(:last-child){\n\tmargin-bottom: 50px;\n}\n.toast .left-container[data-v-3c00b968],.right-container[data-v-3c00b968] {\n\talign-self: center;\n}\n.toast .center-container h2[data-v-3c00b968] {\n\tcolor: #282b2e;\n\tfont-weight: 600;\n\tfont-size: 16px;\n\tmargin-top: 8px!important;\n}\nbody.dark .toast .center-container h2[data-v-3c00b968] {\n\tcolor: #6c757d;\n}\n.toast.success .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-success, #2dd36f);\n}\n.toast.danger .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-danger, #eb445a);\n}\n.toast.primary .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-primary, #3880ff);\n}\n.toast.warning .center-container h2.colorized[data-v-3c00b968] {\n\tcolor: var(--app-color-warning, #ffc409);\n}\n.toast .center-container p[data-v-3c00b968] {\n\tfont-size: 12px;\n\tfont-weight: 400;\n\tcolor: #c5c5c5;\n\tpadding: 4px 0;\n}\n.left-container[data-v-3c00b968] {\n\twidth: 100px;\n\theight: 100%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n}\n.center-container[data-v-3c00b968] {\n\twidth: 100%;\n\theight: 100%;\n\theight: 100%;\n\t/*display: flex;\n\talign-items: center;*/\n}\n.right-container[data-v-3c00b968] {\n\twidth: 25px;\n\theight: 100%;\n\talign-items: center;\n\tdisplay: flex;\n\tjustify-content: center;\n\tpadding: 12px;\n}\n\n/* vibrate animation\n@-webkit-keyframes vibrate-1 {\n\t0% {\n\t\t-webkit-transform: translate(0);\n\t\t\t\ttransform: translate(0);\n\t}\n\t20% {\n\t\t-webkit-transform: translate(-2px, 2px);\n\t\t\t\ttransform: translate(-2px, 2px);\n\t}\n\t40% {\n\t\t-webkit-transform: translate(-2px, -2px);\n\t\t\t\ttransform: translate(-2px, -2px);\n\t}\n\t60% {\n\t\t-webkit-transform: translate(2px, 2px);\n\t\t\t\ttransform: translate(2px, 2px);\n\t}\n\t80% {\n\t\t-webkit-transform: translate(2px, -2px);\n\t\t\t\ttransform: translate(2px, -2px);\n\t}\n\t100% {\n\t\t-webkit-transform: translate(0);\n\t\t\t\ttransform: translate(0);\n\t}\n}\n*/\n@-webkit-keyframes vibrate-1-3c00b968 {\n0% {\n\t\ttransform: translate(0);\n}\n20% {\n\t\ttransform: translate(-1px, 1px);\n}\n40% {\n\t\ttransform: translate(-1px, -1px);\n}\n60% {\n\t\ttransform: translate(1px, 1px);\n}\n80% {\n\t\ttransform: translate(1px, -1px);\n}\n100% {\n\t\ttransform: translate(0);\n}\n}\n@keyframes vibrate-1-3c00b968 {\n0% {\n\t\ttransform: translate(0);\n}\n20% {\n\t\ttransform: translate(-1px, 1px);\n}\n40% {\n\t\ttransform: translate(-1px, -1px);\n}\n60% {\n\t\ttransform: translate(1px, 1px);\n}\n80% {\n\t\ttransform: translate(1px, -1px);\n}\n100% {\n\t\ttransform: translate(0);\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44575,6 +44886,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/UI/ProfileInfo.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/UI/ProfileInfo.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ProfileInfo_vue_vue_type_template_id_3ab017e7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfileInfo.vue?vue&type=template&id=3ab017e7 */ "./resources/js/components/UI/ProfileInfo.vue?vue&type=template&id=3ab017e7");
+/* harmony import */ var _ProfileInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileInfo.vue?vue&type=script&lang=js */ "./resources/js/components/UI/ProfileInfo.vue?vue&type=script&lang=js");
+/* harmony import */ var E_laragon_www_cybersport_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,E_laragon_www_cybersport_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ProfileInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ProfileInfo_vue_vue_type_template_id_3ab017e7__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/UI/ProfileInfo.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/UI/ProfileSideNav.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/UI/ProfileSideNav.vue ***!
@@ -45091,6 +45430,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/UI/ProfileInfo.vue?vue&type=script&lang=js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/UI/ProfileInfo.vue?vue&type=script&lang=js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileInfo_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileInfo.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileInfo.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js":
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/admin/header/AdminHeader.vue?vue&type=script&lang=js ***!
@@ -45407,6 +45762,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MobileNav_vue_vue_type_template_id_31e32811__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MobileNav_vue_vue_type_template_id_31e32811__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MobileNav.vue?vue&type=template&id=31e32811 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/MobileNav.vue?vue&type=template&id=31e32811");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/UI/ProfileInfo.vue?vue&type=template&id=3ab017e7":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/UI/ProfileInfo.vue?vue&type=template&id=3ab017e7 ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileInfo_vue_vue_type_template_id_3ab017e7__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileInfo_vue_vue_type_template_id_3ab017e7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileInfo.vue?vue&type=template&id=3ab017e7 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ProfileInfo.vue?vue&type=template&id=3ab017e7");
 
 
 /***/ }),

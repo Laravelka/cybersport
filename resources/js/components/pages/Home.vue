@@ -11,7 +11,7 @@
                     <router-link class="welcomehead-top__logo-mobile" :to="{ name: 'home' }">
                         <img class="welcomehead-top__img-mobile" src="images/logo.svg" alt="">
                     </router-link>
-                    <router-link class="welcomehead-top__btn" :to="{ name: headerLink }">{{ user.name ?? 'Войти' }}</router-link>
+                    <router-link class="welcomehead-top__btn" :to="{ name: headerLink }">{{ user?.name ?? 'Войти' }}</router-link>
                 </div>
                 <div class="welcomehead-content">
                     <div class="wrapper">
