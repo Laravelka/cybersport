@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.1.8",
+        "ext-json": "*",
         "beyondcode/laravel-websockets": "^1.13",
+        "christofferok/laravel-emojione": "^5.0",
         "cooperav/sms-aero-v2-laravel": "^1.0",
         "doctrine/dbal": "^3.1",
         "fruitcake/laravel-cors": "^2.0",
@@ -18,8 +20,7 @@
         "laravel/tinker": "^2.5",
         "socialiteproviders/steam": "^4.2",
         "socialiteproviders/vkontakte": "^4.2",
-        "socialiteproviders/yandex": "^4.1",
-      	"ext-json": "*"
+        "socialiteproviders/yandex": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
