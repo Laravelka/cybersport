@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "945aba91ef35d150ad42fa87069f37de",
+    "content-hash": "e360404df830b225043c7a744ac3721a",
     "packages": [
         {
             "name": "beyondcode/laravel-websockets",
@@ -1109,6 +1109,46 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "emojione/assets",
+            "version": "4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/emojione/emojione-assets.git",
+                "reference": "88478c659a64af0176c7b0cd0778f1f9cb8f916f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/emojione/emojione-assets/zipball/88478c659a64af0176c7b0cd0778f1f9cb8f916f",
+                "reference": "88478c659a64af0176c7b0cd0778f1f9cb8f916f",
+                "shasum": ""
+            },
+            "suggest": {
+                "emojione/emojione": "A set of libraries to make using emoji on your websites easier."
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Emojis in png format brought to you by EmojiOne. EmojiOne is a complete set of emojis designed for the web.",
+            "homepage": "https://www.emojione.com",
+            "keywords": [
+                "emoji",
+                "emojione",
+                "emojis",
+                "emoticons",
+                "smileys",
+                "smilies",
+                "unicode"
+            ],
+            "support": {
+                "issues": "https://github.com/emojione/emojione-assets/issues",
+                "source": "https://github.com/emojione/emojione-assets/tree/4.5"
+            },
+            "abandoned": true,
+            "time": "2019-01-23T22:10:07+00:00"
         },
         {
             "name": "emojione/emojione",

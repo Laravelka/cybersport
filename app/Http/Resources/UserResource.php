@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
 {
+
+
     /**
      * Transform the resource into an array.
      *
@@ -15,8 +17,6 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        $friends = FriendResource::collection($this->whenLoaded('friends'))->toArray($request) ?? [];
-
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -38,12 +38,7 @@ class UserResource extends JsonResource
             'referal_status' => $this->referal_status,
             'referal_link' => $this->referal_link,
             'posts' => PostResource::collection($this->whenLoaded('posts')),
-            'friends' => array_filter($friends, function($friend) {
-                return $friend['is_friend'] == 1;
-            }),
-            'subscribers' => array_filter($friends, function($friend) {
-                return $friend['is_friend'] == 0;
-            }),
+            'friends' => FriendResource::collection($this->whenLoaded('friends')),
         ];
     }
 }

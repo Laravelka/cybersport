@@ -11,6 +11,7 @@
         "christofferok/laravel-emojione": "^5.0",
         "cooperav/sms-aero-v2-laravel": "^1.0",
         "doctrine/dbal": "^3.1",
+        "emojione/assets": "^4.5",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "ilzrv/laravel-steam-auth": "^2.2",

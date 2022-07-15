@@ -31,43 +31,43 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::post('/register', [AuthController::class, 'register'])
-    ->name('register');
+	->name('register');
 Route::post('/login', [AuthController::class, 'login'])
-    ->name('login');
+	->name('login');
 
 Route::middleware(['auth:api'])->group(function() {
-    Route::post('/logout', [AuthController::class, 'logout'])
-        ->name('logout');
+	Route::post('/logout', [AuthController::class, 'logout'])
+		->name('logout');
 
-    // users chat
-    Route::get('/chat/{chatId}', [UsersChatController::class, 'getMessages'])
-        ->name('messages');
-    Route::post('/chat/{chatId}/message', [UsersChatController::class, 'newMessage'])
-        ->name('message.store');
+	// users chat
+	Route::get('/chat/{chatId}', [UsersChatController::class, 'getMessages'])
+		->name('messages');
+	Route::post('/chat/{chatId}/message', [UsersChatController::class, 'newMessage'])
+		->name('message.store');
 
-    Route::apiResources([
-        'comments' => CommentController::class,
-        'profiles' => ProfileController::class,
-        'friends' => FriendController::class,
-        'likes' => LikeController::class,
-        'posts' => PostController::class,
+	Route::apiResources([
+		'comments' => CommentController::class,
+		'profiles' => ProfileController::class,
+		'friends' => FriendController::class,
+		'likes' => LikeController::class,
+		'posts' => PostController::class,
 
-    ]);
+	]);
 
 	/*
 	 * Admin routes
 	 */
-    Route::prefix('admin')
+	Route::prefix('admin')
 		->name('admin.')
 		->middleware('admin')
-        ->group(function() {
-            Route::apiResources([
-                'chats' => ChatController::class,
-                'matches' => MatchController::class,
-                'settings' => SettingController::class,
-                'teams' => TeamController::class,
-                'users' => UserController::class,
-            ]);
-        });
+		->group(function() {
+			Route::apiResources([
+				'chats' => ChatController::class,
+				'matches' => MatchController::class,
+				'settings' => SettingController::class,
+				'teams' => TeamController::class,
+				'users' => UserController::class,
+			]);
+		});
 
 });

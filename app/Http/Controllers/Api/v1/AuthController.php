@@ -37,7 +37,9 @@ class AuthController extends Controller
         $request_data = array_diff($request->validated(), [null]);
         $search_param = array_key_exists('email', $request_data) ? 'email' : 'phone';
 
-        $user = User::with(['friends', 'posts', 'comments', 'awards', 'likes'])->where($search_param, $request_data[$search_param])->first();
+        $user = User::with(['friends', 'posts', 'comments', 'awards', 'likes'])
+			->where($search_param, $request_data[$search_param])
+			->first();
 
         if ($user) {
             if (Hash::check($request_data['password'], $user->password)) {

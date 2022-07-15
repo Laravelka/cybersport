@@ -93,7 +93,12 @@
                         <div class="profile-wall__title title">СТЕНА ПОЛЬЗОВАТЕЛЯ</div>
                         <form class="profile-wall__form" action="#">
                             <div class="profile-wall__form-box">
-                                <input class="profile-wall__form-input" placeholder="Что у Вас нового?" type="text">
+                                <input
+									type="text"
+									v-model="inputPostRef"
+									class="profile-wall__form-input"
+									placeholder="Что у Вас нового?"
+								>
                                 <label class="profile-wall__label">
                                     <input class="profile-wall__label-input" type="file">
                                     <img class="profile-wall__label-file" src="/images/icons/image-icon.svg" alt="">
@@ -101,7 +106,7 @@
                                 <button class="profile-wall__form-emoji">
                                     <img src="/images/icons/profile-emoji.svg" alt="">
                                 </button>
-                                <button class="profile-wall__form-btn">
+                                <button class="profile-wall__form-btn" @click.prevent="newPost">
                                     <img src="/images/icons/profile-search.svg" alt="">
                                 </button>
                             </div>
@@ -122,7 +127,7 @@
 											</a>
 											<div class="feed-top__box-name">
 												<div class="feed-top__user-name">{{ item.user.name }}<span></span></div>
-												<div class="feed-top__user-info">{{ item.content }}</div>
+												<div class="feed-top__user-info" v-html="item.content"></div>
 											</div>
 											<div class="feed-top__settings-box">
 												<button class="feed-top__settings-btn">
@@ -222,12 +227,13 @@
 </template>
 
 <script>
+	import MobileNav from "../UI/MobileNav";
     import HeaderNav from "../header/HeaderNav";
-    import MobileNav from "../UI/MobileNav";
     import ProfileSideNav from "../UI/ProfileSideNav";
 
-	import { ref, onBeforeMount } from 'vue';
 	import axios from "axios";
+	import emojione from 'emojione';
+	import { ref, onBeforeMount } from 'vue';
 	import { useRoute, useRouter } from 'vue-router';
 	import { mapActions, mapState, useStore } from "vuex";
 
@@ -248,11 +254,20 @@
 		setup() {
 			const store = useStore();
 			const route = useRoute();
+
 			const profileRef = ref({});
+			const inputPostRef = ref('');
+
 			const { user } = store.state.currentUser;
 			const isCurrentUser = Number(route.params.id) === user.id || route.params.id === undefined;
 
 			store.commit('setLoading', true);
+
+			const onInput = (e) => {
+				const output = emojione.toImage(e.target.value);
+
+				console.log(output)
+			};
 
 			const getProfile = (name) => {
 				const id = name === 'profile' || route.params.id === undefined ? user.id : route.params.id;
@@ -264,20 +279,36 @@
 					store.commit('setLoading', false);
 				}).catch((error) => {
 					store.commit('setError', error.message);
+					store.commit('setLoading', false);
 				});
 			};
 
-			useRouter().afterEach((to, from, next) => {
+			const newPost = () => {
+				axios.post('/api/v1/posts', {
+					content: inputPostRef.value
+				}).then((response) => {
+					const { data } = response;
+
+					getProfile();
+					store.commit('setLoading', false);
+				}).catch((error) => {
+					store.commit('setError', error.message);
+					store.commit('setLoading', false);
+				});
+			};
+
+			useRouter().afterEach((to, from) => {
 				store.commit('setLoading', true);
 				getProfile(to.name);
-
-				next();
 			});
 
 			getProfile();
 
 			return {
+				newPost,
+				onInput,
 				profileRef,
+				inputPostRef,
 				isCurrentUser
 			};
 		}

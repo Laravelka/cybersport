@@ -12,12 +12,8 @@
         @if (str_contains(Route::current()->parameters['any'] ?? '', 'admin'))
             <link rel="stylesheet" href="/css/style-admin.min.css">
         @endif
+        <link rel="stylesheet" href="/vendor/emojione/sprites/emojione-sprite-{{ config('emojione.spriteSize') }}.min.css"/>
 		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-		/>
-
 		<script>
 			window.arrUser = {{ Illuminate\Support\Js::from($arrUser ?? null) }};
 			window.accessToken = {{ Illuminate\Support\Js::from($accessToken ?? null) }};

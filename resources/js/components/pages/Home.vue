@@ -118,14 +118,17 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
     export default {
         computed: {
             ...mapGetters({
 				user: 'user',
-                isLoggedIn: 'isLoggedIn'
+                // isLoggedIn: 'isLoggedIn'
             }),
+			...mapState({
+				isLoggedIn: state => state.currentUser.user !== null
+			}),
             headerLink() {
                 return this.isLoggedIn ? 'matches' : 'login';
             },

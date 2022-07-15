@@ -20,7 +20,7 @@ class PostResource extends JsonResource
             'user' => $this->user()->first(),
             'user_id' => $this->user_id,
             'title' => $this->title,
-            'content' => $this->content,
+            'content' => \LaravelEmojiOne::toImage($this->content),
             'img' => $this->img,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

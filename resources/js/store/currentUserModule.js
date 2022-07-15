@@ -41,6 +41,8 @@ export const currentUserModule = {
 					if (data.access_token && data.user) {
 						localStorage.setItem("access_token", data.access_token);
 						localStorage.setItem("current_user", JSON.stringify(data.user));
+						window.axios.defaults.headers.common['Authorization'] = `Bearer ${data.access_token}`;
+
 						commit('setUser', data.user);
 						commit('setToken', data.access_token);
 						commit('setLoading', false);
@@ -72,6 +74,7 @@ export const currentUserModule = {
 					if (data.access_token && data.user) {
 						localStorage.setItem("access_token", data.access_token);
 						localStorage.setItem("current_user", JSON.stringify(data.user));
+						window.axios.defaults.headers.common['Authorization'] = `Bearer ${data.access_token}`;
 
 						commit('setUser', data.user);
 						commit('setToken', data.access_token);
@@ -99,6 +102,7 @@ export const currentUserModule = {
 				.then(response => {
 					localStorage.removeItem("access_token");
 					localStorage.removeItem("current_user");
+					window.axios.defaults.headers.common['Authorization'] = null;
 
 					commit('setUser', null);
 					commit('setToken', null);

@@ -35,14 +35,11 @@ class PostController extends Controller
     {
         $request_data = array_diff($request->validated(), [null]);
 
-        $request_data['user_id'] = Auth::id();
-
         if ($request->hasFile('img')) {
             $path = $request->img->store('posts', 'public');
             $request_data['img'] = $path;
         }
-
-        $post = Post::create($request_data);
+        $post = $request->user()->posts()->create($request_data);
 
         return new PostResource($post);
     }

@@ -31,7 +31,6 @@ const token = localStorage.getItem("access_token");
 
 if (token) {
 	window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-	
 }
 
 window.Echo = new Echo({

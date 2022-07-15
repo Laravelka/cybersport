@@ -2175,7 +2175,7 @@ body {
 .profile-info__btn::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -2px;
     left: -23px;
     width: 17px;
     height: 17px;
