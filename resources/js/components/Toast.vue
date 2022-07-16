@@ -136,7 +136,7 @@ export default defineComponent({
 	left: 0;
 	top: 55px;
 	width: 100%;
-	z-index: 100;
+	z-index: 1030;
 	display: flex;
 	position: fixed;
 	pointer-events: none;

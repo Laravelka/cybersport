@@ -118,12 +118,14 @@ export const currentUserModule = {
 				})
 		},
 		autoLoginUser({commit}, data) {
-			localStorage.setItem("access_token", data.token);
-			localStorage.setItem("current_user", JSON.stringify(data.user));
-			window.axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
-
 			commit('setUser', data.user);
-			commit('setToken', data.token);
+			localStorage.setItem("current_user", JSON.stringify(data.user));
+			
+			if (data.token) {
+				commit('setToken', data.token);
+				localStorage.setItem("access_token", data.token);
+				window.axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+			}
 		},
 		updateUser({commit}, isAuth = true) {
 			const { user } = this.state.currentUser;

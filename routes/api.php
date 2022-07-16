@@ -45,6 +45,9 @@ Route::middleware(['auth:api'])->group(function() {
 	Route::post('/chat/{chatId}/message', [UsersChatController::class, 'newMessage'])
 		->name('message.store');
 
+
+	Route::post('/profiles/{id}/update', [ProfileController::class, 'update']);
+	
 	Route::apiResources([
 		'comments' => CommentController::class,
 		'profiles' => ProfileController::class,

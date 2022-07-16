@@ -34,14 +34,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return UserResource
      */
-    public function store(UserStoreRequest $request): UserResource
+    public function store(UserStoreRequest $request)
     {
         $request_data = array_diff($request->validated(), [null]);
 
         $request_data['user_id'] = Auth::id();
 
         if ($request->hasFile('img')) {
-            $path = $request->img->store('Users', 'public');
+            $path = $request->img->store('users', 'public');
             $request_data['img'] = $path;
         }
 
@@ -72,23 +72,22 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UserUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, int $id): \Illuminate\Http\Response
+    public function update(UserUpdateRequest $request, int $id)
     {
         $User = User::findOrFail($id);
 
-        if ($User->user_id === Auth::id()) {
+        if ($User->id === Auth::id()) {
             $request_data = array_diff($request->validated(), [null]);
 
-            if ($request->hasFile('img')) {
-                $request_data['img'] = $request->img->store('Users', 'public');
+            if ($request->hasFile('avatar')) {
+                $request_data['avatar'] = Storage::url($request->avatar->store('avatars', 'public'));
 
-                $old_img_path = $User->img;
+                $old_img_path = $User->avatar;
             }
-
             $User->update($request_data);
 
             if (isset($old_img_path)) {
