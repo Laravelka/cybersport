@@ -36,7 +36,7 @@
 				</div>
 				<img class="feed-top__img" v-if="post.img" :src="post.img" style="display: block" alt="">
 				<div class="feed-top__box">
-					<button class="feed-top__like" @click="toggleLike(post.id)">{{ post.likes.length }}</button>
+					<button class="feed-top__like" @click="toggleLike(post.id, index)">{{ post.likes.length }}</button>
 					<button class="feed-top__comment">{{ post.comments.length }}</button>
 					<button class="feed-top__emoji">
 						<img src="/images/icons/feed-emoji.svg" alt="">
@@ -72,7 +72,7 @@
 				<div class="text-muted fs-6 px-0 pb-2" v-if="post.comments.length === 0">Пока что пусто...</div>
 				<template v-else>
 					<div class="feed-bottom__title">Последние комментарии</div>
-					<template v-for="(comment, index) in post.comments" v-bind:key="index">
+					<template v-for="(comment, index) in (isShowCommentsRef[index] ? post.comments : post.comments.slice(0, 2))" v-bind:key="index">
 						<div class="feed-bottom__box">
 							<router-link class="feed-bottom__icon me-1 ms-0"
 								:to="{ name: 'getProfile', params: {id: comment.user.id} }">
@@ -90,11 +90,12 @@
 						<div class="feed-bottom__comment">{{ comment.content }}</div>
 						<img class="feed-bottom__img" v-if="comment.img !== null" :src="comment.img" alt="">
 					</template>
-					<button class="feed-bottom__comment-btn">Показать остальные комментарии</button>
+					<button class="feed-bottom__comment-btn" @click.prevent="isShowCommentsRef[index] = !isShowCommentsRef[index]">
+						{{ isShowCommentsRef[index] ? 'Скрыть' : 'Показать' }} остальные комментарии</button>
 				</template>
-				<form class="feed-bottom__form" action="#">
+				<div class="feed-bottom__form">
 					<div class="feed-bottom__form-box">
-						<input class="feed-bottom__form-input" placeholder="Быстрый комментарий" type="text">
+						<input v-model="inputsCommentRef[index]" class="feed-bottom__form-input" placeholder="Быстрый комментарий" type="text">
 						<label class="feed-bottom__label">
 							<input class="feed-bottom__label-input" type="file">
 							<img class="feed-bottom__label-file" src="/images/icons/image-icon.svg" alt="">
@@ -102,11 +103,11 @@
 						<button class="feed-bottom__form-emoji">
 							<img src="/images/icons/profile-emoji.svg" alt="">
 						</button>
-						<button class="feed-bottom__form-btn">
+						<button class="feed-bottom__form-btn" @click.prevent="newComment(post.id, index)">
 							<img src="/images/icons/profile-search.svg" alt="">
 						</button>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -124,13 +125,16 @@
 			const postsRef = ref([]);
 			const isLoading = ref(true);
 			const isOpenDropdowns = ref([]);
+			const inputsCommentRef = ref([]);
+			const isShowCommentsRef = ref([]);
+
 			const setLoading = (value) => isLoading.value = value;
 
 			const getPosts = () => {
 				axios.get('/api/v1/posts').then((response) => {
 					postsRef.value = response.data.data;
 				}).catch((error) => {
-					if (error.response.data) {
+					if (error.response && error.response.data) {
 						store.commit('setError', error.response.data.message);
 					} else {
 						store.commit('setError', error.message);
@@ -138,22 +142,37 @@
 					setLoading(false);
 				});
 			};
-			
-			const toggleLike = (postId) => {
+
+			const newComment = (postId, postIndex) => {
+				axios.post('/api/v1/comments', {
+					post_id: postId,
+					content: inputsCommentRef.value[postIndex]
+				}).then((response) => {
+					const { data } = response;
+
+					inputsCommentRef.value[postIndex] = null;
+					postsRef.value[postIndex].comments.push(data.data);
+
+					store.commit('setLoading', false);
+				}).catch((error) => {
+					if (error.response.data) {
+						store.commit('setError', error.response.data.message);
+					} else {
+						store.commit('setError', error.message);
+					}
+					store.commit('setLoading', false);
+				});
+			};
+
+			const toggleLike = (postId, postIndex) => {
 				axios.post('/api/v1/likes', {
 					post_id: postId
 				}).then((response) => {
 					const { data } = response.data;
 
-					let postIndex;
-					for(let i = 0; i < postsRef.value.length; i++) {
-						if (postsRef.value[i].id === data.id) {
-							postIndex = i;
-						}
-					}
 					postsRef.value[postIndex] = data;
 				}).catch((error) => {
-					if (error.response.data) {
+					if (error.response && error.response.data) {
 						store.commit('setError', error.response.data.message);
 					} else {
 						store.commit('setError', error.message);
@@ -168,8 +187,12 @@
 			return {
 				postsRef,
 				isLoading,
+				newComment,
 				toggleLike,
-				isOpenDropdowns
+				isOpenDropdowns,
+				inputsCommentRef,
+				isShowCommentsRef
+
 			}
 		}
 	});

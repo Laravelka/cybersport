@@ -120,114 +120,6 @@
 						</form>
 						<div class="profile-wall__record">
 							<profile-posts></profile-posts>
-
-							<div class="profile-wall__record-notext d-none" v-if="profileRef.posts?.length === 111110">
-								Пользователь не выложил пока не одну запись
-							</div>
-							<div v-else-if="false" class="feed__inner">
-								<div v-for="(item, index) in profileRef.posts" class="feed-item" v-bind:key="index">
-									<div class="feed-top">
-										<div class="feed-top__box">
-											<a class="feed-top__icon" href="#">
-												<div class="feed-top__icongradient icon">
-													<span>10</span>
-													<img class="feed-top__iconimg" v-if="item.user.avatar !== null" :src="item.user.avatar" alt="">
-													<img class="feed-top__iconimg" v-else src="/images/logo.svg" alt="no avatar">
-												</div>
-											</a>
-											<div class="feed-top__box-name">
-												<div class="feed-top__user-name">{{ item.user.name }}<span></span></div>
-												<div class="feed-top__user-info" v-html="item.content"></div>
-											</div>
-											<div class="feed-top__settings-box">
-												<button class="feed-top__settings-btn">
-													<svg width="24" height="6" viewBox="0 0 24 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<circle cx="3" cy="3" r="3" fill="#6E6E86" />
-														<circle cx="12" cy="3" r="3" fill="#6E6E86" />
-														<circle cx="21" cy="3" r="3" fill="#6E6E86" />
-													</svg>
-												</button>
-												<div class="feed-top__report-box">
-													<button class="feed-top__report-btn">Пожаловаться</button>
-													<button class="feed-top__report-btn">Скрыть</button>
-												</div>
-											</div>
-										</div>
-										<img
-											class="feed-top__img" v-if="item.img"
-											:src="item.img"
-											style="display: block"
-											alt=""
-										>
-										<div class="feed-top__box">
-											<button class="feed-top__like">{{ item.likes.length }}</button>
-											<button class="feed-top__comment">{{ item.comments.length }}</button>
-											<button class="feed-top__emoji">
-												<img src="/images/icons/feed-emoji.svg" alt="">
-											</button>
-											<ul class="feed-top__list">
-												<li class="feed-top__list-item">
-													<button class="feed-top__list-link">
-														<img src="/images/icons/feed-1.png" alt="">
-													</button>
-												</li>
-												<li class="feed-top__list-item">
-													<button class="feed-top__list-link">
-														<img src="/images/icons/feed-2.png" alt="">
-													</button>
-												</li>
-												<li class="feed-top__list-item">
-													<button class="feed-top__list-link">
-														<img src="/images/icons/feed-3.png" alt="">
-													</button>
-												</li>
-												<li class="feed-top__list-item">
-													<button class="feed-top__list-link">
-														<img src="/images/icons/feed-4.png" alt="">
-													</button>
-												</li>
-											</ul>
-											<button class="feed-top__reaction">13 Реакций</button>
-											<div class="feed-top__time-published">5 минут назад</div>
-										</div>
-									</div>
-
-									<div class="feed-bottom">
-										<div class="feed-bottom__title">Последние комментарии</div>
-										<div class="feed-bottom__box">
-											<a class="feed-bottom__icon" href="#">
-												<div class="feed-bottom__icongradient icon">
-													<img class="feed-bottom__iconimg" src="/images/user/1.png" alt="">
-												</div>
-											</a>
-											<div class="feed-bottom__box-name">
-												<div class="feed-bottom__user-name">Kushiro Nara, 13 игр</div>
-												<div class="feed-bottom__user-time">49 минут назад</div>
-											</div>
-										</div>
-										<div class="feed-bottom__comment">Коментарий пользователя. Коментарий пользователя. Коментарий пользователя.
-											Коментарий пользователя. Коментарий
-											пользователя.</div>
-										<img class="feed-bottom__img" src="/images/decor/feed-img.png" alt="">
-										<button class="feed-bottom__comment-btn">Показать остальные комментарии</button>
-										<form class="feed-bottom__form" action="#">
-											<div class="feed-bottom__form-box">
-												<input class="feed-bottom__form-input" placeholder="Быстрый комментарий" type="text">
-												<label class="feed-bottom__label">
-													<input class="feed-bottom__label-input" type="file">
-													<img class="feed-bottom__label-file" src="/images/icons/image-icon.svg" alt="">
-												</label>
-												<button class="feed-bottom__form-emoji">
-													<img src="/images/icons/profile-emoji.svg" alt="">
-												</button>
-												<button class="feed-bottom__form-btn">
-													<img src="/images/icons/profile-search.svg" alt="">
-												</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="chooseTeam fixed-top min-vh-100 popup-bg" v-if="isOpenProfileEdit">
@@ -408,7 +300,7 @@
 
 					store.commit('setLoading', false);
 				}).catch((error) => {
-					if (error.response.data) {
+					if (error.response && error.response.data) {
 						store.commit('setError', error.response.data.message);
 					} else {
 						store.commit('setError', error.message);
@@ -441,7 +333,7 @@
 					});
 					store.commit('setLoading', false);
 				}).catch((error) => {
-					if (error.response.data) {
+					if (error.response && error.response.data) {
 						store.commit('setError', error.response.data.message);
 					} else {
 						store.commit('setError', error.message);
