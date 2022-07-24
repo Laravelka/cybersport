@@ -239,7 +239,7 @@ export default defineComponent({
 .toast {
 	margin: 10px;
 	width: 380px;
-	height: 80px;
+	min-height: 80px;
 	display: flex;
 	color: #666;
 	border-radius: .5rem;

@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Models\User;
+use Carbon\Carbon;
 
 class PostResource extends JsonResource
 {
@@ -17,17 +17,16 @@ class PostResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user' => $this->user()->first(),
+            'user' => new UserResource($this->user()->first()),
             'user_id' => $this->user_id,
             'title' => $this->title,
             'content' => \LaravelEmojiOne::toImage($this->content),
             'img' => $this->img,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+			'created_at' => Carbon::parse($this->created_at)->diffForHumans(),
+			'updated_at' => Carbon::parse($this->updated_at)->diffForHumans(),
             'comments' => CommentResource::collection($this->comments),
             'awards' => AwardResource::collection($this->awards),
-            'likes' => LikeResource::collection($this->likes),
-
+            'likes' => LikeResource::collection($this->likes)
         ];
     }
 }

@@ -117,6 +117,9 @@
     export default {
         components: {
             HeaderNav, Chat, MobileNav
+        },
+        setup() {
+            
         }
     }
 </script>

@@ -1,9 +1,13 @@
 export const commonModule = {
     state: () => ({
+        isOpenMenu: false,
         loading: false,
         error: null
     }),
     getters: {
+        isOpenMenu(state) {
+            return state.isOpenMenu;
+        },
         loading(state) {
             return state.loading;
         },
@@ -12,6 +16,9 @@ export const commonModule = {
         }
     },
     mutations: {
+        setIsOpenMenu(state, payload) {
+            state.isOpenMenu = payload;
+        },
         setLoading(state, payload) {
             state.loading = payload;
         },
@@ -23,6 +30,9 @@ export const commonModule = {
         }
     },
     actions: {
+        setIsOpenMenu({commit}, payload) {
+            commit('setIsOpenMenu', payload);
+        },
         setLoading({commit}, payload) {
             commit('setLoading', payload);
         },

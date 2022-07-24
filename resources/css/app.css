@@ -10081,3 +10081,11 @@ body {
 		right: -1px;
 	}
 }
+
+.mobile-menu__usermenu-iconimg, .header-usermenu__iconimg, .feed-top__iconimg, .feed-bottom__iconimg {
+	object-position: center;
+	border-radius: 16px;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}

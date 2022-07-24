@@ -47,6 +47,7 @@ Route::middleware(['auth:api'])->group(function() {
 
 
 	Route::post('/profiles/{id}/update', [ProfileController::class, 'update']);
+	Route::post('/likes/add', [LikeController::class, 'add']);
 	
 	Route::apiResources([
 		'comments' => CommentController::class,

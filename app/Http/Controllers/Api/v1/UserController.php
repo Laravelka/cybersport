@@ -13,6 +13,7 @@ use App\Http\Resources\UserResource;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Image;
 
 class UserController extends Controller
 {
@@ -33,22 +34,24 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return UserResource
-     */
+     *
     public function store(UserStoreRequest $request)
     {
         $request_data = array_diff($request->validated(), [null]);
 
         $request_data['user_id'] = Auth::id();
 
-        if ($request->hasFile('img')) {
+        if ($request->hasFile('avatar')) {
             $path = $request->img->store('users', 'public');
-            $request_data['img'] = $path;
+
+            $request_data['avatar'] = $path;
         }
 
         $User = User::create($request_data);
 
         return new UserResource($User);
     }
+	*/
 
     /**
      * Display the specified resource.
@@ -72,7 +75,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\UserUpdateRequest  $request
+     * @param  UserUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -84,14 +87,29 @@ class UserController extends Controller
             $request_data = array_diff($request->validated(), [null]);
 
             if ($request->hasFile('avatar')) {
-                $request_data['avatar'] = Storage::url($request->avatar->store('avatars', 'public'));
+				$avatar = $request->file('avatar');
+				$nameOriginal = $User->id.'_avatar_'.time().'.'.$avatar->getClientOriginalExtension();
+				$fileOriginal = $avatar->storeAs('public', 'avatars/'.$nameOriginal);
 
-                $old_img_path = $User->avatar;
+				$imageInstance = Image::make($avatar->path());
+				$destinationPath = public_path('storage/avatars');
+
+				$resizedAvatar = $imageInstance->resize(125, 125, function ($constraint) {
+					$constraint->aspectRatio();
+				})->save($destinationPath.'/min_'.$nameOriginal);
+				$fileResized = 'avatars/'.$resizedAvatar->basename;
+
+				$request_data['avatar'] = $fileResized;
+				$request_data['avatar_full'] = $fileOriginal;
+
+                $oldAvatarPath = $User->avatar;
+				$oldAvatarFullPath = $User->avatar_full;
             }
             $User->update($request_data);
 
-            if (isset($old_img_path)) {
-                Storage::disk('public')->delete($old_img_path);
+            if (isset($oldAvatarPath) && isset($oldAvatarFullPath)) {
+                Storage::disk('public')->delete($oldAvatarPath);
+				Storage::disk('public')->delete(str_replace('public/', '', $oldAvatarFullPath));
             }
 
             return new UserResource($User);

@@ -49,16 +49,17 @@
 					<div class="header-usermenu">
 						<router-link class="header-usermenu__icon" :to="{ name: 'profile' }">
 							<div class="header-usermenu__icongradient icon">
-								<img class="header-usermenu__iconimg" :src="user.avatar" alt="">
+								<img class="header-usermenu__iconimg" v-if="user.avatar !== null" :src="user.avatar" alt="">
+								<img class="header-usermenu__iconimg" v-else src="/images/logo.svg" alt="no avatar">
 							</div>
 						</router-link>
 						<div class="header-usermenu__info">
 							<div class="header-usermenu__info-box">
 
 								<router-link
-										v-if="user"
-										class="header-usermenu__name user-name"
-										:to="{ name: 'profile' }"
+									v-if="user"
+									class="header-usermenu__name user-name"
+									:to="{ name: 'profile' }"
 								>{{ user.name }}</router-link>
 
 								<a class="header-usermenu__settings-link" href="#">
@@ -91,14 +92,14 @@
 					<img class="mobile-logo__img" src="/images/mobile-logo.svg" alt="">
 				</div>
 
-				<button class="burger-btn" @click="isOpenMenu = !isOpenMenu">
+				<button class="burger-btn" @click="toggleMenu">
 					<span></span>
 				</button>
 
 				<div class="mobile-menu" :class="{'open': isOpenMenu}">
 					<div class="mobile-menu__inner">
 						<div class="mobile-menu__title">ЛИЧНЫЙ КАБИНЕТ</div>
-						<button class="mobile-menu__close-btn" @click="isOpenMenu = !isOpenMenu">
+						<button class="mobile-menu__close-btn" @click="toggleMenu">
 							<img src="/images/icons/close.svg" alt="">
 						</button>
 						<button class="mobile-menu__settings-btn">
@@ -107,7 +108,8 @@
 						<div class="mobile-menu__usermenu">
 							<router-link class="mobile-menu__usermenu-icon" :to="{ name: 'profile' }">
 								<div class="mobile-menu__usermenu-icongradient icon">
-									<img class="mobile-menu__usermenu-iconimg" :src="user.avatar" alt="">
+									<img class="mobile-menu__usermenu-iconimg" v-if="user.avatar !== null" :src="user.avatar" alt="">
+									<img class="mobile-menu__usermenu-iconimg" v-else src="/images/logo.svg" alt="no avatar">
 								</div>
 							</router-link>
 							<div class="mobile-menu__usermenu-info">
@@ -253,32 +255,42 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { useRouter } from "vue-router";
+import { mapActions, mapGetters, useStore } from "vuex";
 
-	export default {
-		data() {
-			return {
-				isOpenMenu: false
+export default {
+	computed: {
+		...mapGetters({
+			user: 'user',
+			isOpenMenu: 'isOpenMenu',
+			isLoggedIn: 'isLoggedIn'
+		})
+	},
+	methods: {
+		...mapActions({
+			logout: 'logoutUser'
+		})
+	},
+	setup() {
+		const store = useStore();
+		const router = useRouter();
+
+		router.beforeEach((to, from, next) => {
+			if (to.name !== from.name) {
+				store.dispatch('setIsOpenMenu', false);
 			}
-		},
-		computed: {
-			...mapGetters({
-				user: 'user',
-				isLoggedIn: 'isLoggedIn'
-			})
-		},
-		methods: {
-			...mapActions({
-				logout: 'logoutUser'
-			})
+			next();
+		});
+
+		return {
+			toggleMenu: () => {
+				store.dispatch('setIsOpenMenu', !store.state.common.isOpenMenu);
+			}
 		}
 	}
+}
 </script>
 <style>
-	.mobile-menu__usermenu-iconimg, .header-usermenu__iconimg, .feed-top__iconimg {
-		border-radius: 16px;
-	}
-
 	.mobile-menu {
 		top: 0!important;
 		right: 0!important;

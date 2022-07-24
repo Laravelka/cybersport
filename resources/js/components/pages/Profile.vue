@@ -11,7 +11,14 @@
 						<div class="profile-info__user-box">
 							<a class="header-usermenu__icon" href="#">
 								<div class="header-usermenu__icongradient icon">
-									<img class="header-usermenu__iconimg" :src="profileRef.avatar" alt="">
+
+									<img
+										class="header-usermenu__iconimg"
+										v-if="profileRef.avatar"
+										:src="profileRef.avatar"
+										:alt="profileRef.avatar"
+									>
+									<img v-else class="header-usermenu__iconimg" src="/images/logo.svg" alt="no avatar">
 								</div>
 							</a>
 							<div class="profile-info__content">
@@ -112,17 +119,20 @@
 							</div>
 						</form>
 						<div class="profile-wall__record">
-							<div class="profile-wall__record-notext" v-if="profileRef.posts?.length === 0">
+							<profile-posts></profile-posts>
+
+							<div class="profile-wall__record-notext d-none" v-if="profileRef.posts?.length === 111110">
 								Пользователь не выложил пока не одну запись
 							</div>
-							<div v-else class="feed__inner">
+							<div v-else-if="false" class="feed__inner">
 								<div v-for="(item, index) in profileRef.posts" class="feed-item" v-bind:key="index">
 									<div class="feed-top">
 										<div class="feed-top__box">
 											<a class="feed-top__icon" href="#">
 												<div class="feed-top__icongradient icon">
 													<span>10</span>
-													<img class="feed-top__iconimg" :src="item.user.avatar" alt="">
+													<img class="feed-top__iconimg" v-if="item.user.avatar !== null" :src="item.user.avatar" alt="">
+													<img class="feed-top__iconimg" v-else src="/images/logo.svg" alt="no avatar">
 												</div>
 											</a>
 											<div class="feed-top__box-name">
@@ -143,7 +153,12 @@
 												</div>
 											</div>
 										</div>
-										<img class="feed-top__img" v-if="item.img" :src="item.img" style="display: block" alt="">
+										<img
+											class="feed-top__img" v-if="item.img"
+											:src="item.img"
+											style="display: block"
+											alt=""
+										>
 										<div class="feed-top__box">
 											<button class="feed-top__like">{{ item.likes.length }}</button>
 											<button class="feed-top__comment">{{ item.comments.length }}</button>
@@ -297,6 +312,7 @@
 <script>
 	import MobileNav from "../UI/MobileNav";
 	import HeaderNav from "../header/HeaderNav";
+	import ProfilePosts from '../UI/ProfilePosts';
 	import ProfileSideNav from "../UI/ProfileSideNav";
 
 	import axios from "axios";
@@ -307,7 +323,7 @@
 
 	export default {
 		components: {
-			HeaderNav, MobileNav, ProfileSideNav
+			HeaderNav, MobileNav, ProfilePosts, ProfileSideNav
 		},
 		computed: {
 			...mapState({
@@ -330,7 +346,7 @@
 			const isFileSelect = ref(false);
 			const inputsProfileRef = ref({
 				name: profileRef.value.name ?? '',
-				avatar: profileRef.value.avatar ?? '',
+				avatar: profileRef.value.avatar_full ?? '',
 				discord: profileRef.value.discord ?? '',
 				telegram: profileRef.value.telegram ?? '',
 			});
@@ -352,7 +368,6 @@
 					inputsProfileRef.value.avatar = e.target.files[0];
 					inputsProfileRef.value.avatar_priview = reader.result;
 				};
-
 				reader.readAsDataURL(e.target.files[0]);
 			};
 
@@ -364,6 +379,12 @@
 					const { data } = response;
 
 					profileRef.value = data.data;
+					inputsProfileRef.value = {
+						name: profileRef.value.name ?? '',
+						avatar: profileRef.value.avatar_full ?? '',
+						discord: profileRef.value.discord ?? '',
+						telegram: profileRef.value.telegram ?? '',
+					};
 					store.commit('setLoading', false);
 				}).catch((error) => {
 					if (error.response.data) {
@@ -376,12 +397,15 @@
 			};
 
 			const newPost = () => {
+				store.commit('setLoading', true);
+
 				axios.post('/api/v1/posts', {
 					content: inputPostRef.value
 				}).then((response) => {
 					const { data } = response;
 
 					getProfile();
+
 					store.commit('setLoading', false);
 				}).catch((error) => {
 					if (error.response.data) {
@@ -394,6 +418,8 @@
 			};
 
 			const updateProfile = () => {
+				store.commit('setLoading', true);
+
 				const formData = new FormData();
 
 				formData.append("name", inputsProfileRef.value.name);
@@ -408,7 +434,8 @@
 				}).then((response) => {
 					const { data } = response.data;
 
-					getProfile();
+					getProfile(route.name);
+
 					store.dispatch('autoLoginUser', {
 						user: data
 					});
@@ -425,10 +452,13 @@
 
 			useRouter().afterEach((to, from) => {
 				store.commit('setLoading', true);
+
 				getProfile(to.name);
 			});
 
-			getProfile();
+			onBeforeMount(() => {
+				getProfile(route.name);
+			});
 
 			return {
 				newPost,
@@ -447,12 +477,13 @@
 	}
 </script>
 
-<style scoped>
+<style>
 	.profile {
 		margin-bottom: 20px;
 	}
 
 	.preloader {
+		background: #151524!important;
 		opacity: 1!important;
 	}
 

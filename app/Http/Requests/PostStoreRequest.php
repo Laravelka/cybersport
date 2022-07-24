@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use JetBrains\PhpStorm\ArrayShape;
 
 class PostStoreRequest extends FormRequest
 {
@@ -11,8 +12,8 @@ class PostStoreRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize(): bool
+	{
         return true;
     }
 
@@ -21,8 +22,8 @@ class PostStoreRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    #[ArrayShape(['content' => "string", 'img' => "string"])] public function rules(): array
+	{
         return [
             // 'title' => 'required|max:255',
             'content' => 'required',

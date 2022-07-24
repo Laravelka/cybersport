@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LikeStoreRequest extends FormRequest
 {
@@ -24,8 +25,7 @@ class LikeStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'post_id' => 'required',
-            'user_id' => 'nullable'
+            'post_id' => 'required|integer'
         ];
     }
 }

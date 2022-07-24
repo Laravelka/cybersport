@@ -33,12 +33,14 @@ class User extends Authenticatable
         'discord',
         'avatar',
         'vk_id',
+
         'steam_id',
         'yandex_id',
         'ip_address',
         'is_admin',
         'is_banned',
         'balance',
+		'avatar_full',
         'balance_coins',
         'pw_points',
         'referal_status',
@@ -82,7 +84,7 @@ class User extends Authenticatable
 
     public function likes()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->hasMany(Like::class);
     }
 
     public function messages()
@@ -92,6 +94,6 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->orderByDesc('id');
     }
 }

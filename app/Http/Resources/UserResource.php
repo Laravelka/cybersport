@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Storage;
 use http\Env\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,6 +18,14 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
+		$avatar = str_contains($this->avatar, 'http') ? $this->avatar : (
+			$this->avatar ? Storage::url($this->avatar) : null
+		);
+
+		$avatarFull = str_contains($this->avatar_full, 'http') ? $this->avatar_full : (
+			$this->avatar_full ? Storage::url($this->avatar_full) : null
+		);
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -26,13 +35,14 @@ class UserResource extends JsonResource
             'last_name' => $this->last_name,
             'telegram' => $this->telegram,
             'discord' => $this->discord,
-            'avatar' => $this->avatar,
+            'avatar' => $avatar,
             'is_admin' => $this->is_admin,
             'is_banned' => $this->is_banned,
             'balance' => $this->balance,
             'vk_id' => $this->vk_id,
             'steam_id' => $this->steam_id,
             'yandex_id' => $this->yandex_id,
+			'avatar_full' => $avatarFull,
             'balance_coins' => $this->balance_coins,
             'pw_points' => $this->pw_points,
             'referal_status' => $this->referal_status,

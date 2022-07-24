@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Moscow',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,7 +165,9 @@ return [
         /*
          * Package Service Providers...
          */
+		Intervention\Image\ImageServiceProvider::class,
 		\SocialiteProviders\Manager\ServiceProvider::class,
+		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         ChristofferOK\LaravelEmojiOne\LaravelEmojiOneServiceProvider::class,
 
         /*
@@ -231,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+		'Image' => Intervention\Image\Facades\Image::class,
         'LaravelEmojiOne' => ChristofferOK\LaravelEmojiOne\LaravelEmojiOneFacade::class,
     ],
 

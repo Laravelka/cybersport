@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LikeStoreRequest;
-use App\Http\Resources\LikeResource;
+use App\Http\Resources\{
+    LikeResource,
+    PostResource
+};
 use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,19 +32,23 @@ class LikeController extends Controller
      */
     public function store(LikeStoreRequest $request)
     {
-        $request_data = array_diff($request->validated(), [null]);
+        $user = $request->user();
+        $like = $user->likes()->where('post_id', $request->post_id);
 
-        $request_data['user_id'] = Auth::id();
+        if ($like->exists()) {
+            $post = $like->first()->post()->first();
 
-            if (!$this->postHasLike($request_data['post_id'], $request_data['user_id'])) {
-                $like = Like::create($request_data);
+            $like->delete();
 
-                return new LikeResource($like);
-            } else {
-                return response()->json([
-                    'message' => "You already liked this post"
-                ], 422);
-            }
+            return new PostResource($post);
+        } else {
+            $like = $user->likes()->create([
+                'post_id' => $request->post_id
+            ]);
+            $post = $like->post()->first();
+            
+            return new PostResource($post);
+        }
     }
 
     /**
@@ -76,14 +83,5 @@ class LikeController extends Controller
     public function destroy($id)
     {
         //todo like removing
-    }
-
-    public function postHasLike($post_id, $user_id)
-    {
-        return (
-            Like::where('post_id', $post_id)
-                ->where('user_id', $user_id)
-                ->first()
-        ) ? true : false;
     }
 }
