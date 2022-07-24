@@ -18,11 +18,11 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-		$avatar = str_contains($this->avatar, 'http') ? $this->avatar : (
+		$avatar = str_contains($this->avatar, 'https://') ? $this->avatar : (
 			$this->avatar ? Storage::url($this->avatar) : null
 		);
 
-		$avatarFull = str_contains($this->avatar_full, 'http') ? $this->avatar_full : (
+		$avatarFull = str_contains($this->avatar_full, 'https://') ? $this->avatar_full : (
 			$this->avatar_full ? Storage::url($this->avatar_full) : null
 		);
 
