@@ -111,15 +111,15 @@
 
 <script>
     import HeaderNav from "../header/HeaderNav";
-    import Chat from "../chat/Chat";
     import MobileNav from "../UI/MobileNav";
+    import axios from "axios";
 
     export default {
         components: {
-            HeaderNav, Chat, MobileNav
+            HeaderNav, MobileNav
         },
         setup() {
-            
+
         }
     }
 </script>

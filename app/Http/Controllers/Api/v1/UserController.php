@@ -94,7 +94,7 @@ class UserController extends Controller
 				$imageInstance = Image::make($avatar->path());
 				$destinationPath = public_path('storage/avatars');
 
-				$resizedAvatar = $imageInstance->resize(125, 125, function ($constraint) {
+				$resizedAvatar = $imageInstance->resize(100, 100, function ($constraint) {
 					$constraint->aspectRatio();
 				})->save($destinationPath.'/min_'.$nameOriginal);
 				$fileResized = 'avatars/'.$resizedAvatar->basename;

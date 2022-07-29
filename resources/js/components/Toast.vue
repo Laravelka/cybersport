@@ -103,8 +103,6 @@ export default defineComponent({
 
 		watch(() => props.isOpen, (first) => {
 			isOpenRef.value = first;
-
-			console.log(bodyRef.value, titleRef.value);
 		});
 
 		return {

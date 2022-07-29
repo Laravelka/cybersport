@@ -16,7 +16,6 @@
 										class="header-usermenu__iconimg"
 										v-if="profileRef.avatar"
 										:src="profileRef.avatar"
-										:alt="profileRef.avatar"
 									>
 									<img v-else class="header-usermenu__iconimg" src="/images/logo.svg" alt="no avatar">
 								</div>
@@ -107,7 +106,7 @@
 									placeholder="Что у Вас нового?"
 								>
 								<label class="profile-wall__label">
-									<input class="profile-wall__label-input" type="file">
+									<input ref="wallFileRef" class="profile-wall__label-input" type="file">
 									<img class="profile-wall__label-file" src="/images/icons/image-icon.svg" alt="">
 								</label>
 								<button class="profile-wall__form-emoji">
@@ -119,13 +118,13 @@
 							</div>
 						</form>
 						<div class="profile-wall__record">
-							<profile-posts></profile-posts>
+							<profile-posts :posts="profileRef.posts"></profile-posts>
 						</div>
 					</div>
 					<div class="chooseTeam fixed-top min-vh-100 popup-bg" v-if="isOpenProfileEdit">
 						<div class="chooseTeam-inner">
 							<div class="chooseTeam-wrapper">
-								
+
 								<button class="chooseTeam-wrapper__btn-close btn-close" @click="isOpenProfileEdit = !isOpenProfileEdit">
 									<img src="/images/icons/close.svg" alt="">
 								</button>
@@ -235,6 +234,7 @@
 
 			const profileRef = ref(user);
 			const inputPostRef = ref('');
+			const wallFileRef = ref(null);
 			const isFileSelect = ref(false);
 			const inputsProfileRef = ref({
 				name: profileRef.value.name ?? '',
@@ -263,7 +263,7 @@
 				reader.readAsDataURL(e.target.files[0]);
 			};
 
-			
+
 			const getProfile = (name) => {
 				const id = name === 'profile' || route.params.id === undefined ? user.id : route.params.id;
 
@@ -279,7 +279,7 @@
 					};
 					store.commit('setLoading', false);
 				}).catch((error) => {
-					if (error.response.data) {
+					if (error.response && error.response.data) {
 						store.commit('setError', error.response.data.message);
 					} else {
 						store.commit('setError', error.message);
@@ -289,11 +289,16 @@
 			};
 
 			const newPost = () => {
-				store.commit('setLoading', true);
+				const formData = new FormData();
 
-				axios.post('/api/v1/posts', {
-					content: inputPostRef.value
-				}).then((response) => {
+                if (wallFileRef.value.files.length > 0) {
+                    const image = wallFileRef.value.files[0];
+
+                    formData.append('img', image);
+                }
+                formData.append('content', inputPostRef.value);
+
+				axios.post('/api/v1/posts', formData).then((response) => {
 					const { data } = response;
 
 					getProfile();
@@ -356,6 +361,7 @@
 				newPost,
 				onInput,
 				profileRef,
+				wallFileRef,
 				isFileSelect,
 				inputPostRef,
 				isCurrentUser,

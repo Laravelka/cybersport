@@ -15,12 +15,16 @@ class CommentResource extends JsonResource
      */
     public function toArray($request)
     {
+        $image = str_contains($this->img, 'https://') ? $this->img : (
+			$this->img ? \Storage::url($this->img) : null
+		);
+
         return [
             'id' => $this->id,
 			'user' => new UserResource($this->user()->first()),
             'user_id' => $this->user_id,
-            'content' => $this->content,
-            'img' => $this->img,
+            'content' => \LaravelEmojiOne::toImage($this->content),
+            'img' => $image,
             'created_at' => Carbon::parse($this->created_at)->diffForHumans(),
             'updated_at' => Carbon::parse($this->updated_at)->diffForHumans(),
         ];
