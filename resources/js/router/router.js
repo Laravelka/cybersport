@@ -66,11 +66,6 @@ const routes = [
         beforeEnter: [authGuard]
     },
     {
-        path: '/register',
-        name: 'register',
-        component: Register
-    },
-    {
         path: '/stats',
         name: 'stats',
         component: Stats,

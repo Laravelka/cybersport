@@ -70,7 +70,7 @@
             <template v-for="(comment, index) in (isShowCommentsRef ? post.comments : post.comments.slice(0, 2))" v-bind:key="index">
                 <CommentItem :comment="comment" />
             </template>
-            <button class="feed-bottom__comment-btn" @click.prevent="isShowCommentsRef = !isShowCommentsRef">
+            <button v-if="post.comments.length > 2" class="feed-bottom__comment-btn" @click.prevent="isShowCommentsRef = !isShowCommentsRef">
                 {{ isShowCommentsRef ? 'Скрыть' : 'Показать' }} остальные комментарии</button>
         </template>
         <div class="feed-bottom__form">
@@ -143,7 +143,6 @@
 			};
 
 			const toggleLike = () => {
-
 				axios.post('/api/v1/likes', {
 					post_id: postRef.value.id
 				}).then((response) => {

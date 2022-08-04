@@ -20,4 +20,9 @@ class Friend extends Model
     {
         return $this->belongsTo(User::class);
     }
+	
+	public function subscriber()
+    {
+        return $this->belongsTo(User::class, 'subscriber_id');
+    }
 }

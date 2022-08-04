@@ -25,5 +25,4 @@ Route::get('/error/{code}', function(Request $request): Illuminate\Http\Response
 
 Route::get('/{driver}/redirect', [App\Http\Controllers\Auth\SocialAuthController::class, 'redirect']);
 Route::get('/{driver}/callback', [App\Http\Controllers\Auth\SocialAuthController::class, 'callback']);
-
 Route::get('/{any?}', [MainController::class, 'index'])->where('any', '.*');

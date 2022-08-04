@@ -64,9 +64,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+		'is_admin' => 'boolean',
+		'is_banned' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
-
+	
+	public function isFriend()
+    {
+        return Friend::where('is_sub');
+    }
+	
     public function awards()
     {
         return $this->belongsToMany(Post::class, 'awards');
@@ -79,7 +86,7 @@ class User extends Authenticatable
 
     public function friends()
     {
-        return $this->hasMany(Friend::class);
+		return $this->hasMany(Friend::class);
     }
 
     public function likes()
@@ -96,4 +103,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class)->orderByDesc('id');
     }
+	
 }

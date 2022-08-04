@@ -17,76 +17,76 @@ use Image;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return UserResource::collection(
-            User::with(['comments', 'awards', 'likes'])->get()
-        );
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+		return UserResource::collection(
+			User::with(['comments', 'awards', 'posts', 'likes'])->get()
+		);
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return UserResource
-     *
-    public function store(UserStoreRequest $request)
-    {
-        $request_data = array_diff($request->validated(), [null]);
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return UserResource
+	 *
+	public function store(UserStoreRequest $request)
+	{
+		$request_data = array_diff($request->validated(), [null]);
 
-        $request_data['user_id'] = Auth::id();
+		$request_data['user_id'] = Auth::id();
 
-        if ($request->hasFile('avatar')) {
-            $path = $request->img->store('users', 'public');
+		if ($request->hasFile('avatar')) {
+			$path = $request->img->store('users', 'public');
 
-            $request_data['avatar'] = $path;
-        }
+			$request_data['avatar'] = $path;
+		}
 
-        $User = User::create($request_data);
+		$User = User::create($request_data);
 
-        return new UserResource($User);
-    }
+		return new UserResource($User);
+	}
 	*/
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return UserResource
-     */
-    public function show(int $id)
-    {
-        $user = User::with(['friends', 'posts', 'comments', 'awards', 'likes'])->find($id);
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return UserResource
+	 */
+	public function show(int $id)
+	{
+		$user = User::with(['friends', 'posts', 'comments', 'awards', 'likes'])->find($id);
+		
+		if ($user) {
+			return new UserResource($user);
+		} else {
+			return response()->json([
+				'message' => "Пользователь не найден!"
+			], 400);
+		}
+	}
 
-        if ($user) {
-            return new UserResource($user);
-        } else {
-            return response()->json([
-                'message' => "Пользователь не найден!"
-            ], 400);
-        }
-    }
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  UserUpdateRequest  $request
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(UserUpdateRequest $request, int $id)
+	{
+		$User = User::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  UserUpdateRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UserUpdateRequest $request, int $id)
-    {
-        $User = User::findOrFail($id);
+		if ($User->id === Auth::id()) {
+			$request_data = array_diff($request->validated(), [null]);
 
-        if ($User->id === Auth::id()) {
-            $request_data = array_diff($request->validated(), [null]);
-
-            if ($request->hasFile('avatar')) {
+			if ($request->hasFile('avatar')) {
 				$avatar = $request->file('avatar');
 				$nameOriginal = $User->id.'_avatar_'.time().'.'.$avatar->getClientOriginalExtension();
 				$fileOriginal = $avatar->storeAs('public', 'avatars/'.$nameOriginal);
@@ -102,48 +102,50 @@ class UserController extends Controller
 				$request_data['avatar'] = $fileResized;
 				$request_data['avatar_full'] = $fileOriginal;
 
-                $oldAvatarPath = $User->avatar;
+				$oldAvatarPath = $User->avatar;
 				$oldAvatarFullPath = $User->avatar_full;
-            }
-            $User->update($request_data);
+			}
+			$User->update($request_data);
 
-            if (isset($oldAvatarPath) && isset($oldAvatarFullPath)) {
-                Storage::disk('public')->delete($oldAvatarPath);
+			if (isset($oldAvatarPath) && isset($oldAvatarFullPath)) {
+				Storage::disk('public')->delete($oldAvatarPath);
 				Storage::disk('public')->delete(str_replace('public/', '', $oldAvatarFullPath));
-            }
+			}
 
-            return new UserResource($User);
-        } else {
-            return response()->json([
-                'message' => "You don't have anough rights to edit User"
-            ], 403);
-        }
-    }
+			return new UserResource($User);
+		} else {
+			return response()->json([
+				'message' => "You don't have anough rights to edit User"
+			], 403);
+		}
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $User = User::findOrFail($id);
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy($id)
+	{
+		$user = User::findOrFail($id);
 
-        if ($User->user_id === Auth::id()) {
-            $img_path = $User->img;
+		if ($user->user_id === Auth::id()) {
+			$avatar = $user->avatar;
+			$avatarFull = $user->avatar_full;
 
-            User::destroy($id);
+			$user->delete();
 
-            if (isset($img_path)) {
-                Storage::disk('public')->delete($img_path);
-            }
+			if (isset($img_path)) {
+				Storage::disk('public')->delete($avatar);
+				Storage::disk('public')->delete($avatarFull);
+			}
 
-            return response(null, 204);
-        } else {
-            return response()->json([
-                'message' => "You don't have anough rights to delete User"
-            ], 403);
-        }
-    }
+			return response(null, 204);
+		} else {
+			return response()->json([
+				'message' => "You don't have anough rights to delete User"
+			], 403);
+		}
+	}
 }

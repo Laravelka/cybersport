@@ -247,7 +247,7 @@
                             <!--</div>-->
                         <!--</div>-->
                     <!--</div>-->
-
+					
                     <div v-for="match in matches" :key="match.id" class="match-item">
                         <div class="match-item__login">Войти в комнату</div>
                         <div class="match-item__game-time">18:00</div>
@@ -267,11 +267,11 @@
                                 </div>
                                 <div class="match-room__item-team">
                                     <div class="match-room__item-imgbox">
-                                        <img class="match-room__item-img player-img" :src="match.firstTeamLogo" alt="">
+                                        <img class="match-room__item-img player-img" :src="match.first_team.logo" :alt="match.first_team.name">
                                     </div>
                                     <div class="match-room__item-winbox">
                                         <span class="match-room__item-win match-room__win_red">Выигрыш</span>
-                                        <div class="match-room__item-name player-name">{{ match.firstTeamName }}</div>
+                                        <div class="match-room__item-name player-name">{{ match.first_team.name }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -279,19 +279,19 @@
                                 <div class="match-room__center-time match-room__center-time_start">Скоро начнется</div>
                                 <div class="match-room__center-versus">vs</div>
                                 <div class="match-room__center-box match-room__center-box_gradient">
-                                    <div class="match-room__center-bid">Ставка на матч: {{ match.betRate }}$</div>
+                                    <div class="match-room__center-bid">Ставка на матч: {{ match.bet_rate }}$</div>
                                     <div class="match-room__center-bank">Банк игры: {{ match.bank }}$</div>
-                                    <div class="match-room__center-players">Игроков: {{ match.gamersCount }} человек</div>
+                                    <div class="match-room__center-players">Игроков: {{ match.gamers_count }} человек</div>
                                 </div>
                             </div>
                             <div class="match-room__item">
                                 <div class="match-room__item-team">
                                     <div class="match-room__item-winbox">
                                         <span class="match-room__item-win match-room__win_blue">Проигрыш</span>
-                                        <div class="match-room__item-name player-name">{{ match.secondTeamName }}</div>
+                                        <div class="match-room__item-name player-name">{{ match.second_team.name }}</div>
                                     </div>
                                     <div class="match-room__item-imgbox">
-                                        <img class="match-room__item-img player-img" :src="match.secondTeamLogo" alt="">
+                                        <img class="match-room__item-img player-img" :src="match.second_team.logo" :alt="match.second_team.name">
                                     </div>
                                 </div>
                                 <div class="match-room__item-factor">

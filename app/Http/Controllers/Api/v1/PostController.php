@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
-use App\Http\Resources\PostResource;
-use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\PostStoreRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
+use Illuminate\Support\Facades\Auth;
+use App\Models\{Friend, User, Post};
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -54,7 +54,36 @@ class PostController extends Controller
     {
         return new PostResource(Post::findOrFail($id));
     }
-
+	
+	/**
+     * Display posts by friends.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+	 */
+	public function getByFriends(Request $request)
+	{
+		$userId = $request->user_id ?? $request->user()->id;
+		$friends = Friend::where('user_id', $userId)
+			->orWhere('subscriber_id', $userId)
+			->where('is_friend', true)
+			->get();
+		
+		$arrFriendsId = [];
+		foreach($friends as $key => $value) {
+			if ($value->user_id == $userId) {
+				$friend = $value->subscriber()->first();
+			} else {
+				$friend = $value->user()->first();
+			}
+			$arrFriendsId[] = $friend->id;
+		}
+		
+		return PostResource::collection(
+			Post::whereIn('user_id', $arrFriendsId)->get()
+		);
+	}
+	
     /**
      * Update the specified resource in storage.
      *

@@ -134,6 +134,7 @@ export const currentUserModule = {
 				const { data } = response.data;
 
 				commit('setUser', data);
+				localStorage.setItem("current_user", JSON.stringify(data));
 			}).catch((error) => {
 				store.commit('setError', error.message);
 			});

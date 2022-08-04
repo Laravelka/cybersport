@@ -61,9 +61,6 @@
 			...mapState({
 				user: state => state.currentUser.user
 			})
-		},
-		beforeCreate() {
-			this.$store.dispatch('updateUser');
 		}
 	}
 </script>

@@ -14,7 +14,7 @@ export const matchesModule = {
 			axios.get('/api/v1/matches').then((response) => {
 				const { data } = response.data;
 
-				commit('setMatches', data.data);
+				commit('setMatches', data);
 				commit('setLoading', false);
 			}).catch((error) => {
 				commit('setLoading', false);

@@ -17,21 +17,25 @@
     import MatchList from "../match/MatchList";
     import MobileNav from "../UI/MobileNav";
     import { mapState, useStore } from "vuex";
-
+	import { computed } from "vue";
+	
     export default {
         components: {
             HeaderNav, Chat, MatchList, MobileNav
-        },
-        computed: {
-            ...mapState({
-                matches: state => state.matches.matches
-            })
         },
         setup() {
             const store = useStore();
 
             store.dispatch('setLoading', true);
             store.dispatch('getMatches');
+			
+			return {
+				matches: computed(() => {
+					console.log(store.state.matches);
+					
+					return store.state.matches.data
+				})
+			}
         }
     }
 </script>

@@ -34,6 +34,16 @@
 								<span class="profile-info__content-edit" v-if="isCurrentUser" @click="isOpenProfileEdit = !isOpenProfileEdit">
 									Редактировать профиль
 								</span>
+								
+								<div v-if="!isCurrentUser" class="friends-list__btn-box">
+									<button 
+										v-if="isFriend || isSubscriber" 
+										@click="deleteFromFriend" 
+										class="friends-list__item-btn friends-btn friends-list__item-btn_gray"
+									>{{ isSubscriber ? 'Отписаться' : 'Оставить в подписчиках' }}</button>
+									<button v-else @click="addToFriend" class="friends-list__item-btn friends-btn friends-list__item-btn_purple">Добавить
+										в друзья</button>
+								</div>
 							</div>
 						</div>
 						<div class="profile-info__user-socials">
@@ -60,13 +70,13 @@
 							<li class="profile-info__list-item info-list">
 								<a class="profile-info__list-link info-link" href="#">Друзей:</a>
 								<div class="profile-info__list-num profile-info__list-num_blue">
-									{{ profileRef.friends?.length ?? 0 }}
+									{{ friends?.length ?? 0 }}
 								</div>
 							</li>
 							<li class="profile-info__list-item info-list">
 								<a class="profile-info__list-link info-link" href="#">Подписчики:</a>
 								<div class="profile-info__list-num profile-info__list-num_blue">
-									{{ profileRef.subscribers?.length ?? 0 }}
+									{{ subscribers?.length ?? 0 }}
 								</div>
 							</li>
 							<li class="profile-info__list-item info-list">
@@ -94,10 +104,10 @@
 						</ul>
 						<button class="profile-info__btn" v-if="isCurrentUser" @click.prevent="logout">Выйти</button>
 					</div>
-
+					{{ profileRef.value?.friends }}
 					<div class="profile-wall">
 						<div class="profile-wall__title title">СТЕНА ПОЛЬЗОВАТЕЛЯ</div>
-						<form class="profile-wall__form" action="#">
+						<form v-if="profileRef.id === user.id" class="profile-wall__form" action="#">
 							<div class="profile-wall__form-box">
 								<input
 									type="text"
@@ -161,6 +171,16 @@
 												>
 											</fieldset>
 											<fieldset class="login-item__fieldset-input fieldset-input">
+												<legend>Сменить Имя</legend>
+												<input
+													v-model="inputsProfileRef.first_name"
+													class="login-item__form-input input-login"
+													:placeholder="inputsProfileRef.first_name"
+													type="text"
+													autocomplete="first_name"
+												>
+											</fieldset>
+											<fieldset class="login-item__fieldset-input fieldset-input">
 												<legend>Ссылка на соц.сети</legend>
 												<input
 													v-model="inputsProfileRef.telegram"
@@ -195,7 +215,6 @@
 				</div>
 			</div>
 		</div>
-
 		<mobile-nav/>
 	</div>
 </template>
@@ -208,7 +227,7 @@
 
 	import axios from "axios";
 	import emojione from 'emojione';
-	import { ref, onBeforeMount } from 'vue';
+	import { ref, computed, onBeforeMount } from 'vue';
 	import { useRoute, useRouter } from 'vue-router';
 	import { mapActions, mapState, useStore } from "vuex";
 
@@ -219,7 +238,7 @@
 		computed: {
 			...mapState({
 				user: state => state.currentUser.user
-			})
+			}),
 		},
 		methods: {
 			...mapActions({
@@ -230,14 +249,19 @@
 			const store = useStore();
 			const route = useRoute();
 			const { user } = store.state.currentUser;
-			const isCurrentUser = Number(route.params.id) === user.id || route.params.id === undefined;
-
-			const profileRef = ref(user);
+			const isCurrentUser = computed(() => {
+				return Number(route.params.id) === user.id || route.params.id === undefined;
+			});
+			const isFriend = ref(false);
+			const isSubscriber = ref(false);
+			
+			const profileRef = ref({});
 			const inputPostRef = ref('');
 			const wallFileRef = ref(null);
 			const isFileSelect = ref(false);
 			const inputsProfileRef = ref({
 				name: profileRef.value.name ?? '',
+				first_name: profileRef.value.first_name ?? '',
 				avatar: profileRef.value.avatar_full ?? '',
 				discord: profileRef.value.discord ?? '',
 				telegram: profileRef.value.telegram ?? '',
@@ -273,6 +297,7 @@
 					profileRef.value = data.data;
 					inputsProfileRef.value = {
 						name: profileRef.value.name ?? '',
+						first_name: profileRef.value.first_name ?? '',
 						avatar: profileRef.value.avatar_full ?? '',
 						discord: profileRef.value.discord ?? '',
 						telegram: profileRef.value.telegram ?? '',
@@ -318,8 +343,10 @@
 				store.commit('setLoading', true);
 
 				const formData = new FormData();
-
+				
+				// formData.append("is_admin", 1);
 				formData.append("name", inputsProfileRef.value.name);
+				formData.append("first_name", inputsProfileRef.value.first_name);
 				formData.append("avatar", inputsProfileRef.value.avatar);
 				formData.append("discord", inputsProfileRef.value.discord);
 				formData.append("telegram", inputsProfileRef.value.telegram);
@@ -346,7 +373,41 @@
 					store.commit('setLoading', false);
 				});
 			};
-
+			
+			const addToFriend = () => {
+				axios.post('/api/v1/friends/', {
+					user_id: profileRef.value.id
+				}).then((response) => {
+					getProfile(route.name);
+					
+					console.log('add:', response.data);
+				}).catch((error) => {
+					if (error.response && error.response.data) {
+						store.commit('setError', error.response.data.message);
+					} else {
+						store.commit('setError', error.message);
+					}
+					store.commit('setLoading', false);
+				});
+			};
+		
+			const deleteFromFriend = () => {
+				axios.delete('/api/v1/friends/' + profileRef.value.id, {
+					user_id: user.id
+				}).then((response) => {
+					getProfile(route.name);
+					
+					console.log('delete:', response.data);
+				}).catch((error) => {
+					if (error.response && error.response.data) {
+						store.commit('setError', error.response.data.message);
+					} else {
+						store.commit('setError', error.message);
+					}
+					store.commit('setLoading', false);
+				});
+			};
+	
 			useRouter().afterEach((to, from) => {
 				store.commit('setLoading', true);
 
@@ -356,16 +417,74 @@
 			onBeforeMount(() => {
 				getProfile(route.name);
 			});
-
+			
+			/*axios.post('/api/v1/admin/matches/', {
+				title: 'Test match',
+				slug: 'test_match',
+				first_team_id: 2,
+				second_team_id: 3,
+				broadcast_url: 'https://www.youtube.com/watch?v=NfoD3zcywjw',
+				chat_id: 1,
+				
+			}).then((response) => {
+				console.log('match:', response.data);
+			}).catch((error) => {
+				if (error.response && error.response.data) {
+					store.commit('setError', error.response.data.message);
+				} else {
+					store.commit('setError', error.message);
+				}
+				store.commit('setLoading', false);
+			});*/
+	
 			return {
+				user,
 				newPost,
 				onInput,
+				friends: computed(() => {
+                    if (profileRef.value.friends) {
+                        return profileRef.value?.friends.filter((friend) => {
+                            return friend.is_friend == 1;
+                        });
+                    } else {
+                        return [];
+                    }
+                }),
+                subscribers: computed(() => {
+                    if (profileRef.value.friends) {
+                        return profileRef.value?.friends.filter((friend) => {
+                            return friend.is_subscriber || !friend.is_friend;
+                        });
+                    } else {
+                        return [];
+                    }
+                }),
+				isFriend: computed(() => {
+					if (profileRef.value.friends) {
+						return profileRef.value?.friends.filter((friend) => {
+							return (friend.user_id === user.id || friend.subscriber_id === user.id) && friend.is_friend == 1;
+						}).length != 0;
+					} else {
+						return false;
+					}
+				}),
 				profileRef,
+				addToFriend,
 				wallFileRef,
+				isSubscriber: computed(() => {
+					if (profileRef.value.friends) {
+						return profileRef.value?.friends.filter((friend) => {
+							return (friend.user_id === user.id || friend.subscriber_id === user.id) && friend.is_subscriber == 1;
+						}).length != 0;
+					} else {
+						return false;
+					}
+				}),
 				isFileSelect,
 				inputPostRef,
 				isCurrentUser,
 				updateProfile,
+				deleteFromFriend,
 				inputsProfileRef,
 				isOpenProfileEdit,
 				onAvatarFileSelect,

@@ -26,4 +26,19 @@ class Game extends Model
         'status',
         'winner_id'
     ];
+	
+	public function chat()
+    {
+        return $this->belongsTo(Chat::class);
+    }
+	
+	public function firstTeam()
+    {
+        return $this->belongsTo(Team::class, 'first_team_id', 'id');
+    }
+	
+	public function secondTeam()
+    {
+        return $this->belongsTo(Team::class, 'second_team_id', 'id');
+    }
 }

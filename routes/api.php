@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\v1\Admin\AdminChatController;
-use App\Http\Controllers\Api\v1\Admin\AdminMatchController;
+use App\Http\Controllers\Api\v1\Admin\ChatController as AdminChatController;
+use App\Http\Controllers\Api\v1\Admin\MatchController as AdminMatchController;
+use App\Http\Controllers\Api\v1\Admin\FriendController as AdminFriendController;
 use App\Http\Controllers\Api\v1\Admin\SettingController;
 use App\Http\Controllers\Api\v1\Admin\TeamController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
@@ -68,14 +69,17 @@ Route::middleware(['auth:api'])->group(function () {
 		->name('messages');
 	Route::post('/chat/{chatId}/message', [UsersChatController::class, 'newMessage'])
 		->name('message.store');
-
-	Route::post('/profiles/{id}/update', [ProfileController::class, 'update']);
+	
+	// getByUserId
 	Route::post('/likes/add', [LikeController::class, 'add']);
-
+	Route::post('/profiles/{id}/update', [ProfileController::class, 'update']);
+	Route::get('/posts/getByFriends', [PostController::class, 'getByFriends']);
+	Route::get('/friends/getByUserId', [FriendController::class, 'getByUserId']);
+	
 	Route::apiResources([
 		'comments' => CommentController::class,
 		'profiles' => ProfileController::class,
-		'friends' => FriendController::class,
+		'friends' => AdminFriendController::class,
 		'matches' => MatchController::class,
 		'likes' => LikeController::class,
 		'posts' => PostController::class,

@@ -32,6 +32,7 @@ class UserUpdateRequest extends FormRequest
             'last_name' => 'nullable|max:255',
             'telegram' => 'nullable|max:255',
             'discord' => 'nullable|max:255',
+			'is_admin' => 'boolean',
             // 'avatar' => 'nullable|image',
         ];
     }
